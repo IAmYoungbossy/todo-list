@@ -32,6 +32,7 @@ main {
 }
 main > nav {
   border: 5px solid green;
+  padding: 20px;
 }
 footer {
   border: 2px solid black;
@@ -50,4 +51,8 @@ li > img {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+}
+hr {
+  border: 2px solid black;
+  margin: 10px 0 0;
 }

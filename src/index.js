@@ -58,6 +58,7 @@ function createNavContent(){
   home.classList.add('home');
   const project = document.createElement('div');
   project.classList.add('project');
+  const horizontalRule = document.createElement('hr');
   nav.appendChild(home);
   nav.appendChild(project);
 
@@ -79,13 +80,14 @@ function createNavContent(){
   thisWeek.appendChild(myThisWeek);
   const  myImportant = new Image();
   myImportant.src = Important;
-  important.appendChild(myImportant);
 
+  important.appendChild(myImportant);
   unorderedList.appendChild(allTasks);
   unorderedList.appendChild(today);
   unorderedList.appendChild(thisWeek);
   unorderedList.appendChild(important);
   home.appendChild(navHeader);
+  home.appendChild(horizontalRule);
   home.appendChild(unorderedList);
 
   navHeader.textContent = 'Home';
@@ -94,6 +96,11 @@ function createNavContent(){
   thisWeek.append('This Week');
   important.append('Important');
 
+  const projectHeader = document.createElement('h2');
+  projectHeader.textContent = 'Projects'
+  project.appendChild(projectHeader);
+  const horizontalRule2 = document.createElement('hr');
+  project.appendChild(horizontalRule2);
 }
 createNavContent();
 
