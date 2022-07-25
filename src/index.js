@@ -19,35 +19,6 @@ function createHeader(){
 }
 createHeader();
 
-function CreateMain(){
-  const body = document.querySelector('body');
-  const mainBodyContainer = document.createElement('main');
-  const leftAside = document.createElement('div');
-  const mainSection = document.createElement('div');
-
-  mainBodyContainer.appendChild(leftAside);
-  mainBodyContainer.appendChild(mainSection);
-  body.appendChild(mainBodyContainer);
-}
-CreateMain();
-
-function createfooter(){
-  const body = document.querySelector('body');
-  const footer = document.createElement('footer');
-  const anchorLink = document.createElement('a');
-  const gitHubIcon = document.createElement('i');
-
-  anchorLink.appendChild(gitHubIcon);
-  footer.append('Copyright \u00A9 2022 IAmYoungbossy');
-  footer.appendChild(anchorLink);
-  body.appendChild(footer);
-
-  anchorLink.setAttribute('href', 'https:////github.com/IAmYoungbossy/calculator');
-  gitHubIcon.classList.add('fa','fa-github');
-  gitHubIcon.style.cssText = 'color:black';
-}
-createfooter();
-
 function createHeaderContent(){
   const menuIcon = document.querySelector('.menuIcon');
   const toDoLogo = document.querySelector('.toDoLogo');
@@ -63,3 +34,31 @@ function createHeaderContent(){
   themeToggler.appendChild(myThemeToggler);
 }
 createHeaderContent();
+
+function CreateMain(){
+  const body = document.querySelector('body');
+  const mainBodyContainer = document.createElement('main');
+  const aside = document.createElement('aside');
+  aside.classList.add('aside');
+  const mainSection = document.createElement('section');
+  mainSection.classList.add('mainSection');
+  mainBodyContainer.appendChild(aside);
+  mainBodyContainer.appendChild(mainSection);
+  body.appendChild(mainBodyContainer);
+}
+CreateMain();
+
+function createfooter(){
+  const body = document.querySelector('body');
+  const footer = document.createElement('footer');
+  const anchorLink = document.createElement('a');
+  const gitHubIcon = document.createElement('i');
+  anchorLink.appendChild(gitHubIcon);
+  footer.append('Copyright \u00A9 2022 IAmYoungbossy');
+  footer.appendChild(anchorLink);
+  body.appendChild(footer);
+  anchorLink.setAttribute('href', 'https:////github.com/IAmYoungbossy/calculator');
+  gitHubIcon.classList.add('fa','fa-github');
+  gitHubIcon.style.cssText = 'color:black';
+}
+createfooter();
