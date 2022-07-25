@@ -1,14 +1,19 @@
 import './style.css';
+import Menu from './icons/menuIcon.png';
+import ToDoLogo from './icons/to-do.png';
+import Theme from './icons/theme.png';
 
 function createHeader(){
   const body = document.querySelector('body');
   const header = document.createElement('header');
-  const menuLogo = document.createElement('div');
-  const appLogo = document.createElement('div');
+  const menuIcon = document.createElement('div');
+  const toDoLogo = document.createElement('div');
   const themeToggler = document.createElement('div');
-
-  header.appendChild(menuLogo);
-  header.appendChild(appLogo);
+  menuIcon.classList.add('menuIcon');
+  toDoLogo.classList.add('toDoLogo');
+  themeToggler.classList.add('themeToggler');
+  header.appendChild(menuIcon);
+  header.appendChild(toDoLogo);
   header.appendChild(themeToggler);
   body.appendChild(header);
 }
@@ -42,3 +47,19 @@ function createfooter(){
   gitHubIcon.style.cssText = 'color:black';
 }
 createfooter();
+
+function createHeaderContent(){
+  const menuIcon = document.querySelector('.menuIcon');
+  const toDoLogo = document.querySelector('.toDoLogo');
+  const themeToggler = document.querySelector('.themeToggler');
+  const myMenuIcon = new Image();
+  myMenuIcon.src = Menu;
+  menuIcon.appendChild(myMenuIcon);
+  const myToDoLogo = new Image();
+  myToDoLogo.src = ToDoLogo;
+  toDoLogo.appendChild(myToDoLogo);
+  const myThemeToggler = new Image();
+  myThemeToggler.src = Theme;
+  themeToggler.appendChild(myThemeToggler);
+}
+createHeaderContent();
