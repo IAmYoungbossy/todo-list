@@ -38,11 +38,11 @@ createHeaderContent();
 function CreateMain(){
   const body = document.querySelector('body');
   const mainBodyContainer = document.createElement('main');
-  const aside = document.createElement('aside');
-  aside.classList.add('aside');
+  const nav = document.createElement('nav');
+  nav.classList.add('nav');
   const mainSection = document.createElement('section');
   mainSection.classList.add('mainSection');
-  mainBodyContainer.appendChild(aside);
+  mainBodyContainer.appendChild(nav);
   mainBodyContainer.appendChild(mainSection);
   body.appendChild(mainBodyContainer);
 }
