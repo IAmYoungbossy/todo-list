@@ -143,3 +143,14 @@ function createfooter() {
   gitHubIcon.style.cssText = "color:black";
 }
 createfooter();
+
+function createMainSectionContent(){
+  const mainSection = document.querySelector('.mainSection');
+  const headerContainer = document.createElement('div');
+  headerContainer.classList.add('mainHeader');
+  const sectionHeader = document.createElement('h1');
+  headerContainer.appendChild(sectionHeader);
+  mainSection.appendChild(headerContainer);
+  sectionHeader.textContent = 'Default';
+}
+createMainSectionContent();
