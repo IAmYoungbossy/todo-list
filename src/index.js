@@ -1,23 +1,24 @@
-import './style.css';
-import Menu from './icons/menuIcon.png';
-import ToDoLogo from './icons/to-do.png';
-import Theme from './icons/theme.png';
-import AllTasks from './icons/planning.png';
-import Today from './icons/calendar.png';
-import ThisWeek from './icons/next-week.png';
-import Important from './icons/checklist.png';
-import Home from './icons/home.png';
-import Project from './icons/project.png';
+import "./style.css";
+import Menu from "./icons/menuIcon.png";
+import ToDoLogo from "./icons/to-do.png";
+import Theme from "./icons/theme.png";
+import AllTasks from "./icons/planning.png";
+import Today from "./icons/calendar.png";
+import ThisWeek from "./icons/next-week.png";
+import Important from "./icons/checklist.png";
+import Home from "./icons/home.png";
+import Project from "./icons/project.png";
+import AddProject from "./icons/add.png";
 
-function createHeader(){
-  const body = document.querySelector('body');
-  const header = document.createElement('header');
-  const menuIcon = document.createElement('div');
-  const toDoLogo = document.createElement('div');
-  const themeToggler = document.createElement('div');
-  menuIcon.classList.add('menuIcon');
-  toDoLogo.classList.add('toDoLogo');
-  themeToggler.classList.add('themeToggler');
+function createHeader() {
+  const body = document.querySelector("body");
+  const header = document.createElement("header");
+  const menuIcon = document.createElement("div");
+  const toDoLogo = document.createElement("div");
+  const themeToggler = document.createElement("div");
+  menuIcon.classList.add("menuIcon");
+  toDoLogo.classList.add("toDoLogo");
+  themeToggler.classList.add("themeToggler");
   header.appendChild(menuIcon);
   header.appendChild(toDoLogo);
   header.appendChild(themeToggler);
@@ -25,10 +26,10 @@ function createHeader(){
 }
 createHeader();
 
-function createHeaderContent(){
-  const menuIcon = document.querySelector('.menuIcon');
-  const toDoLogo = document.querySelector('.toDoLogo');
-  const themeToggler = document.querySelector('.themeToggler');
+function createHeaderContent() {
+  const menuIcon = document.querySelector(".menuIcon");
+  const toDoLogo = document.querySelector(".toDoLogo");
+  const themeToggler = document.querySelector(".themeToggler");
   const myMenuIcon = new Image();
   myMenuIcon.src = Menu;
   menuIcon.appendChild(myMenuIcon);
@@ -41,36 +42,36 @@ function createHeaderContent(){
 }
 createHeaderContent();
 
-function CreateMain(){
-  const body = document.querySelector('body');
-  const mainBodyContainer = document.createElement('main');
-  const nav = document.createElement('nav');
-  nav.classList.add('nav');
-  const mainSection = document.createElement('section');
-  mainSection.classList.add('mainSection');
+function CreateMain() {
+  const body = document.querySelector("body");
+  const mainBodyContainer = document.createElement("main");
+  const nav = document.createElement("nav");
+  nav.classList.add("nav");
+  const mainSection = document.createElement("section");
+  mainSection.classList.add("mainSection");
   mainBodyContainer.appendChild(nav);
   mainBodyContainer.appendChild(mainSection);
   body.appendChild(mainBodyContainer);
 }
 CreateMain();
 
-function createNavContent(){
-  const nav = document.querySelector('.nav');
-  const home = document.createElement('div');
-  home.classList.add('home');
-  const project = document.createElement('div');
-  project.classList.add('project');
-  const horizontalRule = document.createElement('hr');
+function createNavContent() {
+  const nav = document.querySelector(".nav");
+  const home = document.createElement("div");
+  home.classList.add("home");
+  const project = document.createElement("div");
+  project.classList.add("project");
+  const horizontalRule = document.createElement("hr");
   nav.appendChild(home);
   nav.appendChild(project);
 
   //Task durations and Importance
-  const navHeader = document.createElement('h2');
-  const unorderedList = document.createElement('ul');
-  const allTasks = document.createElement('li');
-  const today = document.createElement('li');
-  const thisWeek = document.createElement('li');
-  const important = document.createElement('li');
+  const navHeader = document.createElement("h2");
+  const unorderedList = document.createElement("ul");
+  const allTasks = document.createElement("li");
+  const today = document.createElement("li");
+  const thisWeek = document.createElement("li");
+  const important = document.createElement("li");
 
   //Task icons
   const myAllTasks = new Image();
@@ -82,14 +83,13 @@ function createNavContent(){
   const myThisWeek = new Image();
   myThisWeek.src = ThisWeek;
   thisWeek.appendChild(myThisWeek);
-  const  myImportant = new Image();
+  const myImportant = new Image();
   myImportant.src = Important;
   const myHome = new Image();
   myHome.src = Home;
   navHeader.appendChild(myHome);
   const myProject = new Image();
   myProject.src = Project;
-  
 
   //Attached to ul
   important.appendChild(myImportant);
@@ -102,33 +102,44 @@ function createNavContent(){
   home.appendChild(unorderedList);
 
   //Task text content
-  navHeader.append('Home');
-  allTasks.append('All Tasks');
-  today.append('Today');
-  thisWeek.append('This Week');
-  important.append('Important');
+  navHeader.append("Home");
+  allTasks.append("All Tasks");
+  today.append("Today");
+  thisWeek.append("This Week");
+  important.append("Important");
 
   //Project header
-  const projectHeader = document.createElement('h2');
+  const projectHeader = document.createElement("h2");
   projectHeader.appendChild(myProject);
-  projectHeader.append('Projects');
+  projectHeader.append("Projects");
   project.appendChild(projectHeader);
-  const horizontalRule2 = document.createElement('hr');
+  const horizontalRule2 = document.createElement("hr");
   project.appendChild(horizontalRule2);
+  const projectUL = document.createElement("ul");
+  const projectList = document.createElement("li");
+  projectUL.appendChild(projectList);
+  const myAdd = new Image();
+  myAdd.src = AddProject;
+  projectList.appendChild(myAdd);
+  projectList.append("Add project");
+  project.appendChild(projectUL);
 }
 createNavContent();
 
-function createfooter(){
-  const body = document.querySelector('body');
-  const footer = document.createElement('footer');
-  const anchorLink = document.createElement('a');
-  const gitHubIcon = document.createElement('i');
+function createfooter() {
+  const body = document.querySelector("body");
+  const footer = document.createElement("footer");
+  const anchorLink = document.createElement("a");
+  const gitHubIcon = document.createElement("i");
   anchorLink.appendChild(gitHubIcon);
-  footer.append('Copyright \u00A9 2022 IAmYoungbossy');
+  footer.append("Copyright \u00A9 2022 IAmYoungbossy");
   footer.appendChild(anchorLink);
   body.appendChild(footer);
-  anchorLink.setAttribute('href', 'https:////github.com/IAmYoungbossy/calculator');
-  gitHubIcon.classList.add('fa','fa-github');
-  gitHubIcon.style.cssText = 'color:black';
+  anchorLink.setAttribute(
+    "href",
+    "https:////github.com/IAmYoungbossy/calculator"
+  );
+  gitHubIcon.classList.add("fa", "fa-github");
+  gitHubIcon.style.cssText = "color:black";
 }
 createfooter();
