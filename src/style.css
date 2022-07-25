@@ -45,7 +45,7 @@ li {
   list-style-type: none;
   display: flex;
   align-items: center;
-  line-height: 50px;
+  line-height: 40px;
 }
 li > img {
   width: 25px;
@@ -55,4 +55,7 @@ li > img {
 hr {
   border: 2px solid black;
   margin: 10px 0 0;
+}
+.project {
+  margin-top: 10px;
 }

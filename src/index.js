@@ -62,6 +62,7 @@ function createNavContent(){
   nav.appendChild(home);
   nav.appendChild(project);
 
+  //Task durations and Importance
   const navHeader = document.createElement('h2');
   const unorderedList = document.createElement('ul');
   const allTasks = document.createElement('li');
@@ -69,6 +70,7 @@ function createNavContent(){
   const thisWeek = document.createElement('li');
   const important = document.createElement('li');
 
+  //Task icons
   const myAllTasks = new Image();
   myAllTasks.src = AllTasks;
   allTasks.appendChild(myAllTasks);
@@ -81,6 +83,7 @@ function createNavContent(){
   const  myImportant = new Image();
   myImportant.src = Important;
 
+  //Attached to ul
   important.appendChild(myImportant);
   unorderedList.appendChild(allTasks);
   unorderedList.appendChild(today);
@@ -90,12 +93,14 @@ function createNavContent(){
   home.appendChild(horizontalRule);
   home.appendChild(unorderedList);
 
+  //Task text content
   navHeader.textContent = 'Home';
   allTasks.append('All Tasks');
   today.append('Today');
   thisWeek.append('This Week');
   important.append('Important');
 
+  //Project header
   const projectHeader = document.createElement('h2');
   projectHeader.textContent = 'Projects'
   project.appendChild(projectHeader);
