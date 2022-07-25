@@ -2,6 +2,10 @@ import './style.css';
 import Menu from './icons/menuIcon.png';
 import ToDoLogo from './icons/to-do.png';
 import Theme from './icons/theme.png';
+import AllTasks from './icons/planning.png';
+import Today from './icons/calendar.png';
+import ThisWeek from './icons/next-week.png';
+import Important from './icons/checklist.png';
 
 function createHeader(){
   const body = document.querySelector('body');
@@ -47,6 +51,51 @@ function CreateMain(){
   body.appendChild(mainBodyContainer);
 }
 CreateMain();
+
+function createNavContent(){
+  const nav = document.querySelector('.nav');
+  const home = document.createElement('div');
+  home.classList.add('home');
+  const project = document.createElement('div');
+  project.classList.add('project');
+  nav.appendChild(home);
+  nav.appendChild(project);
+
+  const navHeader = document.createElement('h2');
+  const unorderedList = document.createElement('ul');
+  const allTasks = document.createElement('li');
+  const today = document.createElement('li');
+  const thisWeek = document.createElement('li');
+  const important = document.createElement('li');
+
+  const myAllTasks = new Image();
+  myAllTasks.src = AllTasks;
+  allTasks.appendChild(myAllTasks);
+  const myToday = new Image();
+  myToday.src = Today;
+  today.appendChild(myToday);
+  const myThisWeek = new Image();
+  myThisWeek.src = ThisWeek;
+  thisWeek.appendChild(myThisWeek);
+  const  myImportant = new Image();
+  myImportant.src = Important;
+  important.appendChild(myImportant);
+
+  unorderedList.appendChild(allTasks);
+  unorderedList.appendChild(today);
+  unorderedList.appendChild(thisWeek);
+  unorderedList.appendChild(important);
+  home.appendChild(navHeader);
+  home.appendChild(unorderedList);
+
+  navHeader.textContent = 'Home';
+  allTasks.append('All Tasks');
+  today.append('Today');
+  thisWeek.append('This Week');
+  important.append('Important');
+
+}
+createNavContent();
 
 function createfooter(){
   const body = document.querySelector('body');
