@@ -6,6 +6,8 @@ import AllTasks from './icons/planning.png';
 import Today from './icons/calendar.png';
 import ThisWeek from './icons/next-week.png';
 import Important from './icons/checklist.png';
+import Home from './icons/home.png';
+import Project from './icons/project.png';
 
 function createHeader(){
   const body = document.querySelector('body');
@@ -82,6 +84,12 @@ function createNavContent(){
   thisWeek.appendChild(myThisWeek);
   const  myImportant = new Image();
   myImportant.src = Important;
+  const myHome = new Image();
+  myHome.src = Home;
+  navHeader.appendChild(myHome);
+  const myProject = new Image();
+  myProject.src = Project;
+  
 
   //Attached to ul
   important.appendChild(myImportant);
@@ -94,7 +102,7 @@ function createNavContent(){
   home.appendChild(unorderedList);
 
   //Task text content
-  navHeader.textContent = 'Home';
+  navHeader.append('Home');
   allTasks.append('All Tasks');
   today.append('Today');
   thisWeek.append('This Week');
@@ -102,7 +110,8 @@ function createNavContent(){
 
   //Project header
   const projectHeader = document.createElement('h2');
-  projectHeader.textContent = 'Projects'
+  projectHeader.appendChild(myProject);
+  projectHeader.append('Projects');
   project.appendChild(projectHeader);
   const horizontalRule2 = document.createElement('hr');
   project.appendChild(horizontalRule2);

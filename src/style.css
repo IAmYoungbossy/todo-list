@@ -45,7 +45,7 @@ li {
   list-style-type: none;
   display: flex;
   align-items: center;
-  line-height: 35px;
+  line-height: 40px;
   padding: 0 0 0 10px;
 }
 li > img {
@@ -58,5 +58,10 @@ hr {
   margin: 10px 0 0;
 }
 .project {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+.home > h2:first-child > img, .project > h2:first-child > img {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
 }
