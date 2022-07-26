@@ -118,8 +118,8 @@ function createNavContent() {
   project.appendChild(horizontalRule2);
   const projectList = document.createElement("ul");
   const addProject = document.createElement("li");
-  addProject.classList.add('add-project');
-  projectList.classList.add('project-list');
+  addProject.classList.add("add-project");
+  projectList.classList.add("project-list");
   projectList.appendChild(addProject);
   const myAdd = new Image();
   myAdd.src = AddProject;
@@ -147,25 +147,25 @@ function createfooter() {
 }
 createfooter();
 
-function createMainSectionContent(){
-  const mainSection = document.querySelector('.mainSection');
-  const headerContainer = document.createElement('div');
-  headerContainer.classList.add('mainHeader');
-  const sectionHeader = document.createElement('h1');
+function createMainSectionContent() {
+  const mainSection = document.querySelector(".mainSection");
+  const headerContainer = document.createElement("div");
+  headerContainer.classList.add("mainHeader");
+  const sectionHeader = document.createElement("h1");
   headerContainer.appendChild(sectionHeader);
   mainSection.appendChild(headerContainer);
-  sectionHeader.textContent = 'Default';
+  sectionHeader.textContent = "Default";
 }
 createMainSectionContent();
 
-function getProjectInput(){
-  const addProject = document.querySelector('.add-project');
-  const inputDiv = document.createElement('div');
-  const buttonDiv = document.createElement('div');
-  const inputLi = document.createElement('li');
-  const projectNameInput = document.createElement('input');
-  const cancelButton = document.createElement('button');
-  const addButton = document.createElement('button');
+function getProjectInput() {
+  const addProject = document.querySelector(".add-project");
+  const inputDiv = document.createElement("div");
+  const buttonDiv = document.createElement("div");
+  const inputLi = document.createElement("li");
+  const projectNameInput = document.createElement("input");
+  const cancelButton = document.createElement("button");
+  const addButton = document.createElement("button");
   const myInputIcon = new Image();
 
   myInputIcon.src = List;
@@ -174,14 +174,26 @@ function getProjectInput(){
   inputLi.append(inputDiv, buttonDiv);
   addProject.parentNode.insertBefore(inputLi, addProject);
 
-  cancelButton.textContent = 'Cancel';
-  addButton.textContent = 'Project';
-  projectNameInput.setAttribute('type', 'text');
-  projectNameInput.classList.add('name-input');
-  inputDiv.classList.add('input-container');
-  buttonDiv.classList.add('button-class');
-  inputLi.classList.add('input-Li');
-  projectNameInput.setAttribute('placeholder', 'Enter project name.');
-
+  cancelButton.textContent = "Cancel";
+  addButton.textContent = "Project";
+  projectNameInput.setAttribute("type", "text");
+  projectNameInput.classList.add("name-input");
+  inputDiv.classList.add("input-container");
+  buttonDiv.classList.add("button-class");
+  inputLi.classList.add("input-Li");
+  cancelButton.classList.add("cancel");
+  addButton.classList.add("add");
+  projectNameInput.setAttribute("placeholder", "Enter project name.");
 }
-getProjectInput();
+
+const addProject = document.querySelector(".add-project");
+
+addProject.addEventListener("click", () => {
+  getProjectInput();
+  const cancel = document.querySelector(".cancel");
+  cancel.addEventListener("click", () => {
+    const unorderedList = document.querySelector(".project-list");
+    const inputForm = document.querySelector('.input-Li');
+    unorderedList.removeChild(inputForm);
+  });
+});
