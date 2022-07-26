@@ -175,7 +175,7 @@ function getProjectInput(){
   addProject.parentNode.insertBefore(inputLi, addProject);
 
   cancelButton.textContent = 'Cancel';
-  addButton.textContent = 'Add';
+  addButton.textContent = 'Project';
   projectNameInput.setAttribute('type', 'text');
   projectNameInput.classList.add('name-input');
   inputDiv.classList.add('input-container');

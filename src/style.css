@@ -77,11 +77,6 @@ hr {
 .project {
   margin-top: 20px;
 }
-.input-container > img {
-  height: 20px;
-  width: 20px;
-  margin-left: -20px;
-}
 .input-container {
   display: flex;
   gap: 10px;
@@ -90,25 +85,58 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  background-color: white;
+}
+.input-Li:hover {
+  background-color: white;
+  box-shadow: none;
 }
 .button-class > button {
   padding: 5px 10px;
   border: none;
   background-color: red;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
 }
 .button-class {
-  width: 100%;
   display: flex;
+  margin-top: 5px;
+  position: relative;
 }
 .button-class > button:last-of-type {
-  margin-right: 10px;
+  background-color: var(--border-color);
+  position: absolute;
+  right: 0px;
+}
+.button-class > button:first-child {
+  position: relative;
+  left: 30px;
+}
+.input-container > input {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+.input-container > input:focus {
+  outline: none;
+  border: 1px solid purple;
+  padding: 5px;
 }
 .home > h2:first-child > img,
 .project > h2:first-child > img {
   height: 20px;
   width: 20px;
   margin-right: 5px;
+}
+.input-container > img {
+  height: 20px;
+  width: 20px;
+  margin: 0;
+}
+.name-input {
+  flex: 1;
 }
 h2 {
   color: var(--nav-header);
