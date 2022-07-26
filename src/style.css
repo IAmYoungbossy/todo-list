@@ -55,6 +55,14 @@ li {
   align-items: center;
   line-height: 40px;
   padding: 0 0 0 10px;
+  background-color: #a0e0bb;
+  margin-top: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+li:hover {
+  box-shadow: 0px 2px 2px black;
+  background-color: #afe9c7dc;
 }
 li > img {
   width: 25px;
