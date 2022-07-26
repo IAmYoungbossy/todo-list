@@ -181,6 +181,7 @@ function getProjectInput(){
   inputDiv.classList.add('input-container');
   buttonDiv.classList.add('button-class');
   inputLi.classList.add('input-Li');
+  projectNameInput.setAttribute('placeholder', 'Enter project name.');
 
 }
 getProjectInput();
