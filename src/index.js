@@ -115,14 +115,14 @@ function createNavContent() {
   project.appendChild(projectHeader);
   const horizontalRule2 = document.createElement("hr");
   project.appendChild(horizontalRule2);
-  const projectUL = document.createElement("ul");
-  const projectList = document.createElement("li");
-  projectUL.appendChild(projectList);
+  const projectList = document.createElement("ul");
+  const addProject = document.createElement("li");
+  projectList.appendChild(addProject);
   const myAdd = new Image();
   myAdd.src = AddProject;
-  projectList.appendChild(myAdd);
-  projectList.append("Add project");
-  project.appendChild(projectUL);
+  addProject.appendChild(myAdd);
+  addProject.append("Add project");
+  project.appendChild(projectList);
 }
 createNavContent();
 
