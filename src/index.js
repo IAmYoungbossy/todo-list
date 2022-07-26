@@ -176,5 +176,9 @@ function getProjectInput(){
 
   cancelButton.textContent = 'Cancel';
   addButton.textContent = 'Add';
+  projectNameInput.setAttribute('type', 'text');
+  projectNameInput.classList.add('name-input');
+  inputDiv.classList.add('input-container');
+  buttonDiv.classList.add('button-class');
 }
 getProjectInput();
