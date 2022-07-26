@@ -117,6 +117,8 @@ function createNavContent() {
   project.appendChild(horizontalRule2);
   const projectList = document.createElement("ul");
   const addProject = document.createElement("li");
+  addProject.classList.add('add-project');
+  projectList.classList.add('project-list');
   projectList.appendChild(addProject);
   const myAdd = new Image();
   myAdd.src = AddProject;
