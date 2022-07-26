@@ -77,6 +77,33 @@ hr {
 .project {
   margin-top: 20px;
 }
+.input-container > img {
+  height: 20px;
+  width: 20px;
+  margin-left: -20px;
+}
+.input-container {
+  display: flex;
+  gap: 10px;
+}
+.input-Li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.button-class > button {
+  padding: 5px 10px;
+  border: none;
+  background-color: red;
+}
+.button-class {
+  width: 100%;
+  display: flex;
+}
+.button-class > button:last-of-type {
+  margin-right: 10px;
+}
 .home > h2:first-child > img,
 .project > h2:first-child > img {
   height: 20px;

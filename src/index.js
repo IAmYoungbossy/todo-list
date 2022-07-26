@@ -162,7 +162,7 @@ function getProjectInput(){
   const addProject = document.querySelector('.add-project');
   const inputDiv = document.createElement('div');
   const buttonDiv = document.createElement('div');
-  const inputContainer = document.createElement('li');
+  const inputLi = document.createElement('li');
   const projectNameInput = document.createElement('input');
   const cancelButton = document.createElement('button');
   const addButton = document.createElement('button');
@@ -171,8 +171,8 @@ function getProjectInput(){
   myInputIcon.src = List;
   inputDiv.append(myInputIcon, projectNameInput);
   buttonDiv.append(cancelButton, addButton);
-  inputContainer.append(inputDiv, buttonDiv);
-  addProject.parentNode.insertBefore(inputContainer, addProject);
+  inputLi.append(inputDiv, buttonDiv);
+  addProject.parentNode.insertBefore(inputLi, addProject);
 
   cancelButton.textContent = 'Cancel';
   addButton.textContent = 'Add';
@@ -180,5 +180,7 @@ function getProjectInput(){
   projectNameInput.classList.add('name-input');
   inputDiv.classList.add('input-container');
   buttonDiv.classList.add('button-class');
+  inputLi.classList.add('input-Li');
+
 }
 getProjectInput();
