@@ -9,6 +9,7 @@ import Important from "./icons/checklist.png";
 import Home from "./icons/home.png";
 import Project from "./icons/project.png";
 import AddProject from "./icons/add.png";
+import List from "./icons/list.png";
 
 function createHeader() {
   const body = document.querySelector("body");
@@ -156,3 +157,24 @@ function createMainSectionContent(){
   sectionHeader.textContent = 'Default';
 }
 createMainSectionContent();
+
+function getProjectInput(){
+  const addProject = document.querySelector('.add-project');
+  const inputDiv = document.createElement('div');
+  const buttonDiv = document.createElement('div');
+  const inputContainer = document.createElement('li');
+  const projectNameInput = document.createElement('input');
+  const cancelButton = document.createElement('button');
+  const addButton = document.createElement('button');
+  const myInputIcon = new Image();
+
+  myInputIcon.src = List;
+  inputDiv.append(myInputIcon, projectNameInput);
+  buttonDiv.append(cancelButton, addButton);
+  inputContainer.append(inputDiv, buttonDiv);
+  addProject.parentNode.insertBefore(inputContainer, addProject);
+
+  cancelButton.textContent = 'Cancel';
+  addButton.textContent = 'Add';
+}
+getProjectInput();
