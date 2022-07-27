@@ -187,13 +187,16 @@ function getProjectInput() {
 }
 
 const addProject = document.querySelector(".add-project");
-
-addProject.addEventListener("click", () => {
+function checkInputLi() {
+  const projectList = document.querySelector(".project-list");
+  for (let i = 0; i < projectList.childNodes.length; i++) {
+    if (projectList.childNodes[i].classList[0] == "input-Li") return;
+  }
   getProjectInput();
+  const inputForm = document.querySelector(".input-Li");
   const cancel = document.querySelector(".cancel");
   cancel.addEventListener("click", () => {
-    const unorderedList = document.querySelector(".project-list");
-    const inputForm = document.querySelector('.input-Li');
-    unorderedList.removeChild(inputForm);
+    projectList.removeChild(inputForm);
   });
-});
+}
+addProject.addEventListener("click", checkInputLi);
