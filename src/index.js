@@ -237,11 +237,11 @@ function listenForNewProjectEvents() {
 }
 listenForNewProjectEvents();
 
-window.addEventListener("click", (e) => {
-  let a = !!document.querySelector(".delete-edit-div");
-  let b = document.querySelector('.delete-edit-div');
-  if(a){
-    if (e.target.textContent == 'Delete' || e.target.textContent == 'Edit'){
-      b.parentNode.removeChild(b);}
-  };
-});
+window.addEventListener("mouseup",removeDeleteAndEditPopUp);
+function removeDeleteAndEditPopUp(){
+  if (!!document.querySelector(".delete-edit-div")) {
+    document
+      .querySelector(".delete-edit-div")
+      .parentNode.removeChild(document.querySelector(".delete-edit-div"));
+  }
+}
