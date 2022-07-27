@@ -100,6 +100,7 @@ hr {
   border-radius: 10px;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 .button-class {
   display: flex;
