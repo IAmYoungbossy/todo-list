@@ -209,8 +209,13 @@ function listenForNewProjectEvents() {
     function AddProjectNameToList() {
       const inputField = document.querySelector(".name-input");
       const project = document.createElement("li");
+      const myProjectMenu = new Image;
+      myProjectMenu.src = ProjectMenu;
+      const myProjectDots = new Image;
+      myProjectDots.src = ProjectDots;
       project.setAttribute("class", "projects");
-      project.textContent = inputField.value;
+      project.append(myProjectMenu,inputField.value);
+      project.appendChild(myProjectDots);
       addProject.parentNode.insertBefore(project, inputForm);
       console.log(inputField.value);
       projectList.removeChild(inputForm);
