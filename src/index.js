@@ -199,6 +199,16 @@ function listenForAddProjectAndCancelEvent() {
     cancel.addEventListener("click", () => {
       projectList.removeChild(inputForm);
     });
+    const addButton = document.querySelector(".add");
+    addButton.addEventListener("click", () => {
+      const inputField = document.querySelector('.name-input');
+      const project = document.createElement('li');
+      project.setAttribute('class', 'project');
+      project.textContent = 'inputField.textContent';
+      addProject.parentNode.insertBefore(project, inputForm);
+      console.log(inputField.textContent);
+
+    });
   }
   addProject.addEventListener("click", checkInputLi);
 }
