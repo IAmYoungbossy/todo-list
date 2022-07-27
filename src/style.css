@@ -87,6 +87,7 @@ hr {
   justify-content: center;
   align-items: stretch;
   background-color: white;
+  cursor: default;
 }
 .input-Li:hover {
   background-color: white;
