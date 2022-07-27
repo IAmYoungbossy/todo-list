@@ -208,7 +208,7 @@ function listenForNewProjectEvents() {
     }
     function AddProjectNameToList() {
       const inputField = document.querySelector(".name-input");
-      if(inputField.value === '') return;
+      if (inputField.value === "") return;
       const project = document.createElement("li");
       const myProjectMenu = new Image();
       myProjectMenu.src = ProjectMenu;
@@ -230,16 +230,20 @@ function listenForNewProjectEvents() {
         deleteProject.textContent = "Delete";
         deleteOrEditDiv.append(editProject, deleteProject);
         project.appendChild(deleteOrEditDiv);
-      }
 
+        function deleteProjectFromList() {
+          project.parentNode.removeChild(project);
+        }
+        deleteProject.addEventListener("mousedown", deleteProjectFromList);
+      }
       myProjectDots.addEventListener("click", popUpDeleteAndEdit);
     }
   }
 }
 listenForNewProjectEvents();
 
-window.addEventListener("mouseup",removeDeleteAndEditPopUp);
-function removeDeleteAndEditPopUp(){
+window.addEventListener("mouseup", removeDeleteAndEditPopUp);
+function removeDeleteAndEditPopUp() {
   if (!!document.querySelector(".delete-edit-div")) {
     document
       .querySelector(".delete-edit-div")
