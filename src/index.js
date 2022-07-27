@@ -209,29 +209,39 @@ function listenForNewProjectEvents() {
     function AddProjectNameToList() {
       const inputField = document.querySelector(".name-input");
       const project = document.createElement("li");
-      const myProjectMenu = new Image;
+      const myProjectMenu = new Image();
       myProjectMenu.src = ProjectMenu;
-      const myProjectDots = new Image;
+      const myProjectDots = new Image();
       myProjectDots.src = ProjectDots;
       project.setAttribute("class", "projects");
-      project.append(myProjectMenu,inputField.value);
+      project.append(myProjectMenu, inputField.value);
       project.appendChild(myProjectDots);
       addProject.parentNode.insertBefore(project, inputForm);
       projectList.removeChild(inputForm);
 
       function popUpDeleteAndEdit() {
-        const deleteOrEditDiv = document.createElement('div');
-        deleteOrEditDiv.classList.add('delete-edit-div');
-        const editProject = document.createElement('p');
-        editProject.textContent = 'Edit';
-        const deleteProject = document.createElement('p');
-        deleteProject.textContent = 'Delete';
+        if (project.childNodes.length > 3) return;
+        const deleteOrEditDiv = document.createElement("div");
+        deleteOrEditDiv.classList.add("delete-edit-div");
+        const editProject = document.createElement("p");
+        editProject.textContent = "Edit";
+        const deleteProject = document.createElement("p");
+        deleteProject.textContent = "Delete";
         deleteOrEditDiv.append(editProject, deleteProject);
-        project.appendChild(deleteOrEditDiv)
+        project.appendChild(deleteOrEditDiv);
       }
 
-      myProjectDots.addEventListener('click', popUpDeleteAndEdit)
+      myProjectDots.addEventListener("click", popUpDeleteAndEdit);
     }
   }
 }
 listenForNewProjectEvents();
+
+window.addEventListener("click", (e) => {
+  let a = !!document.querySelector(".delete-edit-div");
+  let b = document.querySelector('.delete-edit-div');
+  if(a){
+    if (e.target.textContent == 'Delete' || e.target.textContent == 'Edit'){
+      b.parentNode.removeChild(b);}
+  };
+});
