@@ -191,7 +191,14 @@ function getProjectInput() {
 function listenForNewProjectEvents() {
   const addProject = document.querySelector(".add-project");
   addProject.addEventListener("click", createProjectInputForm);
+  window.addEventListener("mousedown", editCurentProject);
 
+  function editCurentProject() {
+    if (!!document.querySelector(".edit")) {
+      let a = document.querySelector(".edit");
+      a.addEventListener("mouseup", createProjectInputForm);
+    }
+  }
   function createProjectInputForm() {
     const projectList = document.querySelector(".project-list");
     for (let i = 0; i < projectList.childNodes.length; i++) {
@@ -225,7 +232,7 @@ function listenForNewProjectEvents() {
         const deleteOrEditDiv = document.createElement("div");
         deleteOrEditDiv.classList.add("delete-edit-div");
         const editProject = document.createElement("p");
-        editProject.classList.add('edit');
+        editProject.classList.add("edit");
         editProject.textContent = "Edit";
         const deleteProject = document.createElement("p");
         deleteProject.textContent = "Delete";
