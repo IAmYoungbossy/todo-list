@@ -208,6 +208,7 @@ function listenForNewProjectEvents() {
     }
     function AddProjectNameToList() {
       const inputField = document.querySelector(".name-input");
+      if(inputField.value === '') return;
       const project = document.createElement("li");
       const myProjectMenu = new Image();
       myProjectMenu.src = ProjectMenu;
