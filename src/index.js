@@ -222,8 +222,10 @@ function listenForNewProjectEvents() {
       function popUpDeleteAndEdit() {
         const deleteOrEditDiv = document.createElement('div');
         deleteOrEditDiv.classList.add('delete-edit-div');
-        const editProject = document.createElement('p').textContent = 'Edit';
-        const deleteProject = document.createElement('p').textContent = 'Delete';
+        const editProject = document.createElement('p');
+        editProject.textContent = 'Edit';
+        const deleteProject = document.createElement('p');
+        deleteProject.textContent = 'Delete';
         deleteOrEditDiv.append(editProject, deleteProject);
         project.appendChild(deleteOrEditDiv)
       }

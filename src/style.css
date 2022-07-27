@@ -147,6 +147,32 @@ hr {
   position: absolute;
   right: 0;
 }
+.delete-edit-div {
+  background-color: var(--background-color);
+  position: absolute;
+  right: 0;
+  top: -240%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 0px black;
+}
+.delete-edit-div > p {
+  padding: 4px 10px;
+}
+.delete-edit-div > p:first-child:hover {
+  color: rgb(78, 0, 78);
+  background-color: rgba(162,198,142,0.3);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.delete-edit-div > p:last-child:hover {
+  color: red;
+  background-color: rgba(162,198,142,0.3);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
 .name-input {
   flex: 1;
 }
