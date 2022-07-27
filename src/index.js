@@ -186,17 +186,20 @@ function getProjectInput() {
   projectNameInput.setAttribute("placeholder", "Enter project name.");
 }
 
-const addProject = document.querySelector(".add-project");
-function checkInputLi() {
-  const projectList = document.querySelector(".project-list");
-  for (let i = 0; i < projectList.childNodes.length; i++) {
-    if (projectList.childNodes[i].classList[0] == "input-Li") return;
+function listenForAddProjectAndCancelEvent() {
+  const addProject = document.querySelector(".add-project");
+  function checkInputLi() {
+    const projectList = document.querySelector(".project-list");
+    for (let i = 0; i < projectList.childNodes.length; i++) {
+      if (projectList.childNodes[i].classList[0] == "input-Li") return;
+    }
+    getProjectInput();
+    const inputForm = document.querySelector(".input-Li");
+    const cancel = document.querySelector(".cancel");
+    cancel.addEventListener("click", () => {
+      projectList.removeChild(inputForm);
+    });
   }
-  getProjectInput();
-  const inputForm = document.querySelector(".input-Li");
-  const cancel = document.querySelector(".cancel");
-  cancel.addEventListener("click", () => {
-    projectList.removeChild(inputForm);
-  });
+  addProject.addEventListener("click", checkInputLi);
 }
-addProject.addEventListener("click", checkInputLi);
+listenForAddProjectAndCancelEvent();
