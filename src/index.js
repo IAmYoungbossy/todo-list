@@ -186,36 +186,33 @@ function getProjectInput() {
   projectNameInput.setAttribute("placeholder", "Enter project name.");
 }
 
-function listenForAddProjectAndCancelEvent() {
+function listenForNewProjectEvents() {
   const addProject = document.querySelector(".add-project");
+  addProject.addEventListener("click", createProjectInputForm);
 
-  function checkInputLi() {
+  function createProjectInputForm() {
     const projectList = document.querySelector(".project-list");
     for (let i = 0; i < projectList.childNodes.length; i++) {
       if (projectList.childNodes[i].classList[0] == "input-Li") return;
     }
     getProjectInput();
-
     const inputForm = document.querySelector(".input-Li");
-    const cancel = document.querySelector(".cancel");
-    cancel.addEventListener("click", () => {
-      projectList.removeChild(inputForm);
-    });
-
+    const cancelButton = document.querySelector(".cancel");
     const addButton = document.querySelector(".add");
+    cancelButton.addEventListener("click", removeInputForm);
     addButton.addEventListener("click", AddProjectNameToList);
-
-    
-    function AddProjectNameToList(){
-      const inputField = document.querySelector('.name-input');
-      const project = document.createElement('li');
-      project.setAttribute('class', 'projects');
+    function removeInputForm() {
+      projectList.removeChild(inputForm);
+    }
+    function AddProjectNameToList() {
+      const inputField = document.querySelector(".name-input");
+      const project = document.createElement("li");
+      project.setAttribute("class", "projects");
       project.textContent = inputField.value;
       addProject.parentNode.insertBefore(project, inputForm);
       console.log(inputField.value);
       projectList.removeChild(inputForm);
     }
   }
-  addProject.addEventListener("click", checkInputLi);
 }
-listenForAddProjectAndCancelEvent();
+listenForNewProjectEvents();
