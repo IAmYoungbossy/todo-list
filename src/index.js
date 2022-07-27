@@ -219,15 +219,16 @@ function listenForNewProjectEvents() {
       addProject.parentNode.insertBefore(project, inputForm);
       projectList.removeChild(inputForm);
 
-      function popUpDeleteOrEdit() {
+      function popUpDeleteAndEdit() {
         const deleteOrEditDiv = document.createElement('div');
+        deleteOrEditDiv.classList.add('delete-edit-div');
         const editProject = document.createElement('p').textContent = 'Edit';
         const deleteProject = document.createElement('p').textContent = 'Delete';
         deleteOrEditDiv.append(editProject, deleteProject);
         project.appendChild(deleteOrEditDiv)
       }
 
-      myProjectDots.addEventListener('click', popUpDeleteOrEdit)
+      myProjectDots.addEventListener('click', popUpDeleteAndEdit)
     }
   }
 }
