@@ -10,6 +10,8 @@ import Home from "./icons/home.png";
 import Project from "./icons/project.png";
 import AddProject from "./icons/add.png";
 import List from "./icons/list.png";
+import ProjectMenu from "./icons/projectMenu.png";
+import ProjectDots from "./icons/dots.png";
 
 function createHeader() {
   const body = document.querySelector("body");
