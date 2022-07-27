@@ -204,9 +204,9 @@ function listenForAddProjectAndCancelEvent() {
       const inputField = document.querySelector('.name-input');
       const project = document.createElement('li');
       project.setAttribute('class', 'project');
-      project.textContent = 'inputField.textContent';
+      project.textContent = inputField.value;
       addProject.parentNode.insertBefore(project, inputForm);
-      console.log(inputField.textContent);
+      console.log(inputField.value);
 
     });
   }
