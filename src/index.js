@@ -195,8 +195,9 @@ function listenForNewProjectEvents() {
 
   function editCurentProject() {
     if (!!document.querySelector(".edit")) {
-      let a = document.querySelector(".edit");
-      a.addEventListener("mouseup", createProjectInputForm);
+      document
+        .querySelector(".edit")
+        .addEventListener("mouseup", getProjectInput);
     }
   }
   function createProjectInputForm() {
