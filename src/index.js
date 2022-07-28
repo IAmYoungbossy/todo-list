@@ -262,13 +262,18 @@ function editCurentProject() {
     parentCurentProject.classList.add("hidden");
     const children = parentCurentProject.childNodes;
     const childrenArray = Array.from(children);
-    const previousProjectName = childrenArray[1].data;
+    let previousProjectName = childrenArray[1].data;
+    if (previousProjectName === undefined) {
+      const childArray = Array.from(childrenArray[1].childNodes);
+      previousProjectName = childArray[0].data;
+    }
     getProjectInput();
     const add = document.querySelector(".add");
     const cancel = document.querySelector(".cancel");
     const nameInput = document.querySelector(".name-input");
     nameInput.value = previousProjectName;
     const inputForm = document.querySelector(".input-Li");
+
     function updateNewProjectName() {
       const newProjectName = document.createElement("p");
       newProjectName.textContent = nameInput.value;
@@ -287,6 +292,5 @@ function editCurentProject() {
     add.addEventListener("mousedown", updateNewProjectName);
   }
 }
-
 window.addEventListener("mousedown", editCurentProject);
 window.addEventListener("mouseup", removeDeleteAndEditPopUp);
