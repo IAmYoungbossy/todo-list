@@ -254,24 +254,34 @@ function removeDeleteAndEditPopUp() {
 function editCurentProject() {
   const editButton = document.querySelector(".edit");
   if (!!editButton) {
-    const parentD = editButton.parentNode.parentNode;
-    parentD.classList.add("hidden");
-    console.log(parentD);
+    const projectList = document.querySelector(".project-list");
+    for (let i = 0; i < projectList.childNodes.length; i++) {
+      if (projectList.childNodes[i].classList[0] == "input-Li") return;
+    }
+    const parentCurentProject = editButton.parentNode.parentNode;
+    parentCurentProject.classList.add("hidden");
+    const children = parentCurentProject.childNodes;
+    const childrenArray = Array.from(children);
+    const previousProjectName = childrenArray[1].data;
     getProjectInput();
     const add = document.querySelector(".add");
     const cancel = document.querySelector(".cancel");
     const nameInput = document.querySelector(".name-input");
+    nameInput.value = previousProjectName;
     const inputForm = document.querySelector(".input-Li");
     function updateNewProjectName() {
       const newProjectName = document.createElement("p");
       newProjectName.textContent = nameInput.value;
-      parentD.replaceChild(newProjectName, parentD.childNodes[1]);
+      parentCurentProject.replaceChild(
+        newProjectName,
+        parentCurentProject.childNodes[1]
+      );
       removeInputForm();
-      parentD.classList.remove("hidden");
+      parentCurentProject.classList.remove("hidden");
     }
     function removeInputForm() {
       inputForm.parentNode.removeChild(inputForm);
-      parentD.classList.remove("hidden");
+      parentCurentProject.classList.remove("hidden");
     }
     cancel.addEventListener("mousedown", removeInputForm);
     add.addEventListener("mousedown", updateNewProjectName);
