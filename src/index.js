@@ -191,15 +191,7 @@ function getProjectInput() {
 function listenForNewProjectEvents() {
   const addProject = document.querySelector(".add-project");
   addProject.addEventListener("click", createProjectInputForm);
-  window.addEventListener("mousedown", editCurentProject);
 
-  function editCurentProject() {
-    if (!!document.querySelector(".edit")) {
-      document
-        .querySelector(".edit")
-        .addEventListener("mouseup", getProjectInput);
-    }
-  }
   function createProjectInputForm() {
     const projectList = document.querySelector(".project-list");
     for (let i = 0; i < projectList.childNodes.length; i++) {
@@ -251,7 +243,6 @@ function listenForNewProjectEvents() {
 }
 listenForNewProjectEvents();
 
-window.addEventListener("mouseup", removeDeleteAndEditPopUp);
 function removeDeleteAndEditPopUp() {
   if (!!document.querySelector(".delete-edit-div")) {
     document
@@ -259,3 +250,29 @@ function removeDeleteAndEditPopUp() {
       .parentNode.removeChild(document.querySelector(".delete-edit-div"));
   }
 }
+
+function editCurentProject() {
+  const editButton = document.querySelector(".edit");
+  if (!!editButton) {
+    const parentD = editButton.parentNode.parentNode;
+    getProjectInput();
+    const add = document.querySelector(".add");
+    const cancel = document.querySelector(".cancel");
+    const nameInput = document.querySelector(".name-input");
+    const inputForm = document.querySelector(".input-Li");
+    function updateNewProjectName() {
+      const newProjectName = document.createElement("p");
+      newProjectName.textContent = nameInput.value;
+      parentD.replaceChild(newProjectName, parentD.childNodes[1]);
+      removeInputForm();
+    }
+    function removeInputForm() {
+      inputForm.parentNode.removeChild(inputForm);
+    }
+    cancel.addEventListener("mousedown", removeInputForm);
+    add.addEventListener("mousedown", updateNewProjectName);
+  }
+}
+
+window.addEventListener("mousedown", editCurentProject);
+window.addEventListener("mouseup", removeDeleteAndEditPopUp);

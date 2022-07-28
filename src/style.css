@@ -163,13 +163,13 @@ hr {
 }
 .delete-edit-div > p:first-child:hover {
   color: rgb(78, 0, 78);
-  background-color: rgba(162,198,142,0.3);
+  background-color: rgba(162, 198, 142, 0.3);
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 .delete-edit-div > p:last-child:hover {
   color: red;
-  background-color: rgba(162,198,142,0.3);
+  background-color: rgba(162, 198, 142, 0.3);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -201,4 +201,8 @@ footer {
   text-align: center;
   padding: 10px;
   background-color: var(--footer-background-color);
+}
+.hide {
+  visibility: hidden;
+  position: absolute;
 }
