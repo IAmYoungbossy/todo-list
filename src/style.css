@@ -202,7 +202,12 @@ footer {
   padding: 10px;
   background-color: var(--footer-background-color);
 }
-.hide {
-  visibility: hidden;
+.project-list {
+  position: relative;
+}
+.hidden {
   position: absolute;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
 }

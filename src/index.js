@@ -255,6 +255,8 @@ function editCurentProject() {
   const editButton = document.querySelector(".edit");
   if (!!editButton) {
     const parentD = editButton.parentNode.parentNode;
+    parentD.classList.add("hidden");
+    console.log(parentD);
     getProjectInput();
     const add = document.querySelector(".add");
     const cancel = document.querySelector(".cancel");
@@ -265,9 +267,11 @@ function editCurentProject() {
       newProjectName.textContent = nameInput.value;
       parentD.replaceChild(newProjectName, parentD.childNodes[1]);
       removeInputForm();
+      parentD.classList.remove("hidden");
     }
     function removeInputForm() {
       inputForm.parentNode.removeChild(inputForm);
+      parentD.classList.remove("hidden");
     }
     cancel.addEventListener("mousedown", removeInputForm);
     add.addEventListener("mousedown", updateNewProjectName);
