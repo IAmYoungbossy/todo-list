@@ -243,14 +243,6 @@ function listenForNewProjectEvents() {
 }
 listenForNewProjectEvents();
 
-function removeDeleteAndEditPopUp() {
-  if (!!document.querySelector(".delete-edit-div")) {
-    document
-      .querySelector(".delete-edit-div")
-      .parentNode.removeChild(document.querySelector(".delete-edit-div"));
-  }
-}
-
 function editCurentProject() {
   const editButton = document.querySelector(".edit");
   if (!!editButton) {
@@ -292,5 +284,16 @@ function editCurentProject() {
     add.addEventListener("mousedown", updateNewProjectName);
   }
 }
-window.addEventListener("mousedown", editCurentProject);
-window.addEventListener("mouseup", removeDeleteAndEditPopUp);
+
+window.addEventListener("mouseup", editCurentProject);
+document.addEventListener("mousedown", (e) => {
+  if (!!document.querySelector(".delete-edit-div")) {
+    if (e.target.className == "edit") {
+      return;
+    } else {
+      document
+        .querySelector(".delete-edit-div")
+        .parentNode.removeChild(document.querySelector(".delete-edit-div"));
+    }
+  }
+});
