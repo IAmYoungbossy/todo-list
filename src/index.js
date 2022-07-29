@@ -300,16 +300,51 @@ function editCurentProject() {
 window.addEventListener("mouseup", editCurentProject);
 document.addEventListener("mousedown", removeDeleteAndEditPopUp);
 
-const mainSection = document.querySelector('.mainSection');
-const addTaskSection = document.createElement('div');
-const taskList = document.createElement('ul');
-const addTaskButton = document.createElement('li');
-const myAddTask = new Image;
-myAddTask.src = AddTask;
-addTaskButton.append(myAddTask, "Add Task");
-taskList.appendChild(addTaskButton);
-addTaskSection.appendChild(taskList);
-mainSection.appendChild(addTaskSection);
-addTaskSection.classList.add('add-task-section');
-taskList.classList.add('task-list');
-addTaskButton.classList.add('add-task-button');
+function createTasksSectionAndAddTask() {
+  const mainSection = document.querySelector(".mainSection");
+  const addTaskSection = document.createElement("div");
+  const taskList = document.createElement("ul");
+  const addTaskButton = document.createElement("li");
+  const myAddTask = new Image();
+
+  myAddTask.src = AddTask;
+  addTaskButton.append(myAddTask, "Add Task");
+  taskList.appendChild(addTaskButton);
+  addTaskSection.appendChild(taskList);
+  mainSection.appendChild(addTaskSection);
+
+  addTaskSection.classList.add("add-task-section");
+  taskList.classList.add("task-list");
+  addTaskButton.classList.add("add-task-button");
+}
+createTasksSectionAndAddTask();
+
+function createTaskInputForm() {
+  const addTaskButton = document.querySelector('.add-task-button');
+  const taskList = document.querySelector('.task-list');
+  const taskInputForm = document.createElement("li");
+  const titleDiv = document.createElement("div");
+  const titleInputLabel = document.createElement("label");
+  const titleInput = document.createElement("input");
+  const textareaDiv = document.createElement("div");
+  const textAreaDescriptionLabel = document.createElement("label");
+  const textAreaDescription = document.createElement("textarea");
+  const dateDiv = document.createElement("div");
+  const dateInputLabel = document.createElement("label");
+  const dateInput = document.createElement("input");
+  const buttonDiv = document.createElement("div");
+  const addButton = document.createElement("button");
+  const cancelButton = document.createElement("button");
+
+  titleDiv.append(titleInputLabel, titleInput);
+  textareaDiv.append(textAreaDescriptionLabel, textAreaDescription);
+  dateDiv.append(dateInputLabel, dateInput);
+  buttonDiv.append(addButton, cancelButton);
+  taskInputForm.append(titleDiv, textareaDiv, dateDiv, buttonDiv);
+  taskList.insertBefore(taskInputForm, addTaskButton);
+
+  titleInput.classList.add('title-input');
+  textAreaDescription.classList.add('text-area');
+  dateInput.classList.add('date-input');
+}
+createTaskInputForm();
