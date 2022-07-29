@@ -336,15 +336,24 @@ function createTaskInputForm() {
   const addButton = document.createElement("button");
   const cancelButton = document.createElement("button");
 
+  dateInput.setAttribute('type', 'date');
+  titleInputLabel.textContent = 'Title:';
+  textAreaDescriptionLabel.textContent = 'Details (Optional):';
+  dateInputLabel.textContent = 'Date:';
+  addButton.textContent = 'Project';
+  cancelButton.textContent = 'Cancel';
+
   titleDiv.append(titleInputLabel, titleInput);
   textareaDiv.append(textAreaDescriptionLabel, textAreaDescription);
   dateDiv.append(dateInputLabel, dateInput);
-  buttonDiv.append(addButton, cancelButton);
+  buttonDiv.append(cancelButton, addButton);
   taskInputForm.append(titleDiv, textareaDiv, dateDiv, buttonDiv);
   taskList.insertBefore(taskInputForm, addTaskButton);
 
   titleInput.classList.add('title-input');
   textAreaDescription.classList.add('text-area');
   dateInput.classList.add('date-input');
+  taskInputForm.classList.add('task-input-form');
+  buttonDiv.classList.add('btn-class');
 }
 createTaskInputForm();

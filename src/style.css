@@ -223,3 +223,64 @@ footer {
   background-color: rgba(153, 52, 153, 0.1);
   box-shadow: none;
 }
+.task-input-form {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  cursor: default;
+}
+.task-input-form:hover {
+  box-shadow: none;
+  background-color: white;
+}
+.task-input-form > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  line-height: normal;
+  margin: 0 0 10px;
+}
+.task-input-form > div:last-child {
+  flex-direction: row;
+  width: min-content;
+  margin: 0 auto;
+}
+textarea {
+  height: 60px;
+  resize: none;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid grey;
+  padding: 2px 10px;
+}
+.task-input-form > div > input {
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid grey;
+  padding: 2px 10px;
+}
+.btn-class > button {
+  padding: 5px 10px;
+  border: none;
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.task-input-form > div > input:focus, textarea:focus {
+  border: 1px solid purple;
+}
+.btn-class {
+  display: flex;
+  margin-top: 5px;
+}
+.btn-class > button:last-of-type {
+  background-color: var(--border-color);
+}
+label {
+  font-weight: 400;
+}
