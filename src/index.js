@@ -360,4 +360,14 @@ function createTaskInputForm() {
   cancelButton.classList.add("cancel-task");
   addButton.classList.add("add-task");
 }
-createTaskInputForm();
+
+function addEventListenerTOAddTaskButton() {
+  const addTaskButton = document.querySelector(".add-task-button");
+  addTaskButton.addEventListener("click", appendTaskInputForm);
+
+  function appendTaskInputForm() {
+    const taskList = document.querySelector(".task-list"); 
+    createTaskInputForm();
+  }
+}
+addEventListenerTOAddTaskButton();
