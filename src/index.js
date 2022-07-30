@@ -413,6 +413,14 @@ function createTask() {
   myCheckedStar.src = CheckedStar;
   myDoneTask.src = Donetask;
 
+  newTask.classList.add('new-task');
+  titleAndDescDiv.classList.add('title-and-desc-div');
+  taskDesc.classList.add('task-desc');
+  dateSpan.classList.add('date-span');
+  dateInput.classList.add('.date-input');
+  starDiv.classList.add('star-div');
+  taskDiv.classList.add('task-div');
+
   titleAndDescDiv.append(taskTitle, taskDesc);
   dateSpan.appendChild(dateInput);
   starDiv.append(myUncheckedStar, myCheckedStar);
