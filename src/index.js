@@ -273,11 +273,13 @@ function editCurentProject() {
       previousProjectName = childArray[0].data;
     }
     getProjectInput();
+    const previousProject = document.querySelector(".hidden").nextElementSibling;
     const add = document.querySelector(".add");
     const cancel = document.querySelector(".cancel");
     const nameInput = document.querySelector(".name-input");
     nameInput.value = previousProjectName;
     const inputForm = document.querySelector(".input-Li");
+    projectList.insertBefore(inputForm, previousProject);
 
     function updateNewProjectName() {
       const newProjectName = document.createElement("p");
@@ -320,8 +322,8 @@ function createTasksSectionAndAddTask() {
 createTasksSectionAndAddTask();
 
 function createTaskInputForm() {
-  const addTaskButton = document.querySelector('.add-task-button');
-  const taskList = document.querySelector('.task-list');
+  const addTaskButton = document.querySelector(".add-task-button");
+  const taskList = document.querySelector(".task-list");
   const taskInputForm = document.createElement("li");
   const titleDiv = document.createElement("div");
   const titleInputLabel = document.createElement("label");
@@ -336,12 +338,12 @@ function createTaskInputForm() {
   const addButton = document.createElement("button");
   const cancelButton = document.createElement("button");
 
-  dateInput.setAttribute('type', 'date');
-  titleInputLabel.textContent = 'Title:';
-  textAreaDescriptionLabel.textContent = 'Details (Optional):';
-  dateInputLabel.textContent = 'Date:';
-  addButton.textContent = 'Project';
-  cancelButton.textContent = 'Cancel';
+  dateInput.setAttribute("type", "date");
+  titleInputLabel.textContent = "Title:";
+  textAreaDescriptionLabel.textContent = "Details (Optional):";
+  dateInputLabel.textContent = "Date:";
+  addButton.textContent = "Project";
+  cancelButton.textContent = "Cancel";
 
   titleDiv.append(titleInputLabel, titleInput);
   textareaDiv.append(textAreaDescriptionLabel, textAreaDescription);
@@ -350,10 +352,12 @@ function createTaskInputForm() {
   taskInputForm.append(titleDiv, textareaDiv, dateDiv, buttonDiv);
   taskList.insertBefore(taskInputForm, addTaskButton);
 
-  titleInput.classList.add('title-input');
-  textAreaDescription.classList.add('text-area');
-  dateInput.classList.add('date-input');
-  taskInputForm.classList.add('task-input-form');
-  buttonDiv.classList.add('btn-class');
+  titleInput.classList.add("title-input");
+  textAreaDescription.classList.add("text-area");
+  dateInput.classList.add("date-input");
+  taskInputForm.classList.add("task-input-form");
+  buttonDiv.classList.add("btn-class");
+  cancelButton.classList.add("cancel-task");
+  addButton.classList.add("add-task");
 }
 createTaskInputForm();
