@@ -13,9 +13,9 @@ import List from "./icons/list.png";
 import ProjectMenu from "./icons/projectMenu.png";
 import ProjectDots from "./icons/dots.png";
 import AddTask from "./icons/addTask.png";
-import Unchecked from "./icons/uncheckedStar.png";
+import UncheckedStar from "./icons/uncheckedStar.png";
 import UndoneTask from "./icons/undoneTask.png";
-import Checked from "./icons/checkedStar.png";
+import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 
 function createHeader() {
@@ -385,16 +385,39 @@ function addAndCancelTask(e) {
 }
 document.addEventListener("click", addAndCancelTask);
 
-const newTask = document.createElement('li');
-const titleAndDescriptionDiv = document.createElement('div');
-const taskTitle = document.createElement('h2');
-const taskDescription = document.createElement('p');
-const dateSpan = document.createElement('span');
-const myUnchecked = new Image();
-const myUndoneTask = new Image();
-const myChecked = new Image();
-const myDoneTask = new Image();
-myUnchecked.src = Unchecked;
-myUndoneTask.src = UndoneTask;
-myChecked.src = Checked;
-myDoneTask.src = Donetask;
+function createTask() {
+  const addTaskButton = document.querySelector(".add-task-button");
+  const taskList = document.querySelector(".task-list");
+  const newTask = document.createElement("li");
+  const titleAndDescDiv = document.createElement("div");
+  const taskTitle = document.createElement("h2");
+  const taskDesc = document.createElement("p");
+  const dateSpan = document.createElement("span");
+  const dateInput = document.createElement("p");
+  const starDiv = document.createElement("div");
+  const taskDiv = document.createElement("div");
+  const myTaskDots = new Image();
+  const myUncheckedStar = new Image();
+  const myUndoneTask = new Image();
+  const myCheckedStar = new Image();
+  const myDoneTask = new Image();
+
+  taskTitle.textContent = "Muisc Rehersals";
+  taskDesc.textContent =
+    "I'll be learning how to play piano and drum when I am less busy with programming.";
+  dateInput.textContent = "2022/07/30";
+
+  myTaskDots.src = ProjectDots;
+  myUncheckedStar.src = UncheckedStar;
+  myUndoneTask.src = UndoneTask;
+  myCheckedStar.src = CheckedStar;
+  myDoneTask.src = Donetask;
+
+  titleAndDescDiv.append(taskTitle, taskDesc);
+  dateSpan.appendChild(dateInput);
+  starDiv.append(myUncheckedStar, myCheckedStar);
+  taskDiv.append(myUndoneTask, myDoneTask);
+  newTask.append(taskDiv, titleAndDescDiv, dateSpan, starDiv, myTaskDots);
+  taskList.insertBefore(newTask, addTaskButton);
+}
+createTask();
