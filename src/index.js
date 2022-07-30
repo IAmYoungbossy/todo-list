@@ -362,7 +362,7 @@ function createTaskInputForm() {
   addButton.classList.add("add-task");
 }
 
-function addAndCancelTask(e){
+function addAndCancelTask(e) {
   if (e.target.className == "add-task-button") {
     const taskList = document.querySelector(".task-list");
     for (let i = 0; i < taskList.childNodes.length; i++) {
@@ -373,6 +373,10 @@ function addAndCancelTask(e){
   if (e.target.className == "cancel-task") {
     const inputTaskForm = document.querySelector(".task-input-form");
     inputTaskForm.parentNode.removeChild(inputTaskForm);
+  }
+  if (e.target.className == "add-task") {
+    const dateInput = document.querySelector(".date-input");
+    console.log(dateInput.value);
   }
 }
 document.addEventListener("click", addAndCancelTask);
