@@ -56,7 +56,7 @@ li {
   align-items: center;
   line-height: 40px;
   padding: 0 0 0 10px;
-  background-color: #a0e0bb;
+  background-color: rgba(160, 224, 187, 0.6);
   margin-top: 5px;
   border-radius: 10px;
   cursor: pointer;
@@ -185,10 +185,12 @@ h2 {
   background-color: var(--main-color);
 }
 .mainHeader {
-  padding: 30px 30px;
+  padding: 15px 50px;
   background-color: var(--border-color);
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0px 2px 2px black;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 h1 {
   font-size: 2rem;
@@ -359,7 +361,8 @@ label {
 .uncheck {
   visibility: hidden;
 }
-.checked-star, .done-task {
+.checked-star,
+.done-task {
   visibility: hidden;
 }
 .check {
