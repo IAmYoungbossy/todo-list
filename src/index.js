@@ -273,7 +273,8 @@ function editCurentProject() {
       previousProjectName = childArray[0].data;
     }
     getProjectInput();
-    const previousProject = document.querySelector(".hidden").nextElementSibling;
+    const previousProject =
+      document.querySelector(".hidden").nextElementSibling;
     const add = document.querySelector(".add");
     const cancel = document.querySelector(".cancel");
     const nameInput = document.querySelector(".name-input");
@@ -361,13 +362,24 @@ function createTaskInputForm() {
   addButton.classList.add("add-task");
 }
 
+document.addEventListener("click", () => {
+  const cancelTask = document.querySelector(".cancel-task");
+  if (!!cancelTask) {
+    cancelTask.addEventListener("click", () => {
+      const taskList = document.querySelector(".task-list");
+      taskList.removeChild(document.querySelector(".task-input-form"));
+    });
+  }
+});
 function addEventListenerTOAddTaskButton() {
   const addTaskButton = document.querySelector(".add-task-button");
-  addTaskButton.addEventListener("click", appendTaskInputForm);
-
   function appendTaskInputForm() {
-    const taskList = document.querySelector(".task-list"); 
+    const taskList = document.querySelector(".task-list");
+    for (let i = 0; i < taskList.childNodes.length; i++) {
+      if (taskList.childNodes[i].classList[0] == "task-input-form") return;
+    }
     createTaskInputForm();
   }
+  addTaskButton.addEventListener("click", appendTaskInputForm);
 }
 addEventListenerTOAddTaskButton();
