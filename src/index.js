@@ -362,24 +362,17 @@ function createTaskInputForm() {
   addButton.classList.add("add-task");
 }
 
-document.addEventListener("click", () => {
-  const cancelTask = document.querySelector(".cancel-task");
-  if (!!cancelTask) {
-    cancelTask.addEventListener("click", () => {
-      const taskList = document.querySelector(".task-list");
-      taskList.removeChild(document.querySelector(".task-input-form"));
-    });
-  }
-});
-function addEventListenerTOAddTaskButton() {
-  const addTaskButton = document.querySelector(".add-task-button");
-  function appendTaskInputForm() {
+function addAndCancelTask(e){
+  if (e.target.className == "add-task-button") {
     const taskList = document.querySelector(".task-list");
     for (let i = 0; i < taskList.childNodes.length; i++) {
       if (taskList.childNodes[i].classList[0] == "task-input-form") return;
     }
     createTaskInputForm();
   }
-  addTaskButton.addEventListener("click", appendTaskInputForm);
+  if (e.target.className == "cancel-task") {
+    const inputTaskForm = document.querySelector(".task-input-form");
+    inputTaskForm.parentNode.removeChild(inputTaskForm);
+  }
 }
-addEventListenerTOAddTaskButton();
+document.addEventListener("click", addAndCancelTask);
