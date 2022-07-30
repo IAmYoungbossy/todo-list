@@ -13,6 +13,10 @@ import List from "./icons/list.png";
 import ProjectMenu from "./icons/projectMenu.png";
 import ProjectDots from "./icons/dots.png";
 import AddTask from "./icons/addTask.png";
+import Unchecked from "./icons/uncheckedStar.png";
+import UndoneTask from "./icons/undoneTask.png";
+import Checked from "./icons/checkedStar.png";
+import Donetask from "./icons/doneTask.png";
 
 function createHeader() {
   const body = document.querySelector("body");
@@ -380,3 +384,17 @@ function addAndCancelTask(e) {
   }
 }
 document.addEventListener("click", addAndCancelTask);
+
+const newTask = document.createElement('li');
+const titleAndDescriptionDiv = document.createElement('div');
+const taskTitle = document.createElement('h2');
+const taskDescription = document.createElement('p');
+const dateSpan = document.createElement('span');
+const myUnchecked = new Image();
+const myUndoneTask = new Image();
+const myChecked = new Image();
+const myDoneTask = new Image();
+myUnchecked.src = Unchecked;
+myUndoneTask.src = UndoneTask;
+myChecked.src = Checked;
+myDoneTask.src = Donetask;
