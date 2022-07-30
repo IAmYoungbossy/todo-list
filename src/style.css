@@ -314,19 +314,19 @@ label {
 }
 .task-div > img:first-child {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .task-div > img:last-child {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .title-and-desc-div > h2 {
   font-size: 0.9rem;
   color: black;
 }
 .title-and-desc-div > p {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   margin-top: 1px;
   color: #392929;
 }
@@ -341,12 +341,12 @@ label {
 }
 .star-div > img:first-child {
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
 }
 .star-div > img:last-child {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
 }
 .date-span > p {
   border: 1px solid #0000002e;
@@ -355,4 +355,17 @@ label {
   width: min-content;
   padding: 2px 6px 0px;
   text-align: center;
+}
+.uncheck {
+  visibility: hidden;
+}
+.checked-star, .done-task {
+  visibility: hidden;
+}
+.check {
+  visibility: visible;
+}
+.line-through {
+  text-decoration: line-through;
+  color: grey;
 }

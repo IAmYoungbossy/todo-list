@@ -413,13 +413,18 @@ function createTask() {
   myCheckedStar.src = CheckedStar;
   myDoneTask.src = Donetask;
 
-  newTask.classList.add('new-task');
-  titleAndDescDiv.classList.add('title-and-desc-div');
-  taskDesc.classList.add('task-desc');
-  dateSpan.classList.add('date-span');
-  dateInput.classList.add('.date-input');
-  starDiv.classList.add('star-div');
-  taskDiv.classList.add('task-div');
+  newTask.classList.add("new-task");
+  taskTitle.classList.add("task-title");
+  titleAndDescDiv.classList.add("title-and-desc-div");
+  taskDesc.classList.add("task-desc");
+  dateSpan.classList.add("date-span");
+  dateInput.classList.add("date-input");
+  starDiv.classList.add("star-div");
+  taskDiv.classList.add("task-div");
+  myUncheckedStar.classList.add("unchecked-star");
+  myCheckedStar.classList.add("checked-star");
+  myUndoneTask.classList.add("undone-task");
+  myDoneTask.classList.add("done-task");
 
   titleAndDescDiv.append(taskTitle, taskDesc);
   dateSpan.appendChild(dateInput);
@@ -429,3 +434,16 @@ function createTask() {
   taskList.insertBefore(newTask, addTaskButton);
 }
 createTask();
+
+function toggleStar(e) {
+  if (e.target.className == "unchecked-star") {
+    document.querySelector(".checked-star").classList.toggle("check");
+  }
+  if (e.target.className == "undone-task") {
+    document.querySelector(".done-task").classList.toggle("check");
+    document.querySelector(".task-desc").classList.toggle("line-through");
+    document.querySelector(".date-input").classList.toggle("line-through");
+    document.querySelector(".task-title").classList.toggle("line-through");
+  }
+}
+document.addEventListener("click", toggleStar);
