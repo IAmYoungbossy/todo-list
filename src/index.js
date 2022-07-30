@@ -218,6 +218,7 @@ function listenForNewProjectEvents() {
       const myProjectMenu = new Image();
       myProjectMenu.src = ProjectMenu;
       const myProjectDots = new Image();
+
       myProjectDots.src = ProjectDots;
       project.setAttribute("class", "projects");
       project.append(myProjectMenu, inputField.value);
@@ -435,7 +436,7 @@ function createTask() {
 }
 createTask();
 
-function toggleStar(e) {
+function toggleCheck(e) {
   if (e.target.className == "unchecked-star") {
     document.querySelector(".checked-star").classList.toggle("check");
   }
@@ -446,4 +447,4 @@ function toggleStar(e) {
     document.querySelector(".task-title").classList.toggle("line-through");
   }
 }
-document.addEventListener("click", toggleStar);
+document.addEventListener("click", toggleCheck);
