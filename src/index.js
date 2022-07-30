@@ -402,7 +402,7 @@ function createTask() {
   const myCheckedStar = new Image();
   const myDoneTask = new Image();
 
-  taskTitle.textContent = "Muisc Rehersals";
+  taskTitle.textContent = "Muisc Rehersal";
   taskDesc.textContent =
     "I'll be learning how to play piano and drum when I am less busy with programming.";
   dateInput.textContent = "2022/07/30";

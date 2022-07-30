@@ -271,7 +271,8 @@ textarea {
   cursor: pointer;
   margin: 0 10px;
 }
-.task-input-form > div > input:focus, textarea:focus {
+.task-input-form > div > input:focus,
+textarea:focus {
   border: 1px solid purple;
 }
 .btn-class {
@@ -283,4 +284,75 @@ textarea {
 }
 label {
   font-weight: 400;
+}
+
+.new-task {
+  background-color: rgba(153, 52, 153, 0.05);
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 5px 50px;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  border: 1px solid;
+}
+.new-task:hover {
+  background-color: rgba(42, 189, 103, 0.02);
+  box-shadow: none;
+}
+.task-div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  height: min-content;
+  top: 5px;
+  left: 5px;
+}
+.task-div > img:first-child {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.task-div > img:last-child {
+  width: 30px;
+  height: 30px;
+}
+.title-and-desc-div > h2 {
+  font-size: 0.9rem;
+  color: black;
+}
+.title-and-desc-div > p {
+  font-size: 0.75rem;
+  margin-top: 1px;
+  color: #392929;
+}
+.star-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: min-content;
+  width: min-content;
+  position: absolute;
+  right: 25px;
+}
+.star-div > img:first-child {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+}
+.star-div > img:last-child {
+  height: 24px;
+  width: 24px;
+}
+.date-span > p {
+  border: 1px solid #0000002e;
+  border-radius: 10px;
+  height: min-content;
+  width: min-content;
+  padding: 2px 6px 0px;
+  text-align: center;
 }
