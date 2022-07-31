@@ -1,3 +1,7 @@
+import Menu from "./icons/menuIcon.png";
+import ToDoLogo from "./icons/to-do.png";
+import Theme from "./icons/theme.png";
+
 function createHeader() {
   const body = document.querySelector("body");
   const header = document.createElement("header");
@@ -12,4 +16,20 @@ function createHeader() {
   header.appendChild(themeToggler);
   body.appendChild(header);
 }
-export { createHeader };
+
+function createHeaderContent() {
+  const menuIcon = document.querySelector(".menuIcon");
+  const toDoLogo = document.querySelector(".toDoLogo");
+  const themeToggler = document.querySelector(".themeToggler");
+  const myMenuIcon = new Image();
+  myMenuIcon.src = Menu;
+  menuIcon.appendChild(myMenuIcon);
+  const myToDoLogo = new Image();
+  myToDoLogo.src = ToDoLogo;
+  toDoLogo.appendChild(myToDoLogo);
+  const myThemeToggler = new Image();
+  myThemeToggler.src = Theme;
+  themeToggler.appendChild(myThemeToggler);
+}
+
+export { createHeader, createHeaderContent };

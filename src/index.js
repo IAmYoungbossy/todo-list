@@ -1,7 +1,5 @@
 import "./style.css";
-import Menu from "./icons/menuIcon.png";
-import ToDoLogo from "./icons/to-do.png";
-import Theme from "./icons/theme.png";
+
 import AllTasks from "./icons/planning.png";
 import Today from "./icons/calendar.png";
 import ThisWeek from "./icons/next-week.png";
@@ -17,37 +15,11 @@ import UncheckedStar from "./icons/uncheckedStar.png";
 import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
-import { createHeader } from "./page-header";
+import { createHeader, createHeaderContent } from "./page-header";
+import { CreateMain } from "./page-main";
 
 createHeader();
-
-function createHeaderContent() {
-  const menuIcon = document.querySelector(".menuIcon");
-  const toDoLogo = document.querySelector(".toDoLogo");
-  const themeToggler = document.querySelector(".themeToggler");
-  const myMenuIcon = new Image();
-  myMenuIcon.src = Menu;
-  menuIcon.appendChild(myMenuIcon);
-  const myToDoLogo = new Image();
-  myToDoLogo.src = ToDoLogo;
-  toDoLogo.appendChild(myToDoLogo);
-  const myThemeToggler = new Image();
-  myThemeToggler.src = Theme;
-  themeToggler.appendChild(myThemeToggler);
-}
 createHeaderContent();
-
-function CreateMain() {
-  const body = document.querySelector("body");
-  const mainBodyContainer = document.createElement("main");
-  const nav = document.createElement("nav");
-  nav.classList.add("nav");
-  const mainSection = document.createElement("section");
-  mainSection.classList.add("mainSection");
-  mainBodyContainer.appendChild(nav);
-  mainBodyContainer.appendChild(mainSection);
-  body.appendChild(mainBodyContainer);
-}
 CreateMain();
 
 function createNavContent() {
