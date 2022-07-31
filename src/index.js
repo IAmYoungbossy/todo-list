@@ -17,21 +17,8 @@ import UncheckedStar from "./icons/uncheckedStar.png";
 import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
+import { createHeader } from "./page-header";
 
-function createHeader() {
-  const body = document.querySelector("body");
-  const header = document.createElement("header");
-  const menuIcon = document.createElement("div");
-  const toDoLogo = document.createElement("div");
-  const themeToggler = document.createElement("div");
-  menuIcon.classList.add("menuIcon");
-  toDoLogo.classList.add("toDoLogo");
-  themeToggler.classList.add("themeToggler");
-  header.appendChild(menuIcon);
-  header.appendChild(toDoLogo);
-  header.appendChild(themeToggler);
-  body.appendChild(header);
-}
 createHeader();
 
 function createHeaderContent() {
@@ -384,6 +371,10 @@ function addAndCancelTask(e) {
     createTask();
     inputTaskForm.parentNode.removeChild(inputTaskForm);
   }
+  if (e.target.className == "my-task-dots") {
+    console.log("check");
+    editCurentProject();
+  }
 }
 document.addEventListener("click", addAndCancelTask);
 
@@ -443,7 +434,7 @@ function createTask() {
 
 function toggleCheck(e) {
   if (e.target.className == "unchecked-star") {
-    e.target.parentNode.parentNode.childNodes[3].childNodes[1].classList.toggle(
+    e.target.parentNode.parentNode.childNodes[2].childNodes[1].classList.toggle(
       "check"
     );
   }
