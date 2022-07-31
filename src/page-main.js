@@ -90,4 +90,14 @@ function createNavContent() {
   project.appendChild(projectList);
 }
 
-export { CreateMain, createNavContent };
+function createTaskDisplaySection() {
+  const mainSection = document.querySelector(".mainSection");
+  const headerContainer = document.createElement("div");
+  headerContainer.classList.add("mainHeader");
+  const sectionHeader = document.createElement("h1");
+  headerContainer.appendChild(sectionHeader);
+  mainSection.appendChild(headerContainer);
+  sectionHeader.textContent = "Default";
+}
+
+export { CreateMain, createNavContent, createTaskDisplaySection };
