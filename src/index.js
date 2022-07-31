@@ -19,10 +19,10 @@ CreateMain();
 createNavContent();
 createfooter();
 createTaskDisplaySection();
-listenForNewProjectEvents();
 todoAddButton();
 
-window.addEventListener("mouseup", editCurentProject);
+document.addEventListener("mouseup", editCurentProject);
 document.addEventListener("mousedown", removeDeleteAndEditPopUp);
 document.addEventListener("click", addAndCancelTask);
 document.addEventListener("click", toggleReadOrImportance);
+document.addEventListener("mousedown", listenForNewProjectEvents);
