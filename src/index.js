@@ -19,7 +19,7 @@ CreateMain();
 createNavContent();
 createfooter();
 
-function createMainSectionContent() {
+function createTaskDisplaySection() {
   const mainSection = document.querySelector(".mainSection");
   const headerContainer = document.createElement("div");
   headerContainer.classList.add("mainHeader");
@@ -28,7 +28,7 @@ function createMainSectionContent() {
   mainSection.appendChild(headerContainer);
   sectionHeader.textContent = "Default";
 }
-createMainSectionContent();
+createTaskDisplaySection();
 
 function getProjectInput() {
   const addProject = document.querySelector(".add-project");
