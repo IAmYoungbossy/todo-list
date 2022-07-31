@@ -187,10 +187,10 @@ h2 {
 .mainHeader {
   padding: 15px 50px;
   background-color: var(--border-color);
-  border-radius: 50px;
+  border-radius: 5px;
   box-shadow: 0px 2px 2px black;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 h1 {
   font-size: 2rem;
@@ -354,7 +354,7 @@ label {
   border: 1px solid #0000002e;
   border-radius: 10px;
   height: min-content;
-  width: min-content;
+  width: max-content;
   padding: 2px 6px 0px;
   text-align: center;
 }
@@ -371,4 +371,16 @@ label {
 .line-through {
   text-decoration: line-through;
   color: grey;
+}
+.date-span {
+  position: relative;
+}
+.my-task-dots {
+  width: 25px;
+  height: 25px;
+}
+.date-and-span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

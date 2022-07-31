@@ -360,7 +360,7 @@ function createTaskInputForm() {
 
   titleInput.classList.add("title-input-form");
   textAreaDescription.classList.add("text-area-form");
-  dateInput.classList.add("date-input-from");
+  dateInput.classList.add("date-input-form");
   taskInputForm.classList.add("task-input-form");
   buttonDiv.classList.add("btn-class");
   cancelButton.classList.add("cancel-task");
@@ -368,25 +368,29 @@ function createTaskInputForm() {
 }
 
 function addAndCancelTask(e) {
+  const taskList = document.querySelector(".task-list");
+  const inputTaskForm = document.querySelector(".task-input-form");
   if (e.target.className == "add-task-button") {
-    const taskList = document.querySelector(".task-list");
     for (let i = 0; i < taskList.childNodes.length; i++) {
       if (taskList.childNodes[i].classList[0] == "task-input-form") return;
     }
     createTaskInputForm();
   }
   if (e.target.className == "cancel-task") {
-    const inputTaskForm = document.querySelector(".task-input-form");
     inputTaskForm.parentNode.removeChild(inputTaskForm);
   }
   if (e.target.className == "add-task") {
-    const dateInput = document.querySelector(".date-input");
-    console.log(dateInput.value);
+    console.log(e.target.parentNode.parentNode);
+    createTask();
+    inputTaskForm.parentNode.removeChild(inputTaskForm);
   }
 }
 document.addEventListener("click", addAndCancelTask);
 
 function createTask() {
+  const dateInputForm = document.querySelector(".date-input-form");
+  const titleInput = document.querySelector(".title-input-form");
+  const textDesc = document.querySelector(".text-area-form");
   const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
   const newTask = document.createElement("li");
@@ -397,17 +401,16 @@ function createTask() {
   const dateInput = document.createElement("p");
   const starDiv = document.createElement("div");
   const taskDiv = document.createElement("div");
+  const dateAndSpan = document.createElement("div");
   const myTaskDots = new Image();
   const myUncheckedStar = new Image();
   const myUndoneTask = new Image();
   const myCheckedStar = new Image();
   const myDoneTask = new Image();
 
-  taskTitle.textContent = "Muisc Rehersal";
-  taskDesc.textContent =
-    "I'll be learning how to play piano and drum when I am less busy with programming.";
-  dateInput.textContent = "2022/07/30";
-
+  taskTitle.textContent = titleInput.value;
+  dateInput.textContent = dateInputForm.value;
+  taskDesc.textContent = textDesc.value;
   myTaskDots.src = ProjectDots;
   myUncheckedStar.src = UncheckedStar;
   myUndoneTask.src = UndoneTask;
@@ -426,25 +429,37 @@ function createTask() {
   myCheckedStar.classList.add("checked-star");
   myUndoneTask.classList.add("undone-task");
   myDoneTask.classList.add("done-task");
+  myTaskDots.classList.add("my-task-dots");
+  dateAndSpan.classList.add("date-and-span");
 
   titleAndDescDiv.append(taskTitle, taskDesc);
   dateSpan.appendChild(dateInput);
+  dateAndSpan.append(dateSpan, myTaskDots);
   starDiv.append(myUncheckedStar, myCheckedStar);
   taskDiv.append(myUndoneTask, myDoneTask);
-  newTask.append(taskDiv, titleAndDescDiv, dateSpan, starDiv, myTaskDots);
+  newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
   taskList.insertBefore(newTask, addTaskButton);
 }
-createTask();
 
 function toggleCheck(e) {
   if (e.target.className == "unchecked-star") {
-    document.querySelector(".checked-star").classList.toggle("check");
+    e.target.parentNode.parentNode.childNodes[3].childNodes[1].classList.toggle(
+      "check"
+    );
   }
   if (e.target.className == "undone-task") {
-    document.querySelector(".done-task").classList.toggle("check");
-    document.querySelector(".task-desc").classList.toggle("line-through");
-    document.querySelector(".date-input").classList.toggle("line-through");
-    document.querySelector(".task-title").classList.toggle("line-through");
+    e.target.parentNode.parentNode.childNodes[0].childNodes[1].classList.toggle(
+      "check"
+    );
+    e.target.parentNode.parentNode.childNodes[1].childNodes[1].classList.toggle(
+      "line-through"
+    );
+    e.target.parentNode.parentNode.childNodes[2].childNodes[0].classList.toggle(
+      "line-through"
+    );
+    e.target.parentNode.parentNode.childNodes[1].childNodes[0].classList.toggle(
+      "line-through"
+    );
   }
 }
 document.addEventListener("click", toggleCheck);
