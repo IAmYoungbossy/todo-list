@@ -358,9 +358,9 @@ function createTaskInputForm() {
   taskInputForm.append(titleDiv, textareaDiv, dateDiv, buttonDiv);
   taskList.insertBefore(taskInputForm, addTaskButton);
 
-  titleInput.classList.add("title-input");
-  textAreaDescription.classList.add("text-area");
-  dateInput.classList.add("date-input");
+  titleInput.classList.add("title-input-form");
+  textAreaDescription.classList.add("text-area-form");
+  dateInput.classList.add("date-input-from");
   taskInputForm.classList.add("task-input-form");
   buttonDiv.classList.add("btn-class");
   cancelButton.classList.add("cancel-task");
