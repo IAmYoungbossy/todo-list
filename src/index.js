@@ -6,7 +6,7 @@ import {
   createTaskDisplaySection,
 } from "./page-main";
 import { createfooter } from "./page-footer";
-import { listenForNewProjectEvents } from "./new-project-events";
+import { addNewProject } from "./add-new-project";
 import { editCurentProject } from "./edit-current-project";
 import { removeDeleteAndEditPopUp } from "./remove-project-popup";
 import { todoAddButton } from "./add-todo-button";
@@ -25,7 +25,7 @@ document.addEventListener("mouseup", editCurentProject);
 document.addEventListener("mousedown", removeDeleteAndEditPopUp);
 document.addEventListener("click", addAndCancelTask);
 document.addEventListener("click", toggleReadOrImportance);
-document.addEventListener("mousedown", listenForNewProjectEvents);
+document.addEventListener("mousedown", addNewProject);
 
 document.addEventListener('click', (e)=>{
   if (e.target.className === "my-task-dots"){
