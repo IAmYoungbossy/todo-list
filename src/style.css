@@ -59,11 +59,12 @@ li {
   display: flex;
   align-items: center;
   line-height: 40px;
-  padding: 0 0 0 10px;
+  padding: 0 10px 0 10px;
   background-color: rgba(160, 224, 187, 0.6);
   margin-top: 5px;
   border-radius: 10px;
   cursor: pointer;
+  min-width: max-content;
 }
 li:hover {
   box-shadow: 0px 2px 2px black;
@@ -146,10 +147,24 @@ hr {
   position: relative;
   display: flex;
   align-items: center;
+  padding-left: 45px;
+  padding-right: 30px;
+  min-width: max-content;
+}
+.projects > div > img {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 7px;
+}
+.projects > div {
+  position: absolute;
+  right: 0;
 }
 .projects > img:last-of-type {
   position: absolute;
-  right: 0;
+  top: 7px;
+  left: 10px;
 }
 .delete-edit-div {
   background-color: var(--background-color);
@@ -370,7 +385,8 @@ label {
 .done-task {
   visibility: hidden;
 }
-.check, .done {
+.check,
+.done {
   visibility: visible;
 }
 .line-through {

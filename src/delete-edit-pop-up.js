@@ -1,5 +1,5 @@
 function popUpDeleteAndEdit() {
-  if (this.parentNode.childNodes.length > 3) return;
+  if (this.parentNode.parentNode.childNodes.length > 3) return;
   const deleteOrEditDiv = document.createElement("div");
   deleteOrEditDiv.classList.add("delete-edit-div");
   const editProject = document.createElement("p");
@@ -8,7 +8,7 @@ function popUpDeleteAndEdit() {
   const deleteProject = document.createElement("p");
   deleteProject.textContent = "Delete";
   deleteOrEditDiv.append(editProject, deleteProject);
-  this.parentNode.appendChild(deleteOrEditDiv);
+  this.parentNode.parentNode.appendChild(deleteOrEditDiv);
   deleteProject.addEventListener("mousedown", deleteProjectFromList);
 }
 

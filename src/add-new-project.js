@@ -39,6 +39,7 @@ function AddProjectNameToList() {
   const projectList = document.querySelector(".project-list");
   const inputField = document.querySelector(".name-input");
   const inputForm = document.querySelector(".input-Li");
+  const myProjectDotsDiv = document.createElement("div");
   if (inputField.value === "") return;
   const project = document.createElement("li");
   const myProjectMenu = new Image();
@@ -47,7 +48,8 @@ function AddProjectNameToList() {
   myProjectDots.src = ProjectDots;
   project.setAttribute("class", "projects");
   project.append(myProjectMenu, inputField.value);
-  project.appendChild(myProjectDots);
+  myProjectDotsDiv.appendChild(myProjectDots)
+  project.appendChild(myProjectDotsDiv);
   addProject.parentNode.insertBefore(project, inputForm);
   projectList.removeChild(inputForm);
   myProjectDots.addEventListener("click", popUpDeleteAndEdit);
