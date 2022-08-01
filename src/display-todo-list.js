@@ -3,6 +3,7 @@ import UncheckedStar from "./icons/uncheckedStar.png";
 import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
+import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 
 function displayAddedTasks() {
   const dateInputForm = document.querySelector(".date-input-form");
@@ -56,6 +57,7 @@ function displayAddedTasks() {
   taskDiv.append(myUndoneTask, myDoneTask);
   newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
   taskList.insertBefore(newTask, addTaskButton);
+  myTaskDots.addEventListener("click", popUpDeleteAndEdit);
 }
 
 export { displayAddedTasks };

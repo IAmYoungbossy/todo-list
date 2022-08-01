@@ -1,5 +1,5 @@
 function popUpDeleteAndEdit() {
-  if (this.parentNode.parentNode.childNodes.length > 3) return;
+  if (this.parentNode.parentNode.childNodes.length > 7) return;
   const deleteOrEditDiv = document.createElement("div");
   deleteOrEditDiv.classList.add("delete-edit-div");
   const editProject = document.createElement("p");
