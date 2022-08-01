@@ -34,8 +34,7 @@ header {
 
 main {
   flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  display: flex;
 }
 img {
   width: 50px;
@@ -46,6 +45,11 @@ main > nav {
 }
 .nav {
   border-radius: 25px;
+  flex: 1;
+}
+.nav-hidden {
+  position: absolute;
+  visibility: hidden;
 }
 ul {
   margin-top: 15px;
@@ -183,6 +187,7 @@ h2 {
 .mainSection {
   padding: 30px 40px;
   background-color: var(--main-color);
+  flex: 3;
 }
 .mainHeader {
   padding: 15px 50px;

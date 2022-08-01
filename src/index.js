@@ -12,6 +12,7 @@ import { removeDeleteAndEditPopUp } from "./remove-project-popup";
 import { todoAddButton } from "./add-todo-button";
 import { addAndCancelTask } from "./add-or-cancel-task-event";
 import { toggleReadOrImportance } from "./toggle-states";
+import { toggleNavList } from "./toggle-nav-list";
 
 createHeader();
 createHeaderContent();
@@ -20,15 +21,10 @@ createNavContent();
 createfooter();
 createTaskDisplaySection();
 todoAddButton();
+toggleNavList;
 
 document.addEventListener("mouseup", editCurentProject);
 document.addEventListener("mousedown", removeDeleteAndEditPopUp);
 document.addEventListener("click", addAndCancelTask);
 document.addEventListener("click", toggleReadOrImportance);
 document.addEventListener("mousedown", addNewProject);
-
-document.addEventListener('click', (e)=>{
-  if (e.target.className === "my-task-dots"){
-    console.log(e.target.className);
-  }
-});
