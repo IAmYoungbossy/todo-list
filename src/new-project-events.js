@@ -34,27 +34,27 @@ function listenForNewProjectEvents() {
       project.appendChild(myProjectDots);
       addProject.parentNode.insertBefore(project, inputForm);
       projectList.removeChild(inputForm);
-
-      function popUpDeleteAndEdit() {
-        if (project.childNodes.length > 3) return;
-        const deleteOrEditDiv = document.createElement("div");
-        deleteOrEditDiv.classList.add("delete-edit-div");
-        const editProject = document.createElement("p");
-        editProject.classList.add("edit");
-        editProject.textContent = "Edit";
-        const deleteProject = document.createElement("p");
-        deleteProject.textContent = "Delete";
-        deleteOrEditDiv.append(editProject, deleteProject);
-        project.appendChild(deleteOrEditDiv);
-
-        function deleteProjectFromList() {
-          project.parentNode.removeChild(project);
-        }
-        deleteProject.addEventListener("mousedown", deleteProjectFromList);
-      }
       myProjectDots.addEventListener("click", popUpDeleteAndEdit);
     }
   }
+}
+
+function popUpDeleteAndEdit() {
+  if (this.parentNode.childNodes.length > 3) return;
+  const deleteOrEditDiv = document.createElement("div");
+  deleteOrEditDiv.classList.add("delete-edit-div");
+  const editProject = document.createElement("p");
+  editProject.classList.add("edit");
+  editProject.textContent = "Edit";
+  const deleteProject = document.createElement("p");
+  deleteProject.textContent = "Delete";
+  deleteOrEditDiv.append(editProject, deleteProject);
+  this.parentNode.appendChild(deleteOrEditDiv);
+  deleteProject.addEventListener("mousedown", deleteProjectFromList);
+}
+
+function deleteProjectFromList() {
+  this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
 }
 
 export { listenForNewProjectEvents };

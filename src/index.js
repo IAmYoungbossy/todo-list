@@ -26,3 +26,9 @@ document.addEventListener("mousedown", removeDeleteAndEditPopUp);
 document.addEventListener("click", addAndCancelTask);
 document.addEventListener("click", toggleReadOrImportance);
 document.addEventListener("mousedown", listenForNewProjectEvents);
+
+document.addEventListener('click', (e)=>{
+  if (e.target.className === "my-task-dots"){
+    console.log(e.target.className);
+  }
+});
