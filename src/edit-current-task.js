@@ -1,6 +1,6 @@
 import { newTaskInput } from "./new-task-input";
 
-function enableEditingTask() {
+function enableTaskEditing() {
   const currentTask =
     document.querySelector(".edit-task").parentNode.parentNode;
   const taskList = document.querySelector(".task-list");
@@ -12,7 +12,7 @@ function enableEditingTask() {
     currentTask.classList.add("hidden");
     let taskTitle = currentTask.childNodes[1].childNodes[0];
     let taskDesc = currentTask.childNodes[1].childNodes[1];
-    let taskDate = currentTask.childNodes[3].childNodes[0];
+    let taskDate = currentTask.childNodes[3].childNodes[0].childNodes[0];
     return { taskTitle, taskDesc, taskDate };
   })();
 
@@ -31,14 +31,16 @@ function enableEditingTask() {
     return { inputTitle, inputDesc, inputDate, taskInputForm };
   })();
 
-  function updateNewProjectName() {
+  function updateNewTaskName() {
+    if (document.querySelector(".title-input-form").value.trim() === "") return;
+    if (document.querySelector(".title-input-form").value.trim() === "") return;
     getName.taskTitle.textContent = insertNewInput.inputTitle.value;
     getName.taskDesc.textContent = insertNewInput.inputDesc.value;
     getName.taskDate.textContent = insertNewInput.inputDate.value;
-    removeInputForm();
+    removeNewTaskInput();
   }
 
-  function removeInputForm() {
+  function removeNewTaskInput() {
     insertNewInput.taskInputForm.parentNode.removeChild(
       insertNewInput.taskInputForm
     );
@@ -48,13 +50,13 @@ function enableEditingTask() {
   (() => {
     const add = document.querySelector(".add-task");
     const cancel = document.querySelector(".cancel-task");
-    cancel.addEventListener("mousedown", removeInputForm);
-    add.addEventListener("mousedown", updateNewProjectName);
+    cancel.addEventListener("mousedown", removeNewTaskInput);
+    add.addEventListener("mousedown", updateNewTaskName);
   })();
 }
 
 function editCurentTask(e) {
-  if (e.target.className == "edit-task") enableEditingTask();
+  if (e.target.className == "edit-task") enableTaskEditing();
 }
 
 export { editCurentTask };
