@@ -2,44 +2,56 @@ import { getProjectInput } from "./project-input";
 
 function editCurentProject() {
   const editButton = document.querySelector(".edit");
+
   if (!!editButton) {
+    const project = editButton.parentNode.parentNode;
     const projectList = document.querySelector(".project-list");
     for (let i = 0; i < projectList.childNodes.length; i++) {
       if (projectList.childNodes[i].classList[0] == "input-Li") return;
     }
-    const parentCurentProject = editButton.parentNode.parentNode;
-    parentCurentProject.classList.add("hidden");
-    const children = parentCurentProject.childNodes;
-    const childrenArray = Array.from(children);
-    let previousProjectName = childrenArray[1].data;
-    if (previousProjectName === undefined) {
-      const childArray = Array.from(childrenArray[1].childNodes);
-      previousProjectName = childArray[0].data;
-    }
+
+    const getName = (function () {
+      project.classList.add("hidden");
+      const children = project.childNodes;
+      const childrenArray = Array.from(children);
+      let previousName = childrenArray[1].data;
+      if (previousName === undefined) {
+        const childArray = Array.from(childrenArray[1].childNodes);
+        previousName = childArray[0].data;
+      }
+      return { previousName };
+    })();
+
     getProjectInput();
-    const previousProject =
-      document.querySelector(".hidden").nextElementSibling;
-    const add = document.querySelector(".add");
-    const cancel = document.querySelector(".cancel");
-    const nameInput = document.querySelector(".name-input");
-    nameInput.value = previousProjectName;
-    const inputForm = document.querySelector(".input-Li");
-    projectList.insertBefore(inputForm, previousProject);
+
+    const inserInputForm = (function () {
+      const previousProject =
+        document.querySelector(".hidden").nextElementSibling;
+      const nameInput = document.querySelector(".name-input");
+      const inputForm = document.querySelector(".input-Li");
+      nameInput.value = getName.previousName;
+      projectList.insertBefore(inputForm, previousProject);
+      return {
+        inputForm,
+        nameInput,
+      };
+    })();
 
     function updateNewProjectName() {
       const newProjectName = document.createElement("p");
-      newProjectName.textContent = nameInput.value;
-      parentCurentProject.replaceChild(
-        newProjectName,
-        parentCurentProject.childNodes[1]
-      );
+      newProjectName.textContent = inserInputForm.nameInput.value;
+      project.replaceChild(newProjectName, project.childNodes[1]);
       removeInputForm();
-      parentCurentProject.classList.remove("hidden");
+      project.classList.remove("hidden");
     }
+
     function removeInputForm() {
-      inputForm.parentNode.removeChild(inputForm);
-      parentCurentProject.classList.remove("hidden");
+      inserInputForm.inputForm.parentNode.removeChild(inserInputForm.inputForm);
+      project.classList.remove("hidden");
     }
+
+    const add = document.querySelector(".add");
+    const cancel = document.querySelector(".cancel");
     cancel.addEventListener("mousedown", removeInputForm);
     add.addEventListener("mousedown", updateNewProjectName);
   }
