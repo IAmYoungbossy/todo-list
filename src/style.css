@@ -256,12 +256,6 @@ footer {
 .project-list {
   position: relative;
 }
-.hidden {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  visibility: hidden;
-}
 .add-task-section {
   width: 100%;
   max-width: 900px;
@@ -436,4 +430,10 @@ label {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.hidden {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
 }

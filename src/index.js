@@ -13,6 +13,7 @@ import { todoAddButton } from "./add-todo-button";
 import { addAndCancelTask } from "./add-or-cancel-task-event";
 import { toggleReadOrImportance } from "./toggle-states";
 import { toggleNavList } from "./toggle-nav-list";
+import { editCurentTask } from "./edit-current-task";
 
 createHeader();
 createHeaderContent();
@@ -28,3 +29,4 @@ document.addEventListener("mousedown", removeDeleteAndEditPopUp);
 document.addEventListener("click", addAndCancelTask);
 document.addEventListener("click", toggleReadOrImportance);
 document.addEventListener("mousedown", addNewProject);
+document.addEventListener("mouseup", editCurentTask);

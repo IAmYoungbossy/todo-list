@@ -57,9 +57,8 @@ function enableEditing() {
   })();
 }
 
-function editCurentProject() {
-  if (!!document.querySelector(".edit")) {
-    enableEditing();
-  }
+function editCurentProject(e) {
+  if (e.target.className == "edit") enableEditing();
 }
+
 export { editCurentProject };
