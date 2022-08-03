@@ -47,16 +47,19 @@ function enableTaskEditing() {
     currentTask.classList.remove("hidden");
   }
 
+  // EventListener on addTask and cancelTask Buttons
   (() => {
-    const add = document.querySelector(".add-task");
-    const cancel = document.querySelector(".cancel-task");
-    cancel.addEventListener("mousedown", removeNewTaskInput);
-    add.addEventListener("mousedown", updateNewTaskName);
+    document
+      .querySelector(".cancel-task")
+      .addEventListener("mousedown", removeNewTaskInput);
+
+    document
+      .querySelector(".add-task")
+      .addEventListener("mousedown", updateNewTaskName);
   })();
 }
 
 function editCurentTask(e) {
   if (e.target.className == "edit-task") enableTaskEditing();
 }
-
 export { editCurentTask };
