@@ -4,8 +4,9 @@ import { getProjectInput } from "./project-input";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 
 function addNewProject() {
-  const addProject = document.querySelector(".add-project");
-  addProject.addEventListener("click", checkIfAnyFormExist);
+  document
+    .querySelector(".add-project")
+    .addEventListener("click", checkIfAnyFormExist);
 }
 
 function checkIfAnyFormExist() {
@@ -19,8 +20,7 @@ function checkIfAnyFormExist() {
 }
 
 function cancelProjectInput() {
-  const cancelButton = document.querySelector(".cancel");
-  cancelButton.addEventListener("click", removeInputForm);
+  document.querySelector(".cancel").addEventListener("click", removeInputForm);
 }
 
 function removeInputForm() {
@@ -30,8 +30,9 @@ function removeInputForm() {
 }
 
 function addProjectToList() {
-  const addButton = document.querySelector(".add");
-  addButton.addEventListener("click", AddProjectNameToList);
+  document
+    .querySelector(".add")
+    .addEventListener("click", AddProjectNameToList);
 }
 
 function AddProjectNameToList() {
@@ -40,7 +41,8 @@ function AddProjectNameToList() {
   const inputField = document.querySelector(".name-input");
   const inputForm = document.querySelector(".input-Li");
   const myProjectDotsDiv = document.createElement("div");
-  if (inputField.value === "") return;
+
+  if (inputField.value.trim() === "") return;
   const project = document.createElement("li");
   const myProjectMenu = new Image();
   myProjectMenu.src = ProjectMenu;
@@ -48,10 +50,11 @@ function AddProjectNameToList() {
   myProjectDots.src = ProjectDots;
   project.setAttribute("class", "projects");
   project.append(myProjectMenu, inputField.value);
-  myProjectDotsDiv.appendChild(myProjectDots)
+  myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
   addProject.parentNode.insertBefore(project, inputForm);
   projectList.removeChild(inputForm);
   myProjectDots.addEventListener("click", popUpDeleteAndEdit);
 }
+
 export { addNewProject };

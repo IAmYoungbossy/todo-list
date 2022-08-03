@@ -35,6 +35,7 @@ function enableEditing() {
   })();
 
   function updateNewProjectName() {
+    if (document.querySelector(".name-input").value.trim() === "") return;
     const newProjectName = document.createElement("p");
     newProjectName.textContent = insertGetProjectInput.nameInput.value;
     project.replaceChild(newProjectName, project.childNodes[1]);
