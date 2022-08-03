@@ -24,9 +24,9 @@ function cancelProjectInput() {
 }
 
 function removeInputForm() {
-  const projectList = document.querySelector(".project-list");
-  const inputForm = document.querySelector(".input-Li");
-  projectList.removeChild(inputForm);
+  document
+    .querySelector(".project-list")
+    .removeChild(document.querySelector(".input-Li"));
 }
 
 function addProjectToList() {

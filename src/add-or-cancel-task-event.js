@@ -15,7 +15,7 @@ function addAndCancelTask(e) {
   }
   if (e.target.className == "add-task") {
     if (document.querySelector(".title-input-form").value.trim() === "") return;
-    if (document.querySelector(".title-input-form").value.trim() === "") return;
+    if (document.querySelector(".date-input-form").value.trim() === "") return;
     displayAddedTasks();
     inputTaskForm.parentNode.removeChild(inputTaskForm);
   }

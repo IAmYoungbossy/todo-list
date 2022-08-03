@@ -1,3 +1,10 @@
+let projectArray = [];
+
+function Project(projectName) {
+  this.name = projectName;
+  this.taskArray = [];
+}
+
 function TodoTask(title, desc, date, completed, important) {
   this.title = title;
   this.desc = desc;
@@ -5,5 +12,3 @@ function TodoTask(title, desc, date, completed, important) {
   this.completed = completed;
   this.important = important;
 }
-
-export { TodoTask };
