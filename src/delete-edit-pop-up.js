@@ -30,6 +30,10 @@ function popUpDeleteAndEdit(NameOfProject) {
     "mousedown",
     deleteProjectFromList.bind(deleteProject, NameOfProject)
   );
+  getProjectIndex();
+}
+
+function getProjectIndex() {
   projectIndex = projectArray.indexOf(NameOfProject);
 }
 
@@ -37,4 +41,5 @@ function deleteProjectFromList(nameOfProject) {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
   projectArray.splice(projectArray.indexOf(nameOfProject), 1);
 }
-export { popUpDeleteAndEdit,  projectIndex};
+
+export { popUpDeleteAndEdit, projectIndex };
