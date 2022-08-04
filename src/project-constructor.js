@@ -3,6 +3,9 @@ let projectArray = [];
 function Project(projectName) {
   this.name = projectName;
   this.taskArray = [];
+  this.setName = (newName) => {
+    this.name = newName;
+  };
 }
 
 function TodoTask(title, desc, date, completed, important) {

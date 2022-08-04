@@ -1,5 +1,7 @@
 import { projectArray } from "./project-constructor";
 
+let projectIndex;
+
 function popUpDeleteAndEdit(NameOfProject) {
   let listChildren;
   if (this.parentNode.parentNode.className == "new-task") listChildren = 4;
@@ -28,11 +30,11 @@ function popUpDeleteAndEdit(NameOfProject) {
     "mousedown",
     deleteProjectFromList.bind(deleteProject, NameOfProject)
   );
+  projectIndex = projectArray.indexOf(NameOfProject);
 }
 
 function deleteProjectFromList(nameOfProject) {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
   projectArray.splice(projectArray.indexOf(nameOfProject), 1);
 }
-
-export { popUpDeleteAndEdit };
+export { popUpDeleteAndEdit,  projectIndex};

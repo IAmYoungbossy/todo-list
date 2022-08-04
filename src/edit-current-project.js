@@ -1,3 +1,5 @@
+import { projectIndex } from "./delete-edit-pop-up";
+import { projectArray } from "./project-constructor";
 import { getProjectInput } from "./project-input";
 
 function enableEditing() {
@@ -22,8 +24,7 @@ function enableEditing() {
   getProjectInput();
 
   const insertGetProjectInput = (function () {
-    const nextElement =
-      document.querySelector(".hidden").nextElementSibling;
+    const nextElement = document.querySelector(".hidden").nextElementSibling;
     const nameInput = document.querySelector(".name-input");
     const inputForm = document.querySelector(".input-Li");
     nameInput.value = getName.previousName;
@@ -36,6 +37,8 @@ function enableEditing() {
 
   function updateNewProjectName() {
     if (document.querySelector(".name-input").value.trim() === "") return;
+    editProjectArrayName();
+
     const newProjectName = document.createElement("p");
     newProjectName.textContent = insertGetProjectInput.nameInput.value;
     project.replaceChild(newProjectName, project.childNodes[1]);
@@ -50,11 +53,17 @@ function enableEditing() {
     project.classList.remove("hidden");
   }
 
+  function editProjectArrayName() {
+    projectArray[projectIndex].setName(insertGetProjectInput.nameInput.value);
+  }
+
   (() => {
-    const add = document.querySelector(".add");
-    const cancel = document.querySelector(".cancel");
-    cancel.addEventListener("mousedown", removeInputForm);
-    add.addEventListener("mousedown", updateNewProjectName);
+    document
+      .querySelector(".cancel")
+      .addEventListener("mousedown", removeInputForm);
+    document
+      .querySelector(".add")
+      .addEventListener("mousedown", updateNewProjectName);
   })();
 }
 
