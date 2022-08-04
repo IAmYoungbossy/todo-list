@@ -12,3 +12,5 @@ function TodoTask(title, desc, date, completed, important) {
   this.completed = completed;
   this.important = important;
 }
+
+export { projectArray, Project, TodoTask };

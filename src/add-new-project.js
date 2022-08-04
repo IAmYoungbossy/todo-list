@@ -2,6 +2,7 @@ import ProjectMenu from "./icons/projectMenu.png";
 import ProjectDots from "./icons/dots.png";
 import { getProjectInput } from "./project-input";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
+import { Project, projectArray } from "./project-constructor";
 
 function addNewProject() {
   document
@@ -30,31 +31,53 @@ function removeInputForm() {
 }
 
 function addProjectToList() {
-  document
-    .querySelector(".add")
-    .addEventListener("click", AddProjectNameToList);
+  document.querySelector(".add").addEventListener("click", displayProjects);
 }
 
-function AddProjectNameToList() {
-  const addProject = document.querySelector(".add-project");
-  const projectList = document.querySelector(".project-list");
-  const inputField = document.querySelector(".name-input");
-  const inputForm = document.querySelector(".input-Li");
-  const myProjectDotsDiv = document.createElement("div");
+function displayProjects() {
+  if (document.querySelector(".name-input").value.trim() === "") return;
+  pushNewProjectInstance();
+  removeProjectLists();
+  createProject();
+}
 
-  if (inputField.value.trim() === "") return;
+function createProject() {
+  projectArray.forEach((project) => {
+    AddProjectNameToList(project.name, project);
+  });
+}
+
+function pushNewProjectInstance() {
+  projectArray.push(new Project(document.querySelector(".name-input").value));
+}
+
+function removeProjectLists() {
+  const projectList = document.querySelector(".project-list");
+  while (projectList.childNodes.length > 1) {
+    projectList.removeChild(projectList.firstChild);
+  }
+}
+
+function AddProjectNameToList(projectName, nameOfProject) {
+  const addProject = document.querySelector(".add-project");
+  const myProjectDotsDiv = document.createElement("div");
   const project = document.createElement("li");
   const myProjectMenu = new Image();
-  myProjectMenu.src = ProjectMenu;
   const myProjectDots = new Image();
+
+  myProjectMenu.src = ProjectMenu;
   myProjectDots.src = ProjectDots;
+
   project.setAttribute("class", "projects");
-  project.append(myProjectMenu, inputField.value);
+  project.append(myProjectMenu, projectName);
   myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
-  addProject.parentNode.insertBefore(project, inputForm);
-  projectList.removeChild(inputForm);
-  myProjectDots.addEventListener("click", popUpDeleteAndEdit);
+  addProject.parentNode.insertBefore(project, addProject);
+
+  myProjectDots.addEventListener(
+    "click",
+    popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
+  );
 }
 
 export { addNewProject };

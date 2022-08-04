@@ -1,4 +1,6 @@
-function popUpDeleteAndEdit() {
+import { projectArray } from "./project-constructor";
+
+function popUpDeleteAndEdit(NameOfProject) {
   let listChildren;
   if (this.parentNode.parentNode.className == "new-task") listChildren = 4;
   else if (this.parentNode.parentNode.className == "projects") listChildren = 3;
@@ -21,10 +23,16 @@ function popUpDeleteAndEdit() {
   deleteProject.textContent = "Delete";
   deleteOrEditDiv.append(editProject, deleteProject);
   this.parentNode.parentNode.appendChild(deleteOrEditDiv);
-  deleteProject.addEventListener("mousedown", deleteProjectFromList);
+
+  deleteProject.addEventListener(
+    "mousedown",
+    deleteProjectFromList.bind(deleteProject, NameOfProject)
+  );
 }
 
-function deleteProjectFromList() {
+function deleteProjectFromList(nameOfProject) {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+  projectArray.splice(projectArray.indexOf(nameOfProject), 1);
 }
+
 export { popUpDeleteAndEdit };
