@@ -4,6 +4,8 @@ import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
+import { currentProjectArray } from "./add-new-project";
+import { TodoTask } from "./project-constructor";
 
 function displayAddedTasks() {
   const dateInputForm = document.querySelector(".date-input-form");
@@ -11,6 +13,7 @@ function displayAddedTasks() {
   const textDesc = document.querySelector(".text-area-form");
   const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
+
   const newTask = document.createElement("li");
   const titleAndDescDiv = document.createElement("div");
   const taskTitle = document.createElement("h2");
@@ -20,15 +23,28 @@ function displayAddedTasks() {
   const starDiv = document.createElement("div");
   const taskDiv = document.createElement("div");
   const dateAndSpan = document.createElement("div");
+
   const myTaskDots = new Image();
   const myUncheckedStar = new Image();
   const myUndoneTask = new Image();
   const myCheckedStar = new Image();
   const myDoneTask = new Image();
 
+  currentProjectArray.push(
+    new TodoTask(
+      titleInput.value,
+      textDesc.value,
+      dateInputForm.value,
+      false,
+      false
+    )
+  );
+  console.log(currentProjectArray);
+
   taskTitle.textContent = titleInput.value;
   dateInput.textContent = dateInputForm.value;
   taskDesc.textContent = textDesc.value;
+
   myTaskDots.src = ProjectDots;
   myUncheckedStar.src = UncheckedStar;
   myUndoneTask.src = UndoneTask;
@@ -57,6 +73,7 @@ function displayAddedTasks() {
   taskDiv.append(myUndoneTask, myDoneTask);
   newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
   taskList.insertBefore(newTask, addTaskButton);
+
   myTaskDots.addEventListener("click", popUpDeleteAndEdit);
 }
 
