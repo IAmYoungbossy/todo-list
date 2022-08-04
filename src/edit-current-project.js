@@ -22,12 +22,12 @@ function enableEditing() {
   getProjectInput();
 
   const insertGetProjectInput = (function () {
-    const previousProject =
+    const nextElement =
       document.querySelector(".hidden").nextElementSibling;
     const nameInput = document.querySelector(".name-input");
     const inputForm = document.querySelector(".input-Li");
     nameInput.value = getName.previousName;
-    projectList.insertBefore(inputForm, previousProject);
+    projectList.insertBefore(inputForm, nextElement);
     return {
       inputForm,
       nameInput,
