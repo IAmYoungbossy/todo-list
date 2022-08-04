@@ -77,7 +77,11 @@ function AddProjectNameToList(projectName, nameOfProject) {
     popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
   );
 
-  project.addEventListener("click", () => console.log(nameOfProject.taskArray));
+  project.addEventListener("click", setHeaderToProjectName.bind(null, projectName));
+}
+
+function setHeaderToProjectName(projectName) {
+  document.querySelector(".mainHeader").firstChild.textContent = projectName;
 }
 
 export { addNewProject };
