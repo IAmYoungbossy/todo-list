@@ -12,9 +12,8 @@ function addNewProject() {
 
 function checkIfAnyFormExist() {
   const projectList = document.querySelector(".project-list");
-  for (let i = 0; i < projectList.childNodes.length; i++) {
+  for (let i = 0; i < projectList.childNodes.length; i++)
     if (projectList.childNodes[i].classList[0] == "input-Li") return;
-  }
   getProjectInput();
   cancelProjectInput();
   addProjectToList();
@@ -42,9 +41,9 @@ function displayProjects() {
 }
 
 function createProject() {
-  projectArray.forEach((project) => {
-    AddProjectNameToList(project.name, project);
-  });
+  projectArray.forEach((project) =>
+    AddProjectNameToList(project.name, project)
+  );
 }
 
 function pushNewProjectInstance() {
@@ -53,9 +52,8 @@ function pushNewProjectInstance() {
 
 function removeProjectLists() {
   const projectList = document.querySelector(".project-list");
-  while (projectList.childNodes.length > 1) {
+  while (projectList.childNodes.length > 1)
     projectList.removeChild(projectList.firstChild);
-  }
 }
 
 function AddProjectNameToList(projectName, nameOfProject) {
@@ -78,6 +76,8 @@ function AddProjectNameToList(projectName, nameOfProject) {
     "click",
     popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
   );
+
+  project.addEventListener("click", () => console.log(nameOfProject.taskArray));
 }
 
 export { addNewProject };
