@@ -101,7 +101,7 @@ function removeTasks() {
   const taskList = document.querySelector(".mainSection");
   if (!!taskList)
     while (taskList.childNodes.length > 1)
-      taskList.removeChild(taskList.firstChild);
+      taskList.removeChild(taskList.lastChild);
 }
 
 export { addNewProject };
