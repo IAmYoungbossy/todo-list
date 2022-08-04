@@ -43,12 +43,6 @@ function displayProjects() {
   createProject();
 }
 
-function createProject() {
-  projectArray.forEach((project) =>
-    AddProjectNameToList(project.name, project)
-  );
-}
-
 function pushNewProjectInstance() {
   projectArray.push(new Project(document.querySelector(".name-input").value));
 }
@@ -57,6 +51,12 @@ function removeProjectLists() {
   const projectList = document.querySelector(".project-list");
   while (projectList.childNodes.length > 1)
     projectList.removeChild(projectList.firstChild);
+}
+
+function createProject() {
+  projectArray.forEach((project) =>
+    AddProjectNameToList(project.name, project)
+  );
 }
 
 function AddProjectNameToList(projectName, nameOfProject) {
@@ -82,15 +82,18 @@ function AddProjectNameToList(projectName, nameOfProject) {
 
   project.addEventListener(
     "click",
-    setHeaderToProjectName.bind(null, projectName, nameOfProject)
+    setHeaderToProjectName.bind(null, nameOfProject)
   );
 }
 
-function setHeaderToProjectName(projectName, nameOfProject) {
-  document.querySelector(".mainHeader").firstChild.textContent = projectName;
-  getTaskArray(nameOfProject);
-  removeTasks();
-  todoAddButton();
+function setHeaderToProjectName(nameOfProject, e) {
+  if (e.target.className === "projects") {
+    getTaskArray(nameOfProject);
+    removeTasks();
+    todoAddButton();
+    document.querySelector(".mainHeader").firstChild.textContent =
+      nameOfProject.name;
+  }
 }
 
 function getTaskArray(nameOfProject) {
@@ -104,4 +107,4 @@ function removeTasks() {
       taskList.removeChild(taskList.lastChild);
 }
 
-export { addNewProject };
+export { addNewProject, currentProjectArray };
