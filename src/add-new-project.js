@@ -3,6 +3,7 @@ import ProjectDots from "./icons/dots.png";
 import { getProjectInput } from "./project-input";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 import { Project, projectArray } from "./project-constructor";
+import { todoAddButton } from "./add-todo-button";
 
 let currentProjectArray;
 
@@ -88,11 +89,19 @@ function AddProjectNameToList(projectName, nameOfProject) {
 function setHeaderToProjectName(projectName, nameOfProject) {
   document.querySelector(".mainHeader").firstChild.textContent = projectName;
   getTaskArray(nameOfProject);
+  removeTasks();
+  todoAddButton();
 }
 
 function getTaskArray(nameOfProject) {
   currentProjectArray = nameOfProject.taskArray;
-  console.log(currentProjectArray);
+}
+
+function removeTasks() {
+  const taskList = document.querySelector(".mainSection");
+  if (!!taskList)
+    while (taskList.childNodes.length > 1)
+      taskList.removeChild(taskList.firstChild);
 }
 
 export { addNewProject };
