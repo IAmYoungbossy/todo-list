@@ -4,6 +4,8 @@ import { getProjectInput } from "./project-input";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 import { Project, projectArray } from "./project-constructor";
 
+let currentProjectArray;
+
 function addNewProject() {
   document
     .querySelector(".add-project")
@@ -77,11 +79,20 @@ function AddProjectNameToList(projectName, nameOfProject) {
     popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
   );
 
-  project.addEventListener("click", setHeaderToProjectName.bind(null, projectName));
+  project.addEventListener(
+    "click",
+    setHeaderToProjectName.bind(null, projectName, nameOfProject)
+  );
 }
 
-function setHeaderToProjectName(projectName) {
+function setHeaderToProjectName(projectName, nameOfProject) {
   document.querySelector(".mainHeader").firstChild.textContent = projectName;
+  getTaskArray(nameOfProject);
+}
+
+function getTaskArray(nameOfProject) {
+  currentProjectArray = nameOfProject.taskArray;
+  console.log(currentProjectArray);
 }
 
 export { addNewProject };
