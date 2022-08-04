@@ -38,12 +38,15 @@ function enableEditing() {
   function updateNewProjectName() {
     if (document.querySelector(".name-input").value.trim() === "") return;
     editProjectArrayName();
+    replaceOldNameInDom();
+    removeInputForm();
+    project.classList.remove("hidden");
+  }
 
+  function replaceOldNameInDom() {
     const newProjectName = document.createElement("p");
     newProjectName.textContent = insertGetProjectInput.nameInput.value;
     project.replaceChild(newProjectName, project.childNodes[1]);
-    removeInputForm();
-    project.classList.remove("hidden");
   }
 
   function removeInputForm() {
