@@ -30,10 +30,10 @@ function popUpDeleteAndEdit(NameOfProject) {
     "mousedown",
     deleteProjectFromList.bind(deleteProject, NameOfProject)
   );
-  getProjectIndex();
+  getProjectIndex(NameOfProject);
 }
 
-function getProjectIndex() {
+function getProjectIndex(NameOfProject) {
   projectIndex = projectArray.indexOf(NameOfProject);
 }
 
