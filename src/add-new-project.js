@@ -4,6 +4,7 @@ import { getProjectInput } from "./project-input";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 import { Project, projectArray } from "./project-constructor";
 import { todoAddButton } from "./add-todo-button";
+import { displayTasks } from "./add-or-cancel-task-event";
 
 let currentProjectArray;
 
@@ -63,6 +64,7 @@ function AddProjectNameToList(projectName, nameOfProject) {
   const addProject = document.querySelector(".add-project");
   const myProjectDotsDiv = document.createElement("div");
   const project = document.createElement("li");
+
   const myProjectMenu = new Image();
   const myProjectDots = new Image();
 
@@ -70,6 +72,7 @@ function AddProjectNameToList(projectName, nameOfProject) {
   myProjectDots.src = ProjectDots;
 
   project.setAttribute("class", "projects");
+
   project.append(myProjectMenu, projectName);
   myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
@@ -80,20 +83,22 @@ function AddProjectNameToList(projectName, nameOfProject) {
     popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
   );
 
-  project.addEventListener(
-    "click",
-    setHeaderToProjectName.bind(null, nameOfProject)
-  );
+  project.addEventListener("click", setProjectForUse.bind(null, nameOfProject));
 }
 
-function setHeaderToProjectName(nameOfProject, e) {
+function setProjectForUse(nameOfProject, e) {
   if (e.target.className === "projects") {
     getTaskArray(nameOfProject);
     removeTasks();
     todoAddButton();
-    document.querySelector(".mainHeader").firstChild.textContent =
-      nameOfProject.name;
+    displayTasks();
+    setHeaderToProjectName();
   }
+}
+
+function setHeaderToProjectName(nameOfProject) {
+  document.querySelector(".mainHeader").firstChild.textContent =
+    nameOfProject.name;
 }
 
 function getTaskArray(nameOfProject) {
