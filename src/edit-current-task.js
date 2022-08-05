@@ -1,3 +1,5 @@
+import { currentProjectArray } from "./add-new-project";
+import { taskIndex } from "./delete-edit-pop-up";
 import { newTaskInput } from "./new-task-input";
 
 function enableTaskEditing() {
@@ -24,6 +26,7 @@ function enableTaskEditing() {
     const inputTitle = document.querySelector(".title-input-form");
     const inputDesc = document.querySelector(".text-area-form");
     const inputDate = document.querySelector(".date-input-form");
+
     inputTitle.value = getName.taskTitle.textContent;
     inputDesc.value = getName.taskDesc.textContent;
     inputDate.value = getName.taskDate.textContent;
@@ -34,10 +37,21 @@ function enableTaskEditing() {
   function updateNewTaskName() {
     if (document.querySelector(".title-input-form").value.trim() === "") return;
     if (document.querySelector(".title-input-form").value.trim() === "") return;
+
     getName.taskTitle.textContent = insertNewInput.inputTitle.value;
     getName.taskDesc.textContent = insertNewInput.inputDesc.value;
     getName.taskDate.textContent = insertNewInput.inputDate.value;
+
+    updateNewTaskNameInArray(
+      insertNewInput.inputTitle.value,
+      insertNewInput.inputDesc.value,
+      insertNewInput.inputDate.value
+    );
     removeNewTaskInput();
+  }
+
+  function updateNewTaskNameInArray(title, desc, date) {
+    currentProjectArray[taskIndex].setDetails(title, desc, date);
   }
 
   function removeNewTaskInput() {
@@ -62,4 +76,5 @@ function enableTaskEditing() {
 function editCurentTask(e) {
   if (e.target.className == "edit-task") enableTaskEditing();
 }
+
 export { editCurentTask };
