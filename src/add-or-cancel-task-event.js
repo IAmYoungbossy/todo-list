@@ -28,12 +28,6 @@ function addAndCancelTask(e) {
   }
 }
 
-function displayTasks() {
-  currentProjectArray.forEach((task) =>
-    displayAddedTasks(task.title, task.desc, task.date)
-  );
-}
-
 function pushToTaskArray() {
   currentProjectArray.push(
     new TodoTask(
@@ -50,6 +44,12 @@ function removeTaskFromList() {
     while (taskList.childNodes.length > 1)
       taskList.removeChild(taskList.firstChild);
   }
+}
+
+function displayTasks() {
+  currentProjectArray.forEach((task) =>
+    displayAddedTasks(task.title, task.desc, task.date, task)
+  );
 }
 
 export { addAndCancelTask, displayTasks };

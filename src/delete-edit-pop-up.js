@@ -1,8 +1,10 @@
+import { currentProjectArray } from "./add-new-project";
 import { projectArray } from "./project-constructor";
 
 let projectIndex;
+let taskIndex;
 
-function popUpDeleteAndEdit(NameOfProject) {
+function popUpDeleteAndEdit(nameOfArray) {
   let listChildren;
   if (this.parentNode.parentNode.className == "new-task") listChildren = 4;
   else if (this.parentNode.parentNode.className == "projects") listChildren = 3;
@@ -28,18 +30,33 @@ function popUpDeleteAndEdit(NameOfProject) {
 
   deleteProject.addEventListener(
     "mousedown",
-    deleteProjectFromList.bind(deleteProject, NameOfProject)
+    deleteProjectFromList.bind(deleteProject, nameOfArray)
   );
-  getProjectIndex(NameOfProject);
+
+  getIndex.call(this, nameOfArray);
 }
 
-function getProjectIndex(NameOfProject) {
-  projectIndex = projectArray.indexOf(NameOfProject);
-}
-
-function deleteProjectFromList(nameOfProject) {
+function deleteProjectFromList(nameOfArray) {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-  projectArray.splice(projectArray.indexOf(nameOfProject), 1);
+
+  if (this.parentNode.parentNode.className === "new-task")
+    currentProjectArray.splice(currentProjectArray.indexOf(nameOfArray), 1);
+  else projectArray.splice(projectArray.indexOf(nameOfArray), 1);
+}
+
+function getIndex(nameOfArray) {
+  if (this.parentNode.parentNode.className === "projects")
+    getProjectIndex(nameOfArray);
+  if (this.parentNode.parentNode.className === "new-task")
+    getTaskIndex(nameOfArray);
+}
+
+function getProjectIndex(nameOfArray) {
+  projectIndex = projectArray.indexOf(nameOfArray);
+}
+
+function getTaskIndex(nameOfArray) {
+  taskIndex = currentProjectArray.indexOf(nameOfArray);
 }
 
 export { popUpDeleteAndEdit, projectIndex };
