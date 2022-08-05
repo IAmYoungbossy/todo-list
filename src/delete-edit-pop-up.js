@@ -59,4 +59,4 @@ function getTaskIndex(nameOfArray) {
   taskIndex = currentProjectArray.indexOf(nameOfArray);
 }
 
-export { popUpDeleteAndEdit, projectIndex };
+export { popUpDeleteAndEdit, projectIndex, taskIndex };
