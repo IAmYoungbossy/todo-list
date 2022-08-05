@@ -64,15 +64,11 @@ function AddProjectNameToList(projectName, nameOfProject) {
   const addProject = document.querySelector(".add-project");
   const myProjectDotsDiv = document.createElement("div");
   const project = document.createElement("li");
-
   const myProjectMenu = new Image();
   const myProjectDots = new Image();
-
   myProjectMenu.src = ProjectMenu;
   myProjectDots.src = ProjectDots;
-
   project.setAttribute("class", "projects");
-
   project.append(myProjectMenu, projectName);
   myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
@@ -82,7 +78,6 @@ function AddProjectNameToList(projectName, nameOfProject) {
     "click",
     popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
   );
-
   project.addEventListener("click", setProjectForUse.bind(null, nameOfProject));
 }
 

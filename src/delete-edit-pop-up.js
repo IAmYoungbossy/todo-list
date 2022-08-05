@@ -32,13 +32,11 @@ function popUpDeleteAndEdit(nameOfArray) {
     "mousedown",
     deleteProjectFromList.bind(deleteProject, nameOfArray)
   );
-
   getIndex.call(this, nameOfArray);
 }
 
 function deleteProjectFromList(nameOfArray) {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-
   if (this.parentNode.parentNode.className === "new-task")
     currentProjectArray.splice(currentProjectArray.indexOf(nameOfArray), 1);
   else projectArray.splice(projectArray.indexOf(nameOfArray), 1);

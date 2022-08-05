@@ -4,7 +4,6 @@ import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
-import { currentProjectArray } from "./add-new-project";
 
 function displayAddedTasks(title, desc, date, task) {
   const addTaskButton = document.querySelector(".add-task-button");

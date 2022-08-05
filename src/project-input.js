@@ -8,15 +8,18 @@ function getProjectInput() {
   const projectNameInput = document.createElement("input");
   const cancelButton = document.createElement("button");
   const addButton = document.createElement("button");
-  const myInputIcon = new Image();
 
+  const myInputIcon = new Image();
   myInputIcon.src = List;
+  
   inputDiv.append(myInputIcon, projectNameInput);
   buttonDiv.append(cancelButton, addButton);
   inputLi.append(inputDiv, buttonDiv);
   addProject.parentNode.insertBefore(inputLi, addProject);
+
   cancelButton.textContent = "Cancel";
   addButton.textContent = "Project";
+
   projectNameInput.setAttribute("type", "text");
   projectNameInput.classList.add("name-input");
   inputDiv.classList.add("input-container");

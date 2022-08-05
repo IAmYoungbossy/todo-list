@@ -60,6 +60,7 @@ function enableEditing() {
     projectArray[projectIndex].setName(insertGetProjectInput.nameInput.value);
   }
 
+  // EventListener on cancel and add buttons
   (() => {
     document
       .querySelector(".cancel")
