@@ -31,19 +31,11 @@ function displayAddedTasks() {
   const myDoneTask = new Image();
 
   currentProjectArray.push(
-    new TodoTask(
-      titleInput.value,
-      textDesc.value,
-      dateInputForm.value,
-      false,
-      false
-    )
+    new TodoTask(titleInput.value, textDesc.value, dateInputForm.value)
   );
   console.log(currentProjectArray);
 
-  taskTitle.textContent = titleInput.value;
-  dateInput.textContent = dateInputForm.value;
-  taskDesc.textContent = textDesc.value;
+
 
   myTaskDots.src = ProjectDots;
   myUncheckedStar.src = UncheckedStar;

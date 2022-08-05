@@ -1,3 +1,4 @@
+import { currentProjectArray } from "./add-new-project";
 import { displayAddedTasks } from "./display-todo-list";
 import { newTaskInput } from "./new-task-input";
 
@@ -17,8 +18,15 @@ function addAndCancelTask(e) {
     if (document.querySelector(".title-input-form").value.trim() === "") return;
     if (document.querySelector(".date-input-form").value.trim() === "") return;
     displayAddedTasks();
+    displayTasks();
     inputTaskForm.parentNode.removeChild(inputTaskForm);
   }
 }
 
 export { addAndCancelTask };
+
+function displayTasks() {
+  currentProjectArray.forEach((task) => {
+    console.log(task.title, task.desc, task.date);
+  });
+}
