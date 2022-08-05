@@ -1,6 +1,7 @@
 import { currentProjectArray } from "./add-new-project";
 import { displayAddedTasks } from "./display-todo-list";
 import { newTaskInput } from "./new-task-input";
+import { TodoTask } from "./project-constructor";
 
 function addAndCancelTask(e) {
   const taskList = document.querySelector(".task-list");
@@ -17,16 +18,26 @@ function addAndCancelTask(e) {
   if (e.target.className == "add-task") {
     if (document.querySelector(".title-input-form").value.trim() === "") return;
     if (document.querySelector(".date-input-form").value.trim() === "") return;
-    displayAddedTasks();
+    pushToTaskArray();
     displayTasks();
     inputTaskForm.parentNode.removeChild(inputTaskForm);
   }
 }
 
-export { addAndCancelTask };
-
 function displayTasks() {
   currentProjectArray.forEach((task) => {
-    console.log(task.title, task.desc, task.date);
+    displayAddedTasks(task.title, task.desc, task.date);
   });
 }
+
+function pushToTaskArray(){
+  currentProjectArray.push(
+    new TodoTask(
+      document.querySelector(".date-input-form").value,
+      document.querySelector(".title-input-form").value,
+      document.querySelector(".text-area-form").value
+    )
+  );
+}
+
+export { addAndCancelTask };

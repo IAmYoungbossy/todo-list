@@ -7,10 +7,8 @@ import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 import { currentProjectArray } from "./add-new-project";
 import { TodoTask } from "./project-constructor";
 
-function displayAddedTasks() {
-  const dateInputForm = document.querySelector(".date-input-form");
-  const titleInput = document.querySelector(".title-input-form");
-  const textDesc = document.querySelector(".text-area-form");
+function displayAddedTasks(title, desc, date) {
+
   const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
 
@@ -30,12 +28,12 @@ function displayAddedTasks() {
   const myCheckedStar = new Image();
   const myDoneTask = new Image();
 
-  currentProjectArray.push(
-    new TodoTask(titleInput.value, textDesc.value, dateInputForm.value)
-  );
+
   console.log(currentProjectArray);
 
-
+  taskTitle.textContent = title;
+  taskDesc.textContent = desc;
+  dateInput.textContent = date;
 
   myTaskDots.src = ProjectDots;
   myUncheckedStar.src = UncheckedStar;
