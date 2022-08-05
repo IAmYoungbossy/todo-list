@@ -92,7 +92,7 @@ function setProjectForUse(nameOfProject, e) {
     removeTasks();
     todoAddButton();
     displayTasks();
-    setHeaderToProjectName();
+    setHeaderToProjectName(nameOfProject);
   }
 }
 
