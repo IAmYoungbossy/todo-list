@@ -4,11 +4,8 @@ import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
-import { currentProjectArray } from "./add-new-project";
-import { TodoTask } from "./project-constructor";
 
 function displayAddedTasks(title, desc, date) {
-
   const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
 
@@ -27,9 +24,6 @@ function displayAddedTasks(title, desc, date) {
   const myUndoneTask = new Image();
   const myCheckedStar = new Image();
   const myDoneTask = new Image();
-
-
-  console.log(currentProjectArray);
 
   taskTitle.textContent = title;
   taskDesc.textContent = desc;

@@ -52,4 +52,4 @@ function removeTaskFromList() {
   }
 }
 
-export { addAndCancelTask };
+export { addAndCancelTask, displayTasks };
