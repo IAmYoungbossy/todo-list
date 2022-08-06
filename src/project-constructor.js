@@ -27,4 +27,8 @@ TodoTask.prototype.toggleComplete = function () {
   this.completed ? (this.completed = false) : (this.completed = true);
 };
 
+TodoTask.prototype.toggleImportance = function () {
+  this.important ? (this.important = false) : (this.important = true);
+};
+
 export { projectArray, Project, TodoTask };
