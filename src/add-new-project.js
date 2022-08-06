@@ -86,7 +86,7 @@ function setProjectForUse(nameOfProject, e) {
     getTaskArray(nameOfProject);
     removeTasks();
     todoAddButton();
-    displayTasks();
+    displayTasks(e);
     setHeaderToProjectName(nameOfProject);
   }
 }
@@ -107,4 +107,4 @@ function removeTasks() {
       taskList.removeChild(taskList.lastChild);
 }
 
-export { addNewProject, currentProjectArray };
+export { addNewProject, currentProjectArray, removeTasks };

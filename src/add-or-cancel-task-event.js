@@ -24,7 +24,7 @@ function addAndCancelTask(e) {
 
     pushToTaskArray();
     removeTaskFromList();
-    displayTasks();
+    displayTasks(e);
   }
 }
 
@@ -46,9 +46,9 @@ function removeTaskFromList() {
   }
 }
 
-function displayTasks() {
+function displayTasks(e) {
   currentProjectArray.forEach((task) =>
-    displayAddedTasks(task.title, task.desc, task.date, task)
+    displayAddedTasks(task.title, task.desc, task.date, task, e)
   );
 }
 

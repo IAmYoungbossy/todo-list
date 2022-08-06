@@ -5,7 +5,7 @@ import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { addClass, toggleEvents } from "./toggle-states";
 
-function displayAddedTasks(title, desc, date, task) {
+function displayAddedTasks(title, desc, date, task, e) {
   const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
 
@@ -56,10 +56,19 @@ function displayAddedTasks(title, desc, date, task) {
   starDiv.append(myUncheckedStar, myCheckedStar);
   taskDiv.append(myUndoneTask, myDoneTask);
   newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
-  taskList.insertBefore(newTask, addTaskButton);
+  insertTodoList(e, taskList, newTask, addTaskButton);
 
   toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar, myCheckedStar);
   addClass(task, myDoneTask, taskTitle, taskDesc, dateInput, myCheckedStar);
+}
+
+function insertTodoList(e, taskList, newTask, addTaskButton) {
+  if (
+    e.target.classList[0] === "add-task" ||
+    e.target.classList[0] === "projects"
+  )
+    taskList.insertBefore(newTask, addTaskButton);
+  else document.querySelector(".add-task-section").appendChild(newTask);
 }
 
 export { displayAddedTasks };

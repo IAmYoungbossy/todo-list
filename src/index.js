@@ -12,6 +12,7 @@ import { removeDeleteAndEditPopUp } from "./remove-project-popup";
 import { addAndCancelTask } from "./add-or-cancel-task-event";
 import { toggleNavList } from "./toggle-nav-list";
 import { editCurentTask } from "./edit-current-task";
+import { allTasksEvent } from "./all-task";
 
 createHeader();
 createHeaderContent();
@@ -20,6 +21,7 @@ createNavContent();
 createfooter();
 createTaskDisplaySection();
 toggleNavList;
+allTasksEvent();
 
 document.addEventListener("mouseup", editCurentProject);
 document.addEventListener("mousedown", removeDeleteAndEditPopUp);

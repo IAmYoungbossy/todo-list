@@ -23,22 +23,21 @@ function toggleEvents(
   task,
   myTaskDots,
   myUndoneTask,
-  myUncheckedStar,
-  myCheckedStar
+  myUncheckedStar
 ) {
   myTaskDots.addEventListener(
     "click",
-    popUpDeleteAndEdit.bind(myTaskDots, task)
+    popUpDeleteAndEdit.bind(null, task)
   );
 
   myUndoneTask.addEventListener(
     "click",
-    toggleCompleted.bind(myUndoneTask, task)
+    toggleCompleted.bind(null, task)
   );
 
   myUncheckedStar.addEventListener(
     "click",
-    toggleStar.bind(myCheckedStar, task)
+    toggleStar.bind(null, task)
   );
 }
 

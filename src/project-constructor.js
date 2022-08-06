@@ -10,7 +10,6 @@ class Project {
   }
 }
 
-
 class TodoTask {
   constructor(title, desc, date) {
     this.title = title;
