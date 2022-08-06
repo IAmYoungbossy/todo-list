@@ -15,44 +15,25 @@ function addClass(
     taskDesc.classList.add("line-through");
     dateInput.classList.add("line-through");
   }
-
   if (task.important) myCheckedStar.classList.add("check");
 }
 
-function toggleEvents(
-  task,
-  myTaskDots,
-  myUndoneTask,
-  myUncheckedStar
-) {
-  myTaskDots.addEventListener(
-    "click",
-    popUpDeleteAndEdit.bind(null, task)
-  );
-
-  myUndoneTask.addEventListener(
-    "click",
-    toggleCompleted.bind(null, task)
-  );
-
-  myUncheckedStar.addEventListener(
-    "click",
-    toggleStar.bind(null, task)
-  );
+function toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar) {
+  myTaskDots.addEventListener("click", popUpDeleteAndEdit.bind(null, task));
+  myUndoneTask.addEventListener("click", toggleCompleted.bind(null, task));
+  myUncheckedStar.addEventListener("click", toggleStar.bind(null, task));
 }
 
 function toggleCompleted(task, e) {
   currentProjectArray[currentProjectArray.indexOf(task)].toggleComplete();
-  currentProjectArray[currentProjectArray.indexOf(task)].completed
+  e.target.classList === "undone-task"
     ? toggleLineThrough(e)
     : toggleLineThrough(e);
 }
 
 function toggleStar(task, e) {
   currentProjectArray[currentProjectArray.indexOf(task)].toggleImportance();
-  currentProjectArray[currentProjectArray.indexOf(task)].important
-    ? toggle(e)
-    : toggle(e);
+  e.target.classList === "new-task" ? toggle(e) : toggle(e);
 }
 
 function toggleLineThrough(e) {
