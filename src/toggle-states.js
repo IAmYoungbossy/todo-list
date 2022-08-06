@@ -19,7 +19,7 @@ function addClass(
 }
 
 function toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar) {
-  myTaskDots.addEventListener("click", popUpDeleteAndEdit.bind(null, task));
+  myTaskDots.addEventListener("click", popUpDeleteAndEdit.bind(myTaskDots, task));
   myUndoneTask.addEventListener("click", toggleCompleted.bind(null, task));
   myUncheckedStar.addEventListener("click", toggleStar.bind(null, task));
 }
