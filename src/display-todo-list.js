@@ -4,6 +4,7 @@ import UndoneTask from "./icons/undoneTask.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
+import { currentProjectArray } from "./add-new-project";
 
 function displayAddedTasks(title, desc, date, task) {
   const addTaskButton = document.querySelector(".add-task-button");
@@ -58,7 +59,16 @@ function displayAddedTasks(title, desc, date, task) {
   newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
   taskList.insertBefore(newTask, addTaskButton);
 
-  myTaskDots.addEventListener("click", popUpDeleteAndEdit.bind(myTaskDots, task));
+  myTaskDots.addEventListener(
+    "click",
+    popUpDeleteAndEdit.bind(myTaskDots, task)
+  );
+  myUndoneTask.addEventListener("click", () => {
+    const taskIndex = currentProjectArray.indexOf(task);
+    console.log(currentProjectArray[taskIndex].completed);
+    currentProjectArray[taskIndex].toggleComplete();
+    console.log(currentProjectArray[taskIndex].completed);
+  });
 }
 
 export { displayAddedTasks };
