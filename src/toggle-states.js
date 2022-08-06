@@ -1,4 +1,5 @@
 import { currentProjectArray } from "./add-new-project";
+import { allTasksArray } from "./all-task";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 
 function addClass(
@@ -19,21 +20,36 @@ function addClass(
 }
 
 function toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar) {
-  myTaskDots.addEventListener("click", popUpDeleteAndEdit.bind(myTaskDots, task));
+  myTaskDots.addEventListener(
+    "click",
+    popUpDeleteAndEdit.bind(myTaskDots, task)
+  );
   myUndoneTask.addEventListener("click", toggleCompleted.bind(null, task));
   myUncheckedStar.addEventListener("click", toggleStar.bind(null, task));
 }
 
 function toggleCompleted(task, e) {
-  currentProjectArray[currentProjectArray.indexOf(task)].toggleComplete();
-  e.target.classList === "undone-task"
-    ? toggleLineThrough(e)
-    : toggleLineThrough(e);
+  if (currentProjectArray.indexOf(task) < 0) {
+    allTasksArray[allTasksArray.indexOf(task)].toggleComplete();
+    e.target.classList === "undone-task"
+      ? toggleLineThrough(e)
+      : toggleLineThrough(e);
+  } else {
+    currentProjectArray[currentProjectArray.indexOf(task)].toggleComplete();
+    e.target.classList === "undone-task"
+      ? toggleLineThrough(e)
+      : toggleLineThrough(e);
+  }
 }
 
 function toggleStar(task, e) {
-  currentProjectArray[currentProjectArray.indexOf(task)].toggleImportance();
-  e.target.classList === "new-task" ? toggle(e) : toggle(e);
+  if (currentProjectArray.indexOf(task) < 0) {
+    allTasksArray[allTasksArray.indexOf(task)].toggleImportance();
+    e.target.classList === "new-task" ? toggle(e) : toggle(e);
+  } else {
+    currentProjectArray[currentProjectArray.indexOf(task)].toggleImportance();
+    e.target.classList === "new-task" ? toggle(e) : toggle(e);
+  }
 }
 
 function toggleLineThrough(e) {

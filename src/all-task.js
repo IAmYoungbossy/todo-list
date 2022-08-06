@@ -1,6 +1,8 @@
 import { displayAddedTasks } from "./display-todo-list";
 import { projectArray } from "./project-constructor";
 
+let allTasksArray = [];
+
 function allTasksEvent() {
   const allTask = document.querySelector(".home").childNodes[2].firstChild;
   allTask.addEventListener("click", displayAllTasks);
@@ -20,11 +22,14 @@ function clearTask() {
 }
 
 function displayAll(e) {
-  projectArray.forEach((project) => {
-    project.taskArray.forEach((task) => {
-      displayAddedTasks(task.title, task.desc, task.date, task, e);
-    });
-  });
+  allTasksArray = [];
+  projectArray.forEach((project) =>
+    project.taskArray.forEach((task) => allTasksArray.push(task))
+  );
+
+  allTasksArray.forEach((task) =>
+    displayAddedTasks(task.title, task.desc, task.date, task, e)
+  );
 }
 
-export { allTasksEvent };
+export { allTasksEvent, allTasksArray };
