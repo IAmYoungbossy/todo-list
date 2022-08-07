@@ -4,13 +4,21 @@ import { projectArray } from "./project-constructor";
 let allTasksArray = [];
 
 function allTasksEvent() {
-  const allTask = document.querySelector(".home").childNodes[2].firstChild;
-  allTask.addEventListener("click", displayAllTasks);
+  const allTasks = document.querySelector(".home").childNodes[2].firstChild;
+  const importantTasks =
+    document.querySelector(".home").childNodes[2].lastChild;
+  allTasks.addEventListener("click", displayAllTasks);
+  importantTasks.addEventListener("click", displayAllImportantTasks);
 }
 
 function displayAllTasks(e) {
   clearTask();
   displayAll(e);
+}
+
+function displayAllImportantTasks(e) {
+  clearTask();
+  displayImportantTasks(e);
 }
 
 function clearTask() {
@@ -24,9 +32,18 @@ function clearTask() {
 function displayAll(e) {
   allTasksArray = [];
   pushToAllTAsksArray(allTasksArray);
-  allTasksArray.forEach((task) =>
-    displayAddedTasks(task.title, task.desc, task.date, task, e)
-  );
+  allTasksArray.forEach((task) => {
+    displayAddedTasks(task.title, task.desc, task.date, task, e);
+  });
+}
+
+function displayImportantTasks(e) {
+  allTasksArray = [];
+  pushToAllTAsksArray(allTasksArray);
+  allTasksArray.forEach((task) => {
+    if (task.important)
+      displayAddedTasks(task.title, task.desc, task.date, task, e);
+  });
 }
 
 function pushToAllTAsksArray(allTasksArray) {
