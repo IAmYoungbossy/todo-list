@@ -2,11 +2,23 @@ import ProjectMenu from "./icons/projectMenu.png";
 import ProjectDots from "./icons/dots.png";
 import { getProjectInput } from "./project-input";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
-import { Project, projectArray } from "./project-constructor";
+import { Project, projectArray, setProjectArray } from "./project-constructor";
 import { todoAddButton } from "./add-todo-button";
 import { displayTasks } from "./add-or-cancel-task-event";
 
-let currentProjectArray;
+if (localStorage.getItem("currentProjectArray") == null)
+  localStorage.setItem("currentProjectArray", JSON.stringify([]));
+
+let currentProjectArray = JSON.parse(
+  localStorage.getItem("currentProjectArray")
+);
+
+function setCurrentProjectArray() {
+  localStorage.setItem(
+    "currentProjectArray",
+    JSON.stringify(currentProjectArray)
+  );
+}
 
 function addNewProject() {
   document
@@ -46,6 +58,7 @@ function displayProjects() {
 
 function pushNewProjectInstance() {
   projectArray.push(new Project(document.querySelector(".name-input").value));
+  setProjectArray();
 }
 
 function removeProjectLists() {
@@ -98,6 +111,7 @@ function setHeaderToProjectName(nameOfProject) {
 
 function getTaskArray(nameOfProject) {
   currentProjectArray = nameOfProject.taskArray;
+  setCurrentProjectArray();
 }
 
 function removeTasks() {
@@ -107,4 +121,11 @@ function removeTasks() {
       taskList.removeChild(taskList.lastChild);
 }
 
-export { addNewProject, currentProjectArray, removeTasks };
+export {
+  addNewProject,
+  currentProjectArray,
+  removeTasks,
+  setCurrentProjectArray,
+  createProject,
+  removeProjectLists
+};

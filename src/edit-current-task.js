@@ -1,4 +1,4 @@
-import { currentProjectArray } from "./add-new-project";
+import { currentProjectArray, setCurrentProjectArray } from "./add-new-project";
 import { taskIndex } from "./delete-edit-pop-up";
 import { newTaskInput } from "./new-task-input";
 
@@ -52,6 +52,7 @@ function enableTaskEditing() {
 
   function updateNewTaskNameInArray(title, desc, date) {
     currentProjectArray[taskIndex].setDetails(title, desc, date);
+    setCurrentProjectArray()
   }
 
   function removeNewTaskInput() {

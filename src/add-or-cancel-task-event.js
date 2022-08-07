@@ -1,4 +1,4 @@
-import { currentProjectArray } from "./add-new-project";
+import { currentProjectArray, setCurrentProjectArray } from "./add-new-project";
 import { displayAddedTasks } from "./display-todo-list";
 import { newTaskInput } from "./new-task-input";
 import { TodoTask } from "./project-constructor";
@@ -36,6 +36,7 @@ function pushToTaskArray() {
       document.querySelector(".date-input-form").value
     )
   );
+  setCurrentProjectArray()
 }
 
 function removeTaskFromList() {

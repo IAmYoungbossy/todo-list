@@ -1,5 +1,5 @@
-import { currentProjectArray } from "./add-new-project";
-import { projectArray } from "./project-constructor";
+import { currentProjectArray, setCurrentProjectArray } from "./add-new-project";
+import { projectArray, setProjectArray } from "./project-constructor";
 
 let projectIndex;
 let taskIndex;
@@ -37,9 +37,13 @@ function popUpDeleteAndEdit(nameOfArray) {
 
 function deleteProjectFromList(nameOfArray) {
   this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-  if (this.parentNode.parentNode.className === "new-task")
+  if (this.parentNode.parentNode.className === "new-task") {
     currentProjectArray.splice(currentProjectArray.indexOf(nameOfArray), 1);
-  else projectArray.splice(projectArray.indexOf(nameOfArray), 1);
+    setCurrentProjectArray();
+  } else {
+    projectArray.splice(projectArray.indexOf(nameOfArray), 1);
+    setProjectArray();
+  }
 }
 
 function getIndex(nameOfArray) {

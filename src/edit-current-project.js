@@ -1,5 +1,5 @@
 import { projectIndex } from "./delete-edit-pop-up";
-import { projectArray } from "./project-constructor";
+import { projectArray, setProjectArray } from "./project-constructor";
 import { getProjectInput } from "./project-input";
 
 function enableEditing() {
@@ -58,6 +58,7 @@ function enableEditing() {
 
   function editProjectArrayName() {
     projectArray[projectIndex].setName(insertGetProjectInput.nameInput.value);
+    setProjectArray();
   }
 
   // EventListener on cancel and add buttons

@@ -1,4 +1,4 @@
-import { currentProjectArray } from "./add-new-project";
+import { currentProjectArray, setCurrentProjectArray } from "./add-new-project";
 import { allTasksArray } from "./task-grouping";
 import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 
@@ -31,11 +31,13 @@ function toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar) {
 function toggleCompleted(task, e) {
   if (currentProjectArray.indexOf(task) < 0) {
     allTasksArray[allTasksArray.indexOf(task)].toggleComplete();
+    localStorage.setItem("allTasksArray", JSON.stringify(allTasksArray));
     e.target.classList === "undone-task"
       ? toggleLineThrough(e)
       : toggleLineThrough(e);
   } else {
     currentProjectArray[currentProjectArray.indexOf(task)].toggleComplete();
+    setCurrentProjectArray();
     e.target.classList === "undone-task"
       ? toggleLineThrough(e)
       : toggleLineThrough(e);
@@ -45,9 +47,11 @@ function toggleCompleted(task, e) {
 function toggleStar(task, e) {
   if (currentProjectArray.indexOf(task) < 0) {
     allTasksArray[allTasksArray.indexOf(task)].toggleImportance();
+    localStorage.setItem("allTasksArray", JSON.stringify(allTasksArray));
     e.target.classList === "new-task" ? toggle(e) : toggle(e);
   } else {
     currentProjectArray[currentProjectArray.indexOf(task)].toggleImportance();
+    setCurrentProjectArray();
     e.target.classList === "new-task" ? toggle(e) : toggle(e);
   }
 }

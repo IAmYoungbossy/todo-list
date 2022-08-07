@@ -1,4 +1,11 @@
-let projectArray = [];
+if (localStorage.getItem("projectArray") == null)
+  localStorage.setItem("projectArray", JSON.stringify([]));
+
+let projectArray = JSON.parse(localStorage.getItem("projectArray"));
+
+function setProjectArray() {
+  localStorage.setItem("projectArray", JSON.stringify(projectArray));
+}
 
 class Project {
   constructor(projectName) {
@@ -31,4 +38,4 @@ class TodoTask {
   }
 }
 
-export { projectArray, Project, TodoTask };
+export { projectArray, Project, TodoTask, setProjectArray };
