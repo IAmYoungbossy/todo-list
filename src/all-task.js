@@ -23,12 +23,15 @@ function clearTask() {
 
 function displayAll(e) {
   allTasksArray = [];
-  projectArray.forEach((project) =>
-    project.taskArray.forEach((task) => allTasksArray.push(task))
-  );
-
+  pushToAllTAsksArray(allTasksArray);
   allTasksArray.forEach((task) =>
     displayAddedTasks(task.title, task.desc, task.date, task, e)
+  );
+}
+
+function pushToAllTAsksArray(allTasksArray) {
+  projectArray.forEach((project) =>
+    project.taskArray.forEach((task) => allTasksArray.push(task))
   );
 }
 
