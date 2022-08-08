@@ -1,7 +1,7 @@
-import { currentProjectArray, setCurrentProjectArray } from "./add-new-project";
+import { projectArrayIndex } from "./add-new-project";
 import { displayAddedTasks } from "./display-todo-list";
 import { newTaskInput } from "./new-task-input";
-import { TodoTask } from "./project-constructor";
+import { projectArray, setProjectArray, TodoTask } from "./project-constructor";
 
 function addAndCancelTask(e) {
   const taskList = document.querySelector(".task-list");
@@ -29,14 +29,14 @@ function addAndCancelTask(e) {
 }
 
 function pushToTaskArray() {
-  currentProjectArray.push(
+  projectArray[projectArrayIndex].taskArray.push(
     new TodoTask(
       document.querySelector(".title-input-form").value,
       document.querySelector(".text-area-form").value,
       document.querySelector(".date-input-form").value
     )
   );
-  setCurrentProjectArray()
+  setProjectArray();
 }
 
 function removeTaskFromList() {
@@ -48,9 +48,11 @@ function removeTaskFromList() {
 }
 
 function displayTasks(e) {
-  currentProjectArray.forEach((task) =>
-    displayAddedTasks(task.title, task.desc, task.date, task, e)
-  );
+  projectArray[projectArrayIndex].taskArray.forEach((task) => {
+    Object.setPrototypeOf(task, TodoTask.prototype);
+    setProjectArray();
+    displayAddedTasks(task.title, task.desc, task.date, task, e);
+  });
 }
 
 export { addAndCancelTask, displayTasks };

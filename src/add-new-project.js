@@ -6,6 +6,8 @@ import { Project, projectArray, setProjectArray } from "./project-constructor";
 import { todoAddButton } from "./add-todo-button";
 import { displayTasks } from "./add-or-cancel-task-event";
 
+let projectArrayIndex;
+
 if (localStorage.getItem("currentProjectArray") == null)
   localStorage.setItem("currentProjectArray", JSON.stringify([]));
 
@@ -69,11 +71,11 @@ function removeProjectLists() {
 
 function createProject() {
   projectArray.forEach((project) =>
-    AddProjectNameToList(project.name, project)
+    AddProjectNameToList(project)
   );
 }
 
-function AddProjectNameToList(projectName, nameOfProject) {
+function AddProjectNameToList(proj) {
   const addProject = document.querySelector(".add-project");
   const myProjectDotsDiv = document.createElement("div");
   const project = document.createElement("li");
@@ -82,36 +84,36 @@ function AddProjectNameToList(projectName, nameOfProject) {
   myProjectMenu.src = ProjectMenu;
   myProjectDots.src = ProjectDots;
   project.setAttribute("class", "projects");
-  project.append(myProjectMenu, projectName);
+  project.append(myProjectMenu, proj.name);
   myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
   addProject.parentNode.insertBefore(project, addProject);
 
   myProjectDots.addEventListener(
     "click",
-    popUpDeleteAndEdit.bind(myProjectDots, nameOfProject)
+    popUpDeleteAndEdit.bind(myProjectDots, proj)
   );
-  project.addEventListener("click", setProjectForUse.bind(null, nameOfProject));
+  project.addEventListener("click", setProjectForUse.bind(null, proj));
 }
 
-function setProjectForUse(nameOfProject, e) {
+function setProjectForUse(proj, e) {
   if (e.target.className === "projects") {
-    getTaskArray(nameOfProject);
+    getTaskArray(proj);
     removeTasks();
     todoAddButton();
     displayTasks(e);
-    setHeaderToProjectName(nameOfProject);
+    setHeaderToProjectName(proj);
   }
 }
 
-function setHeaderToProjectName(nameOfProject) {
+function setHeaderToProjectName(proj) {
   document.querySelector(".mainHeader").firstChild.textContent =
-    nameOfProject.name;
+    proj.name;
 }
 
-function getTaskArray(nameOfProject) {
-  currentProjectArray = nameOfProject.taskArray;
-  setCurrentProjectArray();
+function getTaskArray(proj) {
+  projectArrayIndex = projectArray.indexOf(proj);
+  console.log(projectArrayIndex);
 }
 
 function removeTasks() {
@@ -127,5 +129,6 @@ export {
   removeTasks,
   setCurrentProjectArray,
   createProject,
-  removeProjectLists
+  removeProjectLists,
+  projectArrayIndex
 };

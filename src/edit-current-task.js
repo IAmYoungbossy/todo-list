@@ -1,6 +1,11 @@
-import { currentProjectArray, setCurrentProjectArray } from "./add-new-project";
+import {
+  currentProjectArray,
+  projectArrayIndex,
+  setCurrentProjectArray,
+} from "./add-new-project";
 import { taskIndex } from "./delete-edit-pop-up";
 import { newTaskInput } from "./new-task-input";
+import { projectArray, setProjectArray } from "./project-constructor";
 
 function enableTaskEditing() {
   const currentTask =
@@ -51,8 +56,9 @@ function enableTaskEditing() {
   }
 
   function updateNewTaskNameInArray(title, desc, date) {
-    currentProjectArray[taskIndex].setDetails(title, desc, date);
-    setCurrentProjectArray()
+    console.log(taskIndex);
+    projectArray[projectArrayIndex].taskArray[taskIndex].setDetails(title, desc, date);
+    setProjectArray();
   }
 
   function removeNewTaskInput() {
