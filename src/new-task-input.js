@@ -28,7 +28,10 @@ function newTaskInput() {
   dateDiv.append(dateInputLabel, dateInput);
   buttonDiv.append(cancelButton, addButton);
   taskInputForm.append(titleDiv, textareaDiv, dateDiv, buttonDiv);
-  taskList.insertBefore(taskInputForm, addTaskButton);
+
+  // If taskList is not found, insert taskInputForm in all task section
+  if (!!taskList) taskList.insertBefore(taskInputForm, addTaskButton);
+  else document.querySelector(".add-task-section").append(taskInputForm);
 
   titleInput.classList.add("title-input-form");
   textAreaDescription.classList.add("text-area-form");

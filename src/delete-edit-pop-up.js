@@ -1,4 +1,4 @@
-import { currentProjectArray, projectArrayIndex } from "./add-new-project";
+import { projectArrayIndex } from "./add-new-project";
 import { projectArray, setProjectArray } from "./project-constructor";
 
 let projectIndex;

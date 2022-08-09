@@ -1,8 +1,4 @@
-import {
-  currentProjectArray,
-  projectArrayIndex,
-  setCurrentProjectArray,
-} from "./add-new-project";
+import { projectArrayIndex } from "./add-new-project";
 import { taskIndex } from "./delete-edit-pop-up";
 import { newTaskInput } from "./new-task-input";
 import { projectArray, setProjectArray } from "./project-constructor";
@@ -12,8 +8,10 @@ function enableTaskEditing() {
     document.querySelector(".edit-task").parentNode.parentNode;
   const taskList = document.querySelector(".task-list");
 
-  for (let i = 0; i < taskList.childNodes.length; i++)
-    if (taskList.childNodes[i].classList[0] == "task-input-form") return;
+  if (!!taskList) {
+    for (let i = 0; i < taskList.childNodes.length; i++)
+      if (taskList.childNodes[i].classList[0] == "task-input-form") return;
+  }
 
   const getName = (function () {
     currentTask.classList.add("hidden");
@@ -35,7 +33,14 @@ function enableTaskEditing() {
     inputTitle.value = getName.taskTitle.textContent;
     inputDesc.value = getName.taskDesc.textContent;
     inputDate.value = getName.taskDate.textContent;
-    taskList.insertBefore(taskInputForm, previousTask);
+
+    // If taskList is not found, insert taskInputForm in all task section
+    if (!!taskList) taskList.insertBefore(taskInputForm, previousTask);
+    else
+      document
+        .querySelector(".add-task-section")
+        .insertBefore(taskInputForm, currentTask.nextSibling);
+
     return { inputTitle, inputDesc, inputDate, taskInputForm };
   })();
 
@@ -57,7 +62,11 @@ function enableTaskEditing() {
 
   function updateNewTaskNameInArray(title, desc, date) {
     console.log(taskIndex);
-    projectArray[projectArrayIndex].taskArray[taskIndex].setDetails(title, desc, date);
+    projectArray[projectArrayIndex].taskArray[taskIndex].setDetails(
+      title,
+      desc,
+      date
+    );
     setProjectArray();
   }
 
