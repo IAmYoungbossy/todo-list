@@ -1,5 +1,4 @@
 function newTaskInput() {
-  const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
 
   const taskInputForm = document.createElement("li");
@@ -30,7 +29,11 @@ function newTaskInput() {
   taskInputForm.append(titleDiv, textareaDiv, dateDiv, buttonDiv);
 
   // If taskList is not found, insert taskInputForm in all task section
-  if (!!taskList) taskList.insertBefore(taskInputForm, addTaskButton);
+  if (!!taskList)
+    taskList.insertBefore(
+      taskInputForm,
+      document.querySelector(".add-task-button")
+    );
   else document.querySelector(".add-task-section").append(taskInputForm);
 
   titleInput.classList.add("title-input-form");
