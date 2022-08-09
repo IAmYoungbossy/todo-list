@@ -30,15 +30,9 @@ function displayAllImportantTasks(e) {
 
 function clearTask() {
   const addTaskSection = document.querySelector(".add-task-section");
-  if (!!addTaskSection) {
+  if (!!addTaskSection)
     while (addTaskSection.childNodes.length > 0)
       addTaskSection.removeChild(addTaskSection.firstChild);
-  } else {
-    const mainSection = document.querySelector(".mainSection");
-    const main = document.createElement("div");
-    main.classList.add("add-task-section");
-    mainSection.appendChild(main);
-  }
 }
 
 function displayAll(e) {

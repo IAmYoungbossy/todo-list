@@ -56,19 +56,13 @@ function displayAddedTasks(title, desc, date, task, e) {
   starDiv.append(myUncheckedStar, myCheckedStar);
   taskDiv.append(myUndoneTask, myDoneTask);
   newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
-  insertTodoList(e, taskList, newTask, addTaskButton);
+
+  // Checks if taskList for each project is available else display all tasks
+  if (!!taskList) taskList.insertBefore(newTask, addTaskButton);
+  else document.querySelector(".add-task-section").appendChild(newTask);
 
   toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar, myCheckedStar);
   addClass(task, myDoneTask, taskTitle, taskDesc, dateInput, myCheckedStar);
-}
-
-function insertTodoList(e, taskList, newTask, addTaskButton) {
-  if (
-    e.target.classList[0] === "add-task" ||
-    e.target.classList[0] === "projects"
-  )
-    taskList.insertBefore(newTask, addTaskButton);
-  else document.querySelector(".add-task-section").appendChild(newTask);
 }
 
 export { displayAddedTasks };

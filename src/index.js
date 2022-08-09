@@ -16,7 +16,7 @@ import { removeDeleteAndEditPopUp } from "./remove-project-popup";
 import { addAndCancelTask } from "./add-or-cancel-task-event";
 import { toggleNavList } from "./toggle-nav-list";
 import { editCurentTask } from "./edit-current-task";
-import { allTasksEvent } from "./task-grouping";
+import { allTasksEvent, displayAllTasks } from "./task-grouping";
 import { projectArray } from "./project-constructor";
 
 createHeader();
@@ -35,7 +35,7 @@ document.addEventListener("mousedown", addNewProject);
 document.addEventListener("mouseup", editCurentTask);
 
 // Display all projects available
-(() => {
+((e) => {
   if (localStorage.getItem("projectArray") == null)
     localStorage.setItem("projectArray", JSON.stringify([]));
   else {
@@ -43,5 +43,6 @@ document.addEventListener("mouseup", editCurentTask);
       removeProjectLists();
       createProject();
     });
+    displayAllTasks(e)
   }
 })();

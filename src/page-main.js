@@ -97,11 +97,15 @@ function createTaskDisplaySection() {
   const mainSection = document.querySelector(".mainSection");
   const headerContainer = document.createElement("div");
   const sectionHeader = document.createElement("h1");
+  const addTaskSection = document.createElement("div");
 
   headerContainer.classList.add("mainHeader");
   headerContainer.appendChild(sectionHeader);
   mainSection.appendChild(headerContainer);
-  sectionHeader.textContent = "Default";
+  mainSection.appendChild(addTaskSection);
+  sectionHeader.textContent = "All tasks";
+
+  addTaskSection.classList.add("add-task-section");
 }
 
 export { CreateMain, createNavContent, createTaskDisplaySection };

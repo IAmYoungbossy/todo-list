@@ -117,10 +117,10 @@ function getTaskArray(proj) {
 }
 
 function removeTasks() {
-  const taskList = document.querySelector(".mainSection");
-  if (!!taskList)
-    while (taskList.childNodes.length > 1)
-      taskList.removeChild(taskList.lastChild);
+  const addTaskSection = document.querySelector(".add-task-section");
+  if (!!addTaskSection)
+    while (addTaskSection.firstChild)
+    addTaskSection.removeChild(addTaskSection.lastChild);
 }
 
 export {
