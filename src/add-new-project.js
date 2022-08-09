@@ -70,9 +70,7 @@ function removeProjectLists() {
 }
 
 function createProject() {
-  projectArray.forEach((project) =>
-    AddProjectNameToList(project)
-  );
+  projectArray.forEach((project) => AddProjectNameToList(project));
 }
 
 function AddProjectNameToList(proj) {
@@ -107,20 +105,18 @@ function setProjectForUse(proj, e) {
 }
 
 function setHeaderToProjectName(proj) {
-  document.querySelector(".mainHeader").firstChild.textContent =
-    proj.name;
+  document.querySelector(".mainHeader").firstChild.textContent = proj.name;
 }
 
 function getTaskArray(proj) {
   projectArrayIndex = projectArray.indexOf(proj);
-  console.log(projectArrayIndex);
 }
 
 function removeTasks() {
   const addTaskSection = document.querySelector(".add-task-section");
   if (!!addTaskSection)
     while (addTaskSection.firstChild)
-    addTaskSection.removeChild(addTaskSection.lastChild);
+      addTaskSection.removeChild(addTaskSection.lastChild);
 }
 
 export {
@@ -130,5 +126,5 @@ export {
   setCurrentProjectArray,
   createProject,
   removeProjectLists,
-  projectArrayIndex
+  projectArrayIndex,
 };
