@@ -33,6 +33,11 @@ function clearTask() {
   if (!!addTaskSection) {
     while (addTaskSection.childNodes.length > 0)
       addTaskSection.removeChild(addTaskSection.firstChild);
+  } else {
+    const mainSection = document.querySelector(".mainSection");
+    const main = document.createElement("div");
+    main.classList.add("add-task-section");
+    mainSection.appendChild(main);
   }
 }
 
@@ -74,4 +79,4 @@ function pushTo(allTasksArray) {
   );
 }
 
-export { allTasksEvent, allTasksArray, displayAll, pushTo };
+export { allTasksEvent, allTasksArray, displayAll, pushTo, displayAllTasks };
