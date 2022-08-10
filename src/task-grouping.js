@@ -12,11 +12,13 @@ function allTasksEvent() {
 function displayAllTasks() {
   clearTask();
   displayAll();
+  showGroupTitle("All tasks");
 }
 
 function displayAllImportantTasks() {
   clearTask();
   displayImportantTasks();
+  showGroupTitle("Important tasks");
 }
 
 function clearTask() {
@@ -41,6 +43,10 @@ function displayImportantTasks() {
         displayAddedTasks(task.title, task.desc, task.date, task);
     })
   );
+}
+
+function showGroupTitle(groupTitle) {
+  document.querySelector(".mainHeader").childNodes[0].textContent = groupTitle;
 }
 
 export { allTasksEvent, displayAllTasks };
