@@ -5,7 +5,7 @@ import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { addClass, toggleEvents } from "./toggle-states";
 
-function displayAddedTasks(title, desc, date, task, e) {
+function displayAddedTasks(title, desc, date, task) {
   const addTaskButton = document.querySelector(".add-task-button");
   const taskList = document.querySelector(".task-list");
 

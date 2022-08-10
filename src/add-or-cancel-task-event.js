@@ -24,7 +24,7 @@ function addAndCancelTask(e) {
 
     pushToTaskArray();
     removeTaskFromList();
-    displayTasks(e);
+    displayTasks();
   }
 }
 
@@ -47,11 +47,11 @@ function removeTaskFromList() {
   }
 }
 
-function displayTasks(e) {
+function displayTasks() {
   projectArray[projectArrayIndex].taskArray.forEach((task) => {
     Object.setPrototypeOf(task, TodoTask.prototype);
     setProjectArray();
-    displayAddedTasks(task.title, task.desc, task.date, task, e);
+    displayAddedTasks(task.title, task.desc, task.date, task);
   });
 }
 

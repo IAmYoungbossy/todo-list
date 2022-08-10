@@ -63,14 +63,4 @@ function pushToAllTAsksArray(allTasksArray) {
   );
 }
 
-function pushTo(allTasksArray) {
-  allTasksArray = [];
-  projectArray.forEach((project) =>
-    project.taskArray.forEach((task) => {
-      allTasksArray.push(task);
-      localStorage.setItem("allTasksArray", JSON.stringify(allTasksArray));
-    })
-  );
-}
-
-export { allTasksEvent, allTasksArray, displayAll, pushTo, displayAllTasks };
+export { allTasksEvent, displayAllTasks };

@@ -8,20 +8,6 @@ import { displayTasks } from "./add-or-cancel-task-event";
 
 let projectArrayIndex;
 
-if (localStorage.getItem("currentProjectArray") == null)
-  localStorage.setItem("currentProjectArray", JSON.stringify([]));
-
-let currentProjectArray = JSON.parse(
-  localStorage.getItem("currentProjectArray")
-);
-
-function setCurrentProjectArray() {
-  localStorage.setItem(
-    "currentProjectArray",
-    JSON.stringify(currentProjectArray)
-  );
-}
-
 function addNewProject() {
   document
     .querySelector(".add-project")
@@ -121,9 +107,7 @@ function removeTasks() {
 
 export {
   addNewProject,
-  currentProjectArray,
   removeTasks,
-  setCurrentProjectArray,
   createProject,
   removeProjectLists,
   projectArrayIndex,
