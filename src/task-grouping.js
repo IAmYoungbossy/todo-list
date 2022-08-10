@@ -1,15 +1,6 @@
 import { displayAddedTasks } from "./display-todo-list";
 import { projectArray } from "./project-constructor";
 
-if (localStorage.getItem("allTasksArray") == null)
-  localStorage.setItem("allTasksArray", JSON.stringify([]));
-
-let allTasksArray = JSON.parse(localStorage.getItem("allTasksArray"));
-
-function setAllTasksArray() {
-  localStorage.setItem("allTasksArray", JSON.stringify(allTasksArray));
-}
-
 function allTasksEvent() {
   const allTasks = document.querySelector(".home").childNodes[2].firstChild;
   const importantTasks =
@@ -18,14 +9,14 @@ function allTasksEvent() {
   importantTasks.addEventListener("click", displayAllImportantTasks);
 }
 
-function displayAllTasks(e) {
+function displayAllTasks() {
   clearTask();
-  displayAll(e);
+  displayAll();
 }
 
-function displayAllImportantTasks(e) {
+function displayAllImportantTasks() {
   clearTask();
-  displayImportantTasks(e);
+  displayImportantTasks();
 }
 
 function clearTask() {
@@ -35,30 +26,19 @@ function clearTask() {
       addTaskSection.removeChild(addTaskSection.firstChild);
 }
 
-function displayAll(e) {
-  allTasksArray = [];
-  setAllTasksArray();
-  pushToAllTAsksArray(allTasksArray);
-  allTasksArray.forEach((task) => {
-    displayAddedTasks(task.title, task.desc, task.date, task, e);
-  });
+function displayAll() {
+  projectArray.forEach((project) =>
+    project.taskArray.forEach((task) =>
+      displayAddedTasks(task.title, task.desc, task.date, task)
+    )
+  );
 }
 
-function displayImportantTasks(e) {
-  allTasksArray = [];
-  setAllTasksArray();
-  pushToAllTAsksArray(allTasksArray);
-  allTasksArray.forEach((task) => {
-    if (task.important)
-      displayAddedTasks(task.title, task.desc, task.date, task, e);
-  });
-}
-
-function pushToAllTAsksArray(allTasksArray) {
+function displayImportantTasks() {
   projectArray.forEach((project) =>
     project.taskArray.forEach((task) => {
-      allTasksArray.push(task);
-      localStorage.setItem("allTasksArray", JSON.stringify(allTasksArray));
+      if (task.important)
+        displayAddedTasks(task.title, task.desc, task.date, task);
     })
   );
 }
