@@ -39,20 +39,32 @@ function popUpDeleteAndEdit(nameOfArray) {
 
 function deleteFromList() {
   if (this.parentNode.parentNode.className === "projects") {
-    console.log(this.parentNode.parentNode.childNodes[1])
+    // Action when project is deleted
     this.parentNode.parentNode.parentNode.removeChild(
       this.parentNode.parentNode
     );
     projectArray.splice(projectArrayIndex, 1);
     setProjectArray();
     if (!!document.querySelector(".task-list")) {
-      clearTask();
-      showGroupTitle("Deleted");
+      if (
+        this.parentNode.parentNode.childNodes[1].textContent ===
+        document.querySelector(".mainHeader").children[0].textContent
+      ) {
+        /** If the project being deleted is the current selected project
+         * take following action.
+         */
+        clearTask();
+        showGroupTitle("Deleted");
+      }
     } else {
+      /** This action updates the task grouping section if project is being
+       * deleted without first being selected.
+       */
       removeTaskFromList();
       displayAllTasks();
     }
   } else {
+    // Action when task is deleted
     this.parentNode.parentNode.parentNode.removeChild(
       this.parentNode.parentNode
     );

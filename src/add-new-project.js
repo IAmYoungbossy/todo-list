@@ -1,7 +1,7 @@
 import ProjectMenu from "./icons/projectMenu.png";
 import ProjectDots from "./icons/dots.png";
 import { getProjectInput } from "./project-input";
-import { popUpDeleteAndEdit, projectIndex } from "./delete-edit-pop-up";
+import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 import { Project, projectArray, setProjectArray } from "./project-constructor";
 import { todoAddButton } from "./add-todo-button";
 import { displayTasks } from "./add-or-cancel-task-event";
@@ -63,19 +63,18 @@ function AddProjectNameToList(proj) {
   const addProject = document.querySelector(".add-project");
   const myProjectDotsDiv = document.createElement("div");
   const project = document.createElement("li");
-  const projectName = document.createElement("p")
+  const projectName = document.createElement("p");
   const myProjectMenu = new Image();
   const myProjectDots = new Image();
   myProjectMenu.src = ProjectMenu;
   myProjectDots.src = ProjectDots;
-  projectName.textContent = proj.name
+  projectName.textContent = proj.name;
   project.setAttribute("class", "projects");
-  projectName.setAttribute("class", "title")
+  projectName.setAttribute("class", "title");
   project.append(myProjectMenu, projectName);
   myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
   addProject.parentNode.insertBefore(project, addProject);
-  console.log(typeof proj.name.toString())
 
   myProjectDots.addEventListener(
     "click",
@@ -100,7 +99,6 @@ function setHeaderToProjectName(proj) {
 
 function getTaskArray(proj) {
   projectArrayIndex = projectArray.indexOf(proj);
-  console.log(projectArrayIndex);
 }
 
 function removeTasks() {
