@@ -1,5 +1,4 @@
-import { createProject, removeProjectLists } from "./add-new-project";
-import { projectIndex } from "./delete-edit-pop-up";
+import { createProject, projectArrayIndex, removeProjectLists } from "./add-new-project";
 import { projectArray, setProjectArray } from "./project-constructor";
 import { getProjectInput } from "./project-input";
 
@@ -42,7 +41,7 @@ function enableEditing() {
   }
 
   function editProjectArrayName() {
-    projectArray[projectIndex].setName(insertGetProjectInput.nameInput.value);
+    projectArray[projectArrayIndex].setName(insertGetProjectInput.nameInput.value);
     setProjectArray();
   }
 
