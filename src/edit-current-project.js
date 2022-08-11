@@ -1,3 +1,4 @@
+import { createProject, removeProjectLists } from "./add-new-project";
 import { projectIndex } from "./delete-edit-pop-up";
 import { projectArray, setProjectArray } from "./project-constructor";
 import { getProjectInput } from "./project-input";
@@ -11,13 +12,8 @@ function enableEditing() {
 
   const getName = (function () {
     project.classList.add("hidden");
-    const children = project.childNodes;
-    const childrenArray = Array.from(children);
-    let previousName = childrenArray[1].data;
-    if (previousName === undefined) {
-      const childArray = Array.from(childrenArray[1].childNodes);
-      previousName = childArray[0].data;
-    }
+    const projectName = project.children[1];
+    let previousName = projectName.textContent;
     return { previousName };
   })();
 
@@ -40,13 +36,18 @@ function enableEditing() {
     editProjectArrayName();
     replaceOldNameInDom();
     removeInputForm();
+    removeProjectLists();
+    createProject();
     project.classList.remove("hidden");
   }
 
+  function editProjectArrayName() {
+    projectArray[projectIndex].setName(insertGetProjectInput.nameInput.value);
+    setProjectArray();
+  }
+
   function replaceOldNameInDom() {
-    const newProjectName = document.createElement("p");
-    newProjectName.textContent = insertGetProjectInput.nameInput.value;
-    project.replaceChild(newProjectName, project.childNodes[1]);
+    getName.previousName = insertGetProjectInput.nameInput.value;
   }
 
   function removeInputForm() {
@@ -54,11 +55,6 @@ function enableEditing() {
       insertGetProjectInput.inputForm
     );
     project.classList.remove("hidden");
-  }
-
-  function editProjectArrayName() {
-    projectArray[projectIndex].setName(insertGetProjectInput.nameInput.value);
-    setProjectArray();
   }
 
   // EventListener on cancel and add buttons

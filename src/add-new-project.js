@@ -63,15 +63,19 @@ function AddProjectNameToList(proj) {
   const addProject = document.querySelector(".add-project");
   const myProjectDotsDiv = document.createElement("div");
   const project = document.createElement("li");
+  const projectName = document.createElement("p")
   const myProjectMenu = new Image();
   const myProjectDots = new Image();
   myProjectMenu.src = ProjectMenu;
   myProjectDots.src = ProjectDots;
+  projectName.textContent = proj.name
   project.setAttribute("class", "projects");
-  project.append(myProjectMenu, proj.name);
+  projectName.setAttribute("class", "title")
+  project.append(myProjectMenu, projectName);
   myProjectDotsDiv.appendChild(myProjectDots);
   project.appendChild(myProjectDotsDiv);
   addProject.parentNode.insertBefore(project, addProject);
+  console.log(typeof proj.name.toString())
 
   myProjectDots.addEventListener(
     "click",

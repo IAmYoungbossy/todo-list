@@ -55,4 +55,4 @@ function displayTasks() {
   });
 }
 
-export { addAndCancelTask, displayTasks };
+export { addAndCancelTask, displayTasks, removeTaskFromList };

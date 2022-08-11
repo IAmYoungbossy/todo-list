@@ -1,5 +1,7 @@
 import { projectArrayIndex } from "./add-new-project";
+import { removeTaskFromList } from "./add-or-cancel-task-event";
 import { projectArray, setProjectArray } from "./project-constructor";
+import { clearTask, displayAllTasks, showGroupTitle } from "./task-grouping";
 
 let projectIndex;
 let taskIndex;
@@ -36,12 +38,20 @@ function popUpDeleteAndEdit(nameOfArray) {
 }
 
 function deleteFromList() {
-  if (this.parentNode.parentNode === "projects") {
+  if (this.parentNode.parentNode.className === "projects") {
+    console.log(this.parentNode.parentNode.childNodes[1])
     this.parentNode.parentNode.parentNode.removeChild(
       this.parentNode.parentNode
     );
     projectArray.splice(projectArrayIndex, 1);
     setProjectArray();
+    if (!!document.querySelector(".task-list")) {
+      clearTask();
+      showGroupTitle("Deleted");
+    } else {
+      removeTaskFromList();
+      displayAllTasks();
+    }
   } else {
     this.parentNode.parentNode.parentNode.removeChild(
       this.parentNode.parentNode

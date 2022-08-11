@@ -49,4 +49,4 @@ function showGroupTitle(groupTitle) {
   document.querySelector(".mainHeader").childNodes[0].textContent = groupTitle;
 }
 
-export { allTasksEvent, displayAllTasks };
+export { allTasksEvent, displayAllTasks, clearTask, showGroupTitle };
