@@ -30,18 +30,25 @@ function popUpDeleteAndEdit(nameOfArray) {
 
   deleteProject.addEventListener(
     "mousedown",
-    deleteProjectFromList.bind(deleteProject, nameOfArray)
+    deleteFromList.bind(deleteProject)
   );
   getIndex.call(this, nameOfArray);
 }
 
-function deleteProjectFromList(nameOfArray) {
-  this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-  projectArray[projectArrayIndex].taskArray.splice(
-    projectArray[projectArrayIndex].taskArray.indexOf(nameOfArray),
-    1
-  );
-  setProjectArray();
+function deleteFromList() {
+  if (this.parentNode.parentNode === "projects") {
+    this.parentNode.parentNode.parentNode.removeChild(
+      this.parentNode.parentNode
+    );
+    projectArray.splice(projectArrayIndex, 1);
+    setProjectArray();
+  } else {
+    this.parentNode.parentNode.parentNode.removeChild(
+      this.parentNode.parentNode
+    );
+    projectArray[projectIndex].taskArray.splice(taskIndex, 1);
+    setProjectArray();
+  }
 }
 
 function getIndex(nameOfArray) {
@@ -52,11 +59,16 @@ function getIndex(nameOfArray) {
 }
 
 function getProjectIndex(nameOfArray) {
-  projectIndex = projectArray.indexOf(nameOfArray);
+  projectArray.forEach((project) => {
+    project.taskArray.forEach((task) => {
+      if (task === nameOfArray) projectIndex = projectArray.indexOf(project);
+    });
+  });
 }
 
 function getTaskIndex(nameOfArray) {
-  taskIndex = projectArray[projectArrayIndex].taskArray.indexOf(nameOfArray);
+  getProjectIndex(nameOfArray);
+  taskIndex = projectArray[projectIndex].taskArray.indexOf(nameOfArray);
 }
 
-export { popUpDeleteAndEdit, projectIndex, taskIndex };
+export { popUpDeleteAndEdit, projectIndex, taskIndex, getProjectIndex };

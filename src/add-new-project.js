@@ -1,7 +1,7 @@
 import ProjectMenu from "./icons/projectMenu.png";
 import ProjectDots from "./icons/dots.png";
 import { getProjectInput } from "./project-input";
-import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
+import { popUpDeleteAndEdit, projectIndex } from "./delete-edit-pop-up";
 import { Project, projectArray, setProjectArray } from "./project-constructor";
 import { todoAddButton } from "./add-todo-button";
 import { displayTasks } from "./add-or-cancel-task-event";
@@ -81,8 +81,8 @@ function AddProjectNameToList(proj) {
 }
 
 function setProjectForUse(proj, e) {
+  getTaskArray(proj);
   if (e.target.className === "projects") {
-    getTaskArray(proj);
     removeTasks();
     todoAddButton();
     displayTasks(e);
@@ -96,6 +96,7 @@ function setHeaderToProjectName(proj) {
 
 function getTaskArray(proj) {
   projectArrayIndex = projectArray.indexOf(proj);
+  console.log(projectArrayIndex);
 }
 
 function removeTasks() {

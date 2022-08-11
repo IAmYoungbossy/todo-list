@@ -1,4 +1,9 @@
-import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
+import {
+  getProjectIndex,
+  popUpDeleteAndEdit,
+  projectIndex,
+} from "./delete-edit-pop-up";
+import { projectArray, setProjectArray, TodoTask } from "./project-constructor";
 
 function addClass(
   task,
@@ -18,12 +23,21 @@ function addClass(
 }
 
 function toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar) {
+  getProjectIndex(task);
+  addMethods();
   myTaskDots.addEventListener(
     "click",
     popUpDeleteAndEdit.bind(myTaskDots, task)
   );
   myUndoneTask.addEventListener("click", toggleCompleted.bind(null, task));
   myUncheckedStar.addEventListener("click", toggleStar.bind(null, task));
+}
+
+function addMethods() {
+  projectArray[projectIndex].taskArray.forEach((task) => {
+    Object.setPrototypeOf(task, TodoTask.prototype);
+    setProjectArray();
+  });
 }
 
 function toggleCompleted(task, e) {
