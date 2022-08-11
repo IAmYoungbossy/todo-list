@@ -1,5 +1,4 @@
-import { projectArrayIndex } from "./add-new-project";
-import { taskIndex } from "./delete-edit-pop-up";
+import { projectIndex, taskIndex } from "./delete-edit-pop-up";
 import { newTaskInput } from "./new-task-input";
 import { projectArray, setProjectArray } from "./project-constructor";
 
@@ -71,8 +70,7 @@ function enableTaskEditing() {
   }
 
   function updateNewTaskNameInArray(title, desc, date) {
-    console.log(taskIndex);
-    projectArray[projectArrayIndex].taskArray[taskIndex].setDetails(
+    projectArray[projectIndex].taskArray[taskIndex].setDetails(
       title,
       desc,
       date
