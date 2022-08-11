@@ -12,9 +12,9 @@ function enableEditing() {
 
   const getName = (function () {
     project.classList.add("hidden");
-    const projectName = project.children[1];
+    let projectName = project.children[1];
     let previousName = projectName.textContent;
-    return { previousName };
+    return { previousName, projectName };
   })();
 
   getProjectInput();
@@ -47,7 +47,7 @@ function enableEditing() {
   }
 
   function replaceOldNameInDom() {
-    getName.previousName = insertGetProjectInput.nameInput.value;
+    getName.projectName = insertGetProjectInput.nameInput.value;
   }
 
   function removeInputForm() {
