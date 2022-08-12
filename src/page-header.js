@@ -1,6 +1,8 @@
 import Menu from "./icons/menuIcon.png";
+import MenuDark from "./icons/menuIconDark.png";
 import ToDoLogo from "./icons/to-do.png";
 import Theme from "./icons/theme.png";
+import ThemeDark from "./icons/themeDark.png";
 
 function createHeader() {
   const body = document.querySelector("body");
@@ -25,16 +27,25 @@ function createHeaderContent() {
   const themeToggler = document.querySelector(".themeToggler");
 
   const myMenuIcon = new Image();
+  const myMenuIconDark = new Image();
   const myToDoLogo = new Image();
   const myThemeToggler = new Image();
+  const myThemeTogglerDark = new Image();
 
   myMenuIcon.src = Menu;
   myToDoLogo.src = ToDoLogo;
   myThemeToggler.src = Theme;
+  myMenuIconDark.src = MenuDark;
+  myThemeTogglerDark.src = ThemeDark;
 
-  menuIcon.appendChild(myMenuIcon);
+  myMenuIcon.classList.add("menu-light", "light");
+  myMenuIconDark.classList.add("menu-Dark", "dark");
+  myThemeToggler.classList.add("theme-light", "light");
+  myThemeTogglerDark.classList.add("theme-dark", "dark");
+
+  menuIcon.append(myMenuIcon, myMenuIconDark);
   toDoLogo.appendChild(myToDoLogo);
-  themeToggler.appendChild(myThemeToggler);
+  themeToggler.append(myThemeToggler, myThemeTogglerDark);
 }
 
 export { createHeader, createHeaderContent };

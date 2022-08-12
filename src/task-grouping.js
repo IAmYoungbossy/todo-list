@@ -1,6 +1,7 @@
 import isWithinInterval from "date-fns/isWithinInterval";
 import { displayAddedTasks } from "./display-todo-list";
 import { projectArray } from "./project-constructor";
+import { toggleIcon } from "./toggle-theme";
 
 function allTasksEvent() {
   const allTasks = document.querySelector(".home").childNodes[2].firstChild;
@@ -19,24 +20,28 @@ function toDay() {
   clearTask();
   nextNthDays(now, today);
   showGroupTitle("Today");
+  toggleIcon();
 }
 
 function sevenDays() {
   clearTask();
   nextNthDays(now, next7Days);
   showGroupTitle("Next 7 Days");
+  toggleIcon();
 }
 
 function displayAllTasks() {
   clearTask();
   displayAll();
   showGroupTitle("All tasks");
+  toggleIcon();
 }
 
 function displayAllImportantTasks() {
   clearTask();
   displayImportantTasks();
   showGroupTitle("Important tasks");
+  toggleIcon();
 }
 
 function clearTask() {

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-:root {
+:root.lightT {
   --background-color: #f2f3f5;
   --border-color: #2abd67;
   --main-color: #ececec;
@@ -14,9 +14,12 @@
   --horizontal-rule: #cc98ff;
   --main-header-bgColor: #308c56d6;
   --nav-header: rgb(1, 134, 1);
-  --nav-bg: white
+  --nav-bg: white;
+  --task-border: black;
+  --title-color: black;
+  --theme-bg: white;
 }
-.dark {
+:root.darkT {
   --background-color: #22303c;
   --border-color: #1f8d4d;
   --main-color: #192734;
@@ -29,6 +32,8 @@
   --nav-bg: #15202b;
   --task-border: white;
   --title-color: white;
+  --theme-bg: #192734;
+
 }
 body {
   display: flex;
@@ -45,10 +50,31 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 20px 40px;
   height: var(--header-height);
   border-bottom: 2px solid var(--border-color);
   background-color: var(--background-color);
+}
+.themeToggler {
+  position: relative;
+}
+.menuIcon {
+  position: relative;
+}
+.theme-light {
+  position: absolute;
+}
+.menu-light {
+  position: absolute;
+}
+.light-hidden {
+  visibility: hidden;
+}
+.dark {
+  visibility: hidden;
+}
+.dark-visible {
+  visibility: visible;
 }
 
 /* MAIN BODY STYLING */
@@ -57,8 +83,8 @@ main {
   display: flex;
 }
 img {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 
 /* Nav Styling */
@@ -105,7 +131,7 @@ li > img {
 /* Horizontal Rule */
 hr {
   margin: 10px 0 0;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--horizontal-rule);
 }
 
 /* Projects and form styling */
@@ -121,12 +147,12 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  background-color: white;
   cursor: default;
+  background-color: var(--nav-bg);
 }
 .input-Li:hover {
-  background-color: white;
   box-shadow: none;
+  background-color: var(--nav-bg);
 }
 .button-class > button {
   padding: 5px 10px;
@@ -293,6 +319,7 @@ h1 {
 .add-task-button {
   background-color: inherit;
   width: 120px;
+  color: var(--title-color);
 }
 .add-task-button:hover {
   border-radius: 10px;
@@ -303,12 +330,14 @@ h1 {
   padding: 10px 30px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--theme-bg);
   cursor: default;
+  color: var(--title-color);
+  border: 2px solid var(--title-color);
 }
 .task-input-form:hover {
   box-shadow: none;
-  background-color: white;
+  background-color: var(--theme-bg);
 }
 .task-input-form > div {
   display: flex;
@@ -371,7 +400,7 @@ label {
   align-items: center;
   gap: 10px;
   line-height: 1;
-  border: 1px solid;
+  border: 2px solid var(--task-border);
 }
 .new-task:hover {
   background-color: rgba(42, 189, 103, 0.02);
@@ -387,23 +416,28 @@ label {
   top: 5px;
   left: 5px;
 }
-.task-div > img:first-child {
+.undone-task {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+}
+.undone-task-dark {
   position: absolute;
   width: 25px;
   height: 25px;
 }
-.task-div > img:last-child {
+.done-task {
   width: 25px;
   height: 25px;
 }
 .title-and-desc-div > h2 {
   font-size: 0.9rem;
-  color: black;
+  color: var(--title-color);
 }
 .title-and-desc-div > p {
   font-size: 0.8rem;
   margin-top: 1px;
-  color: #392929;
+  color: var(--title-color);
 }
 .star-div {
   display: flex;
@@ -414,12 +448,18 @@ label {
   position: absolute;
   right: 25px;
 }
-.star-div > img:first-child {
+.unchecked-star {
   position: absolute;
   height: 25px;
   width: 25px;
+  color: var(--title-color);
 }
-.star-div > img:last-child {
+.unchecked-star-dark {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+}
+.checked-star {
   height: 20px;
   width: 20px;
 }
@@ -430,6 +470,7 @@ label {
   width: max-content;
   padding: 2px 6px 0px;
   text-align: center;
+  color: var(--title-color);
 }
 .uncheck {
   visibility: hidden;
@@ -453,7 +494,14 @@ label {
   width: 25px;
   height: 25px;
 }
+.my-task-dots-dark {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 0px;
+}
 .date-and-span {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -474,4 +522,5 @@ footer {
   text-align: center;
   padding: 10px;
   background-color: var(--footer-background-color);
+  color: var(--title-color);
 }

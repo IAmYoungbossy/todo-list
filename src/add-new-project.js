@@ -5,6 +5,7 @@ import { popUpDeleteAndEdit } from "./delete-edit-pop-up";
 import { Project, projectArray, setProjectArray } from "./project-constructor";
 import { todoAddButton } from "./add-todo-button";
 import { displayTasks } from "./add-or-cancel-task-event";
+import { toggleIcon } from "./toggle-theme";
 
 let projectArrayIndex;
 
@@ -66,6 +67,7 @@ function AddProjectNameToList(proj) {
   const projectName = document.createElement("p");
   const myProjectMenu = new Image();
   const myProjectDots = new Image();
+
   myProjectMenu.src = ProjectMenu;
   myProjectDots.src = ProjectDots;
   projectName.textContent = proj.name;
@@ -90,6 +92,7 @@ function setProjectForUse(proj, e) {
     todoAddButton();
     displayTasks(e);
     setHeaderToProjectName(proj);
+    toggleIcon();
   }
 }
 

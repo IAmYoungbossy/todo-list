@@ -1,6 +1,9 @@
 import ProjectDots from "./icons/dots.png";
+import ProjectDotsDark from "./icons/dotsDark.png";
 import UncheckedStar from "./icons/uncheckedStar.png";
+import UncheckedStarDark from "./icons/uncheckedStarDark.png";
 import UndoneTask from "./icons/undoneTask.png";
+import UndoneTaskDark from "./icons/undoneTaskDark.png";
 import CheckedStar from "./icons/checkedStar.png";
 import Donetask from "./icons/doneTask.png";
 import { addClass, toggleEvents } from "./toggle-states";
@@ -20,8 +23,11 @@ function displayAddedTasks(title, desc, date, task) {
   const dateAndSpan = document.createElement("div");
 
   const myTaskDots = new Image();
+  const myTaskDotsDark = new Image();
   const myUncheckedStar = new Image();
+  const myUncheckedStarDark = new Image();
   const myUndoneTask = new Image();
+  const myUndoneTaskDark = new Image();
   const myCheckedStar = new Image();
   const myDoneTask = new Image();
 
@@ -30,8 +36,11 @@ function displayAddedTasks(title, desc, date, task) {
   dateInput.textContent = date;
 
   myTaskDots.src = ProjectDots;
+  myTaskDotsDark.src = ProjectDotsDark;
   myUncheckedStar.src = UncheckedStar;
+  myUncheckedStarDark.src = UncheckedStarDark;
   myUndoneTask.src = UndoneTask;
+  myUndoneTaskDark.src = UndoneTaskDark;
   myCheckedStar.src = CheckedStar;
   myDoneTask.src = Donetask;
 
@@ -43,18 +52,21 @@ function displayAddedTasks(title, desc, date, task) {
   dateInput.classList.add("date-input");
   starDiv.classList.add("star-div");
   taskDiv.classList.add("task-div");
-  myUncheckedStar.classList.add("unchecked-star");
+  myUncheckedStar.classList.add("unchecked-star", "light");
+  myUncheckedStarDark.classList.add("unchecked-star-dark", "dark");
   myCheckedStar.classList.add("checked-star");
-  myUndoneTask.classList.add("undone-task");
+  myUndoneTask.classList.add("undone-task", "light");
+  myUndoneTaskDark.classList.add("undone-task-dark", "dark");
   myDoneTask.classList.add("done-task");
-  myTaskDots.classList.add("my-task-dots");
+  myTaskDots.classList.add("my-task-dots", "light");
+  myTaskDotsDark.classList.add("my-task-dots-dark", "dark");
   dateAndSpan.classList.add("date-and-span");
 
   titleAndDescDiv.append(taskTitle, taskDesc);
   dateSpan.appendChild(dateInput);
-  dateAndSpan.append(dateSpan, myTaskDots);
-  starDiv.append(myUncheckedStar, myCheckedStar);
-  taskDiv.append(myUndoneTask, myDoneTask);
+  dateAndSpan.append(dateSpan, myTaskDots, myTaskDotsDark);
+  starDiv.append(myUncheckedStar, myCheckedStar, myUncheckedStarDark);
+  taskDiv.append(myUndoneTask, myDoneTask, myUndoneTaskDark);
   newTask.append(taskDiv, titleAndDescDiv, starDiv, dateAndSpan);
 
   // Checks if taskList for each project is available else display all tasks

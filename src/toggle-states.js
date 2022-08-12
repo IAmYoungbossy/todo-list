@@ -73,4 +73,4 @@ function toggle(e) {
   );
 }
 
-export { addClass, toggleEvents };
+export { addClass, toggleEvents, addMethods };
