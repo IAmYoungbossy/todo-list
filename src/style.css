@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root.lightT {
   --background-color: #f2f3f5;
   --border-color: #2abd67;
@@ -18,6 +17,7 @@
   --task-border: black;
   --title-color: black;
   --theme-bg: white;
+  --github-icon: black;
 }
 :root.darkT {
   --background-color: #22303c;
@@ -33,7 +33,7 @@
   --task-border: white;
   --title-color: white;
   --theme-bg: #192734;
-
+  --github-icon: white;
 }
 body {
   display: flex;
@@ -524,4 +524,7 @@ footer {
   padding: 10px;
   background-color: var(--footer-background-color);
   color: var(--title-color);
+}
+i {
+  color: var(--github-icon);
 }

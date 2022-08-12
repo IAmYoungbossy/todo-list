@@ -78,6 +78,7 @@ function displayAddedTasks(title, desc, date, task) {
     myTaskDots,
     myDoneTask,
     myUndoneTask,
+    myTaskDotsDark,
     myCheckedStar,
     myUndoneTaskDark,
     myUncheckedStar,

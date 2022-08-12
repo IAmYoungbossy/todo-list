@@ -27,6 +27,7 @@ function toggleEvents(
   myTaskDots,
   myDoneTask,
   myUndoneTask,
+  myTaskDotsDark,
   myCheckedStar,
   myUndoneTaskDark,
   myUncheckedStar,
@@ -35,6 +36,10 @@ function toggleEvents(
   getProjectIndex(task);
   addMethods();
   myTaskDots.addEventListener(
+    "click",
+    popUpDeleteAndEdit.bind(myTaskDots, task)
+  );
+  myTaskDotsDark.addEventListener(
     "click",
     popUpDeleteAndEdit.bind(myTaskDots, task)
   );

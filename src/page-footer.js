@@ -13,8 +13,8 @@ function createfooter() {
     "href",
     "https:////github.com/IAmYoungbossy/calculator"
   );
+
   gitHubIcon.classList.add("fa", "fa-github");
-  gitHubIcon.style.cssText = "color:black";
 }
 
 export { createfooter };
