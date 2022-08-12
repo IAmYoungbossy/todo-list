@@ -3,9 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  --header-height: min-content;
-  --footer-height: min-content;
+
+:root {
   --background-color: #f2f3f5;
   --border-color: #2abd67;
   --main-color: #ececec;
@@ -15,14 +14,34 @@ body {
   --horizontal-rule: #cc98ff;
   --main-header-bgColor: #308c56d6;
   --nav-header: rgb(1, 134, 1);
-
+  --nav-bg: white
+}
+.dark {
+  --background-color: #22303c;
+  --border-color: #1f8d4d;
+  --main-color: #192734;
+  --footer-background-color: #22303c;
+  --header-color: white;
+  --font-family: sans-serif;
+  --horizontal-rule: white;
+  --main-header-bgColor: #308c56d6;
+  --nav-header: rgb(255 255 255);
+  --nav-bg: #15202b;
+  --task-border: white;
+  --title-color: white;
+}
+body {
   display: flex;
   flex-direction: column;
   height: 100vh;
   position: relative;
   font-family: var(--font-family);
 }
+
+/* HEADER STYLING */
 header {
+  --header-height: min-content;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +51,7 @@ header {
   background-color: var(--background-color);
 }
 
+/* MAIN BODY STYLING */
 main {
   flex: 1;
   display: flex;
@@ -40,17 +60,23 @@ img {
   width: 50px;
   height: 50px;
 }
+
+/* Nav Styling */
 main > nav {
   padding: 20px;
 }
 .nav {
   border-radius: 25px;
   flex: 1;
+  background-color: var(--nav-bg);
+  border-radius: 0;
 }
 .nav-hidden {
   position: absolute;
   visibility: hidden;
 }
+
+/* List styling */
 ul {
   margin-top: 15px;
 }
@@ -75,10 +101,14 @@ li > img {
   height: 25px;
   margin-right: 10px;
 }
+
+/* Horizontal Rule */
 hr {
   margin: 10px 0 0;
   border: 1.5px solid black;
 }
+
+/* Projects and form styling */
 .project {
   margin-top: 20px;
 }
@@ -166,6 +196,11 @@ hr {
   top: 7px;
   left: 10px;
 }
+.project-list {
+  position: relative;
+}
+
+/* Edit details pop-up styling */
 .delete-edit-div {
   background-color: var(--background-color);
   position: absolute;
@@ -221,10 +256,11 @@ hr {
 .name-input {
   flex: 1;
 }
+
+/* Main section styling */
 h2 {
   color: var(--nav-header);
 }
-
 .mainSection {
   padding: 30px 40px;
   background-color: var(--main-color);
@@ -247,16 +283,7 @@ h1 {
   color: var(--header-color);
 }
 
-footer {
-  height: var(--footer-height);
-  margin-top: auto;
-  text-align: center;
-  padding: 10px;
-  background-color: var(--footer-background-color);
-}
-.project-list {
-  position: relative;
-}
+/* Task input form styling */
 .add-task-section {
   width: 100%;
   max-width: 900px;
@@ -334,7 +361,6 @@ textarea:focus {
 label {
   font-weight: 400;
 }
-
 .new-task {
   background-color: rgba(153, 52, 153, 0.05);
   box-shadow: none;
@@ -437,4 +463,15 @@ label {
   display: flex;
   align-items: center;
   visibility: hidden;
+}
+
+/* FOOTER STYLING */
+footer {
+  --footer-height: min-content;
+
+  height: var(--footer-height);
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--footer-background-color);
 }
