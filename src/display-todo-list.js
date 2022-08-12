@@ -73,7 +73,17 @@ function displayAddedTasks(title, desc, date, task) {
   if (!!taskList) taskList.insertBefore(newTask, addTaskButton);
   else document.querySelector(".add-task-section").appendChild(newTask);
 
-  toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar, myCheckedStar);
+  toggleEvents(
+    task,
+    myTaskDots,
+    myDoneTask,
+    myUndoneTask,
+    myCheckedStar,
+    myUndoneTaskDark,
+    myUncheckedStar,
+    myUncheckedStarDark
+  );
+
   addClass(task, myDoneTask, taskTitle, taskDesc, dateInput, myCheckedStar);
 }
 

@@ -418,17 +418,17 @@ label {
 }
 .undone-task {
   position: absolute;
-  width: 27px;
-  height: 27px;
+  width: 20px;
+  height: 20px;
 }
 .undone-task-dark {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 .done-task {
-  width: 25px;
-  height: 25px;
+  width: 27px;
+  height: 27px;
 }
 .title-and-desc-div > h2 {
   font-size: 0.9rem;
@@ -460,8 +460,8 @@ label {
   position: absolute;
 }
 .checked-star {
-  height: 20px;
-  width: 20px;
+  height: 21px;
+  width: 21px;
 }
 .date-span > p {
   border: 1px solid #0000002e;
@@ -482,6 +482,7 @@ label {
 .check,
 .done {
   visibility: visible;
+  z-index: 1;
 }
 .line-through {
   text-decoration: line-through;

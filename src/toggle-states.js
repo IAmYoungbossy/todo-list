@@ -22,15 +22,28 @@ function addClass(
   if (task.important) myCheckedStar.classList.add("check");
 }
 
-function toggleEvents(task, myTaskDots, myUndoneTask, myUncheckedStar) {
+function toggleEvents(
+  task,
+  myTaskDots,
+  myDoneTask,
+  myUndoneTask,
+  myCheckedStar,
+  myUndoneTaskDark,
+  myUncheckedStar,
+  myUncheckedStarDark
+) {
   getProjectIndex(task);
   addMethods();
   myTaskDots.addEventListener(
     "click",
     popUpDeleteAndEdit.bind(myTaskDots, task)
   );
+  myDoneTask.addEventListener("click", toggleCompleted.bind(null, task));
   myUndoneTask.addEventListener("click", toggleCompleted.bind(null, task));
+  myUndoneTaskDark.addEventListener("click", toggleCompleted.bind(null, task));
+  myCheckedStar.addEventListener("click", toggleStar.bind(null, task));
   myUncheckedStar.addEventListener("click", toggleStar.bind(null, task));
+  myUncheckedStarDark.addEventListener("click", toggleStar.bind(null, task));
 }
 
 function addMethods() {
@@ -42,14 +55,20 @@ function addMethods() {
 
 function toggleCompleted(task, e) {
   task.toggleComplete();
-  e.target.classList === "undone-task"
+  e.target.classList === "undone-task" ||
+  e.target.classList === "undone-task-dark" ||
+  e.target.classList === "done-task"
     ? toggleLineThrough(e)
     : toggleLineThrough(e);
 }
 
 function toggleStar(task, e) {
   task.toggleImportance();
-  e.target.classList === "new-task" ? toggle(e) : toggle(e);
+  e.target.classList === "new-task" ||
+  e.target.classList === "unchecked-star-dark" ||
+  e.target.classList === "checked-star"
+    ? toggle(e)
+    : toggle(e);
 }
 
 function toggleLineThrough(e) {
