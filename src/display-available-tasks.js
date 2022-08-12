@@ -1,6 +1,7 @@
 import { createProject, removeProjectLists } from "./add-new-project";
 import { Project, projectArray, setProjectArray } from "./project-constructor";
 import { displayAllTasks } from "./task-grouping";
+import { getThemeChoiceFromStorage, toggleIcon } from "./toggle-theme";
 
 // Display all available projects and tasks on page load.
 function DisplayAllTasksOnPageLoad(e) {
@@ -15,6 +16,8 @@ function DisplayAllTasksOnPageLoad(e) {
     });
     displayAllTasks(e);
   }
+  getThemeChoiceFromStorage();
+  toggleIcon();
 }
 
 export { DisplayAllTasksOnPageLoad };

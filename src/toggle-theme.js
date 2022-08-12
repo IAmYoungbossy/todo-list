@@ -34,21 +34,29 @@ function toggleIcon() {
   Object.setPrototypeOf(theme, ThemeSetter.prototype);
   setTheTheme();
   document.querySelectorAll(".light").forEach((icon) => {
-    theme.lightIcon
-      ? icon.classList.remove("light-hidden")
-      : icon.classList.add("light-hidden");
+    if (theme.lightIcon === undefined) {
+      icon.classList.remove("light-hidden");
+    } else {
+      theme.lightIcon
+        ? icon.classList.add("light-hidden")
+        : icon.classList.remove("light-hidden");
+    }
   });
 
   Object.setPrototypeOf(theme, ThemeSetter.prototype);
   setTheTheme();
   document.querySelectorAll(".dark").forEach((icon) => {
-    theme.darkIcon
-      ? icon.classList.remove("dark-visible")
-      : icon.classList.add("dark-visible");
+    if (theme.darkIcon === undefined) {
+      icon.classList.remove("dark-visible");
+    } else {
+      theme.darkIcon
+        ? icon.classList.add("dark-visible")
+        : icon.classList.remove("dark-visible");
+    }
   });
 }
 
-function noName() {
+function getThemeChoiceFromStorage() {
   Object.setPrototypeOf(theme, ThemeSetter.prototype);
   setTheTheme();
   const root = document.documentElement;
@@ -56,4 +64,4 @@ function noName() {
   root.className = newTheme;
 }
 
-export { setTheme, noName, toggleIcon };
+export { setTheme, getThemeChoiceFromStorage, toggleIcon };

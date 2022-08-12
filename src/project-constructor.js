@@ -65,7 +65,12 @@ function ThemeSetter() {
 }
 
 ThemeSetter.prototype.toggleDarkTheme = function () {
-  this.darkTheme ? (this.darkTheme = false) : (this.darkTheme = true);
+  this.darkTheme === false || this.darkTheme === undefined
+    ? (this.darkTheme = true)
+    : (this.darkTheme = false);
+  // this.darkTheme
+  // ? console.log(this.darkTheme)
+  // : console.log(this.darkTheme);
 };
 
 ThemeSetter.prototype.toggleLightIcon = function () {
