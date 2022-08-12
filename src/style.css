@@ -416,8 +416,8 @@ label {
 }
 .star-div > img:first-child {
   position: absolute;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
 }
 .star-div > img:last-child {
   height: 20px;
