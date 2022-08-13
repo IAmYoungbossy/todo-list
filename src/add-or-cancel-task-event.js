@@ -2,6 +2,7 @@ import { projectArrayIndex } from "./add-new-project";
 import { displayAddedTasks } from "./display-todo-list";
 import { newTaskInput } from "./new-task-input";
 import { projectArray, setProjectArray, TodoTask } from "./project-constructor";
+import { toggleIcon } from "./toggle-theme";
 
 function addAndCancelTask(e) {
   const taskList = document.querySelector(".task-list");
@@ -25,6 +26,7 @@ function addAndCancelTask(e) {
     pushToTaskArray();
     removeTaskFromList();
     displayTasks();
+    toggleIcon();
   }
 }
 
