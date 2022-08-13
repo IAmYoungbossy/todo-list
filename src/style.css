@@ -133,7 +133,7 @@ li > img {
   background: linear-gradient(
     to right,
     #41584b99 0%,
-    #5c5c5c 3%,
+    #5c5c5c 5px,
     #a0e0bb99 2%,
     #a0e0bb99 100%
   );
@@ -418,6 +418,7 @@ label {
   gap: 10px;
   line-height: 1;
   border: 2px solid var(--task-border);
+  min-width: min-content;
 }
 .new-task:hover {
   background-color: rgba(42, 189, 103, 0.02);
@@ -488,7 +489,6 @@ label {
   border: 1px solid #0000002e;
   border-radius: 10px;
   height: min-content;
-  width: max-content;
   padding: 2px 6px 0px;
   text-align: center;
   color: var(--title-color);
@@ -555,7 +555,7 @@ i {
 }
 
 /* Uses flex-direction column for screen sizes below 600px */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 550px) {
   main {
     flex: 1;
     display: flex;
