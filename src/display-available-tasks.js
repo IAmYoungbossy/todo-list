@@ -4,7 +4,7 @@ import { displayAllTasks } from "./task-grouping";
 import { getThemeChoiceFromStorage, toggleIcon } from "./toggle-theme";
 
 // Display all available projects and tasks on page load.
-function DisplayAllTasksOnPageLoad(e) {
+function DisplayAllTasksOnPageLoad() {
   if (localStorage.getItem("projectArray") === null)
     localStorage.setItem("projectArray", JSON.stringify([]));
   else {
@@ -14,7 +14,8 @@ function DisplayAllTasksOnPageLoad(e) {
       removeProjectLists();
       createProject();
     });
-    displayAllTasks(e);
+    displayAllTasks();
+    document.querySelector("li").classList.add("selected")
   }
   getThemeChoiceFromStorage();
   toggleIcon();

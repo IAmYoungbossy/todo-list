@@ -1,4 +1,5 @@
 import isWithinInterval from "date-fns/isWithinInterval";
+import { styleSelectedList } from "./add-new-project";
 import { displayAddedTasks } from "./display-todo-list";
 import { projectArray } from "./project-constructor";
 import { toggleIcon } from "./toggle-theme";
@@ -10,10 +11,13 @@ function allTasksEvent() {
   const thisWeek = document.querySelector(".home").childNodes[2].children[2];
   const thisDay = document.querySelector(".home").childNodes[2].children[1];
 
-  allTasks.addEventListener("click", displayAllTasks);
-  thisDay.addEventListener("click", toDay);
-  thisWeek.addEventListener("click", sevenDays);
-  importantTasks.addEventListener("click", displayAllImportantTasks);
+  allTasks.addEventListener("click", displayAllTasksForClick.bind(allTasks));
+  thisDay.addEventListener("click", toDay.bind(thisDay));
+  thisWeek.addEventListener("click", sevenDays.bind(thisWeek));
+  importantTasks.addEventListener(
+    "click",
+    displayAllImportantTasks.bind(importantTasks)
+  );
 }
 
 function toDay() {
@@ -21,6 +25,7 @@ function toDay() {
   nextNthDays(now, today);
   showGroupTitle("Today");
   toggleIcon();
+  styleSelectedList.call(this);
 }
 
 function sevenDays() {
@@ -28,6 +33,15 @@ function sevenDays() {
   nextNthDays(now, next7Days);
   showGroupTitle("Next 7 Days");
   toggleIcon();
+  styleSelectedList.call(this);
+}
+
+function displayAllTasksForClick() {
+  clearTask();
+  displayAll();
+  showGroupTitle("All tasks");
+  toggleIcon();
+  styleSelectedList.call(this);
 }
 
 function displayAllTasks() {
@@ -42,6 +56,7 @@ function displayAllImportantTasks() {
   displayImportantTasks();
   showGroupTitle("Important tasks");
   toggleIcon();
+  styleSelectedList.call(this);
 }
 
 function clearTask() {

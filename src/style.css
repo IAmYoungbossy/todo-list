@@ -127,6 +127,16 @@ li > img {
   height: 25px;
   margin-right: 10px;
 }
+.selected {
+  background: linear-gradient(
+    to right,
+    #41584b99 0%,
+    #5c5c5c 3%,
+    #a0e0bb99 2%,
+    #a0e0bb99 100%
+  );
+  background-color: #afe9c7dc;
+}
 
 /* Horizontal Rule */
 hr {
@@ -251,9 +261,11 @@ hr {
 }
 .delete-edit-div > p {
   padding: 4px 10px;
+  color: var(--title-color);
 }
 .delete-edit-task > p {
   padding: 12px 10px;
+  color: var(--title-color);
 }
 .delete-edit-div > p:first-child:hover {
   color: rgb(78, 0, 78);

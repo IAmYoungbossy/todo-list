@@ -82,7 +82,7 @@ function AddProjectNameToList(proj) {
     "click",
     popUpDeleteAndEdit.bind(myProjectDots, proj)
   );
-  project.addEventListener("click", setProjectForUse.bind(null, proj));
+  project.addEventListener("click", setProjectForUse.bind(project, proj));
 }
 
 function setProjectForUse(proj, e) {
@@ -93,7 +93,16 @@ function setProjectForUse(proj, e) {
     displayTasks(e);
     setHeaderToProjectName(proj);
     toggleIcon();
+    styleSelectedList.call(this);
   }
+}
+
+function styleSelectedList() {
+  document.querySelectorAll("li").forEach((list) => {
+    if (list.classList[1] === "selected" || list.classList[0] === "selected")
+      list.classList.remove("selected");
+  });
+  this.classList.add("selected");
 }
 
 function setHeaderToProjectName(proj) {
@@ -117,4 +126,5 @@ export {
   createProject,
   removeProjectLists,
   projectArrayIndex,
+  styleSelectedList,
 };
