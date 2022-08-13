@@ -11,6 +11,53 @@ function setProjectArray() {
 }
 
 /**
+ * Constructor Functions With Their Prototype Methods
+ */
+
+class Project {
+  constructor(projectName) {
+    this.name = projectName;
+    this.taskArray = [];
+  }
+  setName(newName) {
+    this.name = newName;
+  }
+}
+
+class TodoTask {
+  constructor(title, desc, date) {
+    this.title = title;
+    this.desc = desc;
+    this.date = date;
+    this.completed;
+    this.important;
+  }
+  setDetails(newTitle, newDesc, newDate) {
+    this.title = newTitle;
+    this.desc = newDesc;
+    this.date = newDate;
+  }
+  toggleComplete() {
+    this.completed ? (this.completed = false) : (this.completed = true);
+  }
+  toggleImportance() {
+    this.important ? (this.important = false) : (this.important = true);
+  }
+}
+
+class ThemeSetter {
+  constructor() {
+    this.darkTheme;
+    this.lightIcon;
+    this.darkIcon;
+  }
+  toggleDarkTheme() {
+    if (this.darkTheme === true) this.darkTheme = false;
+    else this.darkTheme = true;
+  }
+}
+
+/**
  * Theme LocalStorage
  */
 if (localStorage.getItem("theme") == null)
@@ -21,52 +68,6 @@ let theme = JSON.parse(localStorage.getItem("theme"));
 function setTheTheme() {
   localStorage.setItem("theme", JSON.stringify(theme));
 }
-
-/**
- * Constructor Functions With Their Prototype Methods
- */
-function Project(projectName) {
-  this.name = projectName;
-  this.taskArray = [];
-}
-
-Project.prototype.setName = function (newName) {
-  this.name = newName;
-};
-
-function TodoTask(title, desc, date) {
-  this.title = title;
-  this.desc = desc;
-  this.date = date;
-  this.completed;
-  this.important;
-}
-
-TodoTask.prototype.setDetails = function (newTitle, newDesc, newDate) {
-  this.title = newTitle;
-  this.desc = newDesc;
-  this.date = newDate;
-};
-
-TodoTask.prototype.toggleComplete = function () {
-  this.completed ? (this.completed = false) : (this.completed = true);
-};
-
-TodoTask.prototype.toggleImportance = function () {
-  this.important ? (this.important = false) : (this.important = true);
-};
-
-function ThemeSetter() {
-  this.darkTheme;
-  this.lightIcon;
-  this.darkIcon;
-}
-
-ThemeSetter.prototype.toggleDarkTheme = function () {
-  if (this.darkTheme === true)
-    (this.darkTheme = false), (this.lightIcon = true), (this.darkIcon = true);
-  else (this.darkTheme = true), (this.lightIcon = true), (this.darkIcon = true);
-};
 
 export {
   projectArray,

@@ -57,9 +57,11 @@ header {
 }
 .themeToggler {
   position: relative;
+  cursor: pointer;
 }
 .menuIcon {
   position: relative;
+  cursor: pointer;
 }
 .theme-light {
   position: absolute;
@@ -410,6 +412,7 @@ label {
   position: relative;
   padding: 5px 50px;
   align-items: center;
+  cursor: default;
   gap: 10px;
   line-height: 1;
   border: 2px solid var(--task-border);
@@ -432,11 +435,13 @@ label {
   position: absolute;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .undone-task-dark {
   position: absolute;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .done-task {
   width: 27px;
@@ -465,11 +470,13 @@ label {
   height: 25px;
   width: 25px;
   color: var(--title-color);
+  cursor: pointer;
 }
 .unchecked-star-dark {
   height: 25px;
   width: 25px;
   position: absolute;
+  cursor: pointer;
 }
 .checked-star {
   height: 21px;
@@ -495,6 +502,7 @@ label {
 .done {
   visibility: visible;
   z-index: 1;
+  cursor: pointer;
 }
 .line-through {
   text-decoration: line-through;
@@ -506,12 +514,14 @@ label {
 .my-task-dots {
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 .my-task-dots-dark {
   width: 25px;
   height: 25px;
   position: absolute;
   right: 0px;
+  cursor: pointer;
 }
 .date-and-span {
   position: relative;

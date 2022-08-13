@@ -15,8 +15,9 @@ function DisplayAllTasksOnPageLoad() {
       createProject();
     });
     displayAllTasks();
-    document.querySelector("li").classList.add("selected")
+    document.querySelector("li").classList.add("selected");
   }
+
   getThemeChoiceFromStorage();
   toggleIcon();
 }
