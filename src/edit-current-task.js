@@ -6,7 +6,6 @@ function enableTaskEditing() {
   // currentTask is the current task being edited
   const currentTask =
     document.querySelector(".edit-task").parentNode.parentNode;
-
   const taskList = document.querySelector(".task-list");
 
   if (!!taskList) {
@@ -15,9 +14,7 @@ function enableTaskEditing() {
   }
 
   const getName = (function () {
-    // Hides 'current task being edited', 'completed' and 'important' icon
-    currentTask.childNodes[0].childNodes[1].classList.add("hidden"); // Completed Checked Icon
-    currentTask.childNodes[2].childNodes[1].classList.add("hidden"); // Important Star Icon
+    // Hides current task being edited
     currentTask.classList.add("hidden");
 
     let taskTitle = currentTask.childNodes[1].childNodes[0];
@@ -63,9 +60,6 @@ function enableTaskEditing() {
       insertNewInput.inputDate.value
     );
 
-    // Removes hidden class from 'completed' and 'important' icons.
-    currentTask.childNodes[0].childNodes[1].classList.remove("hidden"); // Completed Checked Icon
-    currentTask.childNodes[2].childNodes[1].classList.remove("hidden"); // Important Star Icon
     removeNewTaskInput();
   }
 
@@ -83,10 +77,8 @@ function enableTaskEditing() {
       insertNewInput.taskInputForm
     );
 
-    // Removes hidden class from 'edited task', 'completed' and 'important' icons
+    // Removes hidden class from 'edited task'
     currentTask.classList.remove("hidden");
-    currentTask.childNodes[0].childNodes[1].classList.remove("hidden"); // Completed Checked Icon
-    currentTask.childNodes[2].childNodes[1].classList.remove("hidden"); // Important Star Icon
   }
 
   // EventListener on addTask and cancelTask Buttons
