@@ -108,7 +108,7 @@ function AddProjectNameToList(proj) {
 
 function setProjectForUse(proj, e) {
   getTaskArray(proj);
-  if (e.target.className === "projects") {
+  if (e.target.className === "projects" || e.target.className === "title") {
     removeTasks();
     todoAddButton();
     displayTasks(e);
