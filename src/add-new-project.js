@@ -8,6 +8,7 @@ import { displayTasks } from "./add-or-cancel-task-event";
 import { toggleIcon } from "./toggle-theme";
 
 let projectArrayIndex;
+let selectedProjectIndex;
 
 function addNewProject() {
   document
@@ -39,10 +40,19 @@ function addProjectToList() {
 }
 
 function displayProjects() {
+  // Gets selected project index
+  const getProjectNode = document.querySelector(".project-list").childNodes;
+  const getProjectArr = Array.from(getProjectNode);
+  for (let i = 0; i < getProjectArr.length; i++)
+    if (getProjectArr[i].classList[1] === "selected")
+      selectedProjectIndex = getProjectArr.indexOf(getProjectArr[i]);
+
+  // If added project is empty strings it returns
   if (document.querySelector(".name-input").value.trim() === "") return;
   pushNewProjectInstance();
   removeProjectLists();
   createProject();
+  setSelectedClass(selectedProjectIndex);
 }
 
 function pushNewProjectInstance() {
@@ -58,6 +68,15 @@ function removeProjectLists() {
 
 function createProject() {
   projectArray.forEach((project) => AddProjectNameToList(project));
+}
+
+// Re-apply selected class to same element
+function setSelectedClass(selectedProject) {
+  const setProjectNode = document.querySelector(".project-list").childNodes;
+  const setProjectArr = Array.from(setProjectNode);
+  for (let i = 0; i < setProjectArr.length; i++)
+    if (setProjectArr.indexOf(setProjectArr[i]) === selectedProject)
+      setProjectArr[i].classList.add("selected");
 }
 
 function AddProjectNameToList(proj) {
