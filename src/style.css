@@ -18,6 +18,7 @@
   --title-color: black;
   --theme-bg: white;
   --github-icon: black;
+  --anchor-color: navy;
 }
 :root.darkT {
   --background-color: #22303c;
@@ -34,6 +35,7 @@
   --title-color: white;
   --theme-bg: #192734;
   --github-icon: white;
+  --anchor-color: aqua;
 }
 body {
   display: flex;
@@ -571,6 +573,10 @@ footer {
 }
 i {
   color: var(--github-icon);
+}
+a[target]{
+  color: var(--anchor-color);
+  font-weight: bold;
 }
 
 /* Uses flex-direction column for screen sizes below 600px */
