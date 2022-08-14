@@ -237,6 +237,15 @@ hr {
 .project-list {
   position: relative;
 }
+.add-project {
+  background-color: transparent;
+  color: var(--title-color);
+  font-weight: bold;
+}
+.add-project:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
 
 /* Edit details pop-up styling */
 .delete-edit-div {
