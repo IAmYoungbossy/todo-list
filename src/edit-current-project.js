@@ -1,4 +1,10 @@
-import { createProject, projectArrayIndex, removeProjectLists } from "./add-new-project";
+import {
+  createProject,
+  getSelectedProjectIndex,
+  projectArrayIndex,
+  removeProjectLists,
+  setSelectedClass,
+} from "./add-new-project";
 import { projectArray, setProjectArray } from "./project-constructor";
 import { getProjectInput } from "./project-input";
 
@@ -6,6 +12,7 @@ function enableEditing() {
   const project = document.querySelector(".edit").parentNode.parentNode;
   const projectList = document.querySelector(".project-list");
 
+  // For loop to check if there is an existing form opened, if true it returns
   for (let i = 0; i < projectList.childNodes.length; i++)
     if (projectList.childNodes[i].classList[0] == "input-Li") return;
 
@@ -35,13 +42,17 @@ function enableEditing() {
     editProjectArrayName();
     replaceOldNameInDom();
     removeInputForm();
+    getSelectedProjectIndex();
     removeProjectLists();
     createProject();
     project.classList.remove("hidden");
+    setSelectedClass();
   }
 
   function editProjectArrayName() {
-    projectArray[projectArrayIndex].setName(insertGetProjectInput.nameInput.value);
+    projectArray[projectArrayIndex].setName(
+      insertGetProjectInput.nameInput.value
+    );
     setProjectArray();
   }
 

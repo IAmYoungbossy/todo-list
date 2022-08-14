@@ -40,20 +40,21 @@ function addProjectToList() {
 }
 
 function displayProjects() {
-  // Gets selected project index
-  selectedProjectIndex = null
+  if (document.querySelector(".name-input").value.trim() === "") return;
+  getSelectedProjectIndex();
+  pushNewProjectInstance();
+  removeProjectLists();
+  createProject();
+  setSelectedClass();
+}
+
+function getSelectedProjectIndex() {
+  selectedProjectIndex = undefined;
   const getProjectNode = document.querySelector(".project-list").childNodes;
   const getProjectArr = Array.from(getProjectNode);
   for (let i = 0; i < getProjectArr.length; i++)
     if (getProjectArr[i].classList[1] === "selected")
       selectedProjectIndex = getProjectArr.indexOf(getProjectArr[i]);
-
-  // If added project is empty strings it returns
-  if (document.querySelector(".name-input").value.trim() === "") return;
-  pushNewProjectInstance();
-  removeProjectLists();
-  createProject();
-  setSelectedClass(selectedProjectIndex);
 }
 
 function pushNewProjectInstance() {
@@ -72,11 +73,11 @@ function createProject() {
 }
 
 // Re-apply selected class to same element
-function setSelectedClass(selectedProject) {
+function setSelectedClass() {
   const setProjectNode = document.querySelector(".project-list").childNodes;
   const setProjectArr = Array.from(setProjectNode);
   for (let i = 0; i < setProjectArr.length; i++)
-    if (setProjectArr.indexOf(setProjectArr[i]) === selectedProject)
+    if (setProjectArr.indexOf(setProjectArr[i]) === selectedProjectIndex)
       setProjectArr[i].classList.add("selected");
 }
 
@@ -147,4 +148,6 @@ export {
   removeProjectLists,
   projectArrayIndex,
   styleSelectedList,
+  getSelectedProjectIndex,
+  setSelectedClass,
 };
