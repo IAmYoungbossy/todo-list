@@ -41,6 +41,7 @@ function addProjectToList() {
 
 function displayProjects() {
   // Gets selected project index
+  selectedProjectIndex = null
   const getProjectNode = document.querySelector(".project-list").childNodes;
   const getProjectArr = Array.from(getProjectNode);
   for (let i = 0; i < getProjectArr.length; i++)
