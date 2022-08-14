@@ -26,6 +26,7 @@ function toDay() {
   showGroupTitle("Today");
   toggleIcon();
   styleSelectedList.call(this);
+  showNoTaskMessage.call(this);
 }
 
 function sevenDays() {
@@ -34,6 +35,7 @@ function sevenDays() {
   showGroupTitle("Next 7 Days");
   toggleIcon();
   styleSelectedList.call(this);
+  showNoTaskMessage.call(this);
 }
 
 function displayAllTasksForClick() {
@@ -42,6 +44,9 @@ function displayAllTasksForClick() {
   showGroupTitle("All tasks");
   toggleIcon();
   styleSelectedList.call(this);
+  this.classList.add("all");
+  showNoTaskMessage.call(this);
+  this.classList.remove("all");
 }
 
 function displayAllTasks() {
@@ -49,6 +54,7 @@ function displayAllTasks() {
   displayAll();
   showGroupTitle("All tasks");
   toggleIcon();
+  showNoTaskMessage.call(this);
 }
 
 function displayAllImportantTasks() {
@@ -57,6 +63,7 @@ function displayAllImportantTasks() {
   showGroupTitle("Important tasks");
   toggleIcon();
   styleSelectedList.call(this);
+  showNoTaskMessage.call(this);
 }
 
 function clearTask() {
@@ -85,6 +92,24 @@ function displayImportantTasks() {
 
 function showGroupTitle(groupTitle) {
   document.querySelector(".mainHeader").childNodes[0].textContent = groupTitle;
+}
+
+// Displays message if no task is available to display
+function showNoTaskMessage() {
+  const taskDisplayArea = document.querySelector(".add-task-section");
+  const noTaskMessage = document.createElement("p");
+  const instruction = document.createElement("p");
+  if (taskDisplayArea.childNodes.length === 0) {
+    if (this === undefined || this.classList[1] === "all") {
+      noTaskMessage.textContent = "Oops! No tasks.";
+      instruction.textContent =
+        "Create a project file to add your todo list or add to existing if any.";
+      taskDisplayArea.append(noTaskMessage, instruction);
+    } else {
+      noTaskMessage.textContent = "Oops! No tasks.";
+      taskDisplayArea.append(noTaskMessage);
+    }
+  }
 }
 
 /**
