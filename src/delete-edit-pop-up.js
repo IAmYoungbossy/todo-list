@@ -13,7 +13,7 @@ function popUpDeleteAndEdit(nameOfArray) {
   if (this.parentNode.parentNode.childNodes.length > listChildren) return;
 
   const deleteOrEditDiv = document.createElement("div");
-  if (this.parentNode.parentNode.className == "projects")
+  if (this.parentNode.parentNode.classList[0] == "projects")
     deleteOrEditDiv.classList.add("delete-edit-div");
   if (this.parentNode.parentNode.className == "new-task")
     deleteOrEditDiv.classList.add("delete-edit-task");
@@ -21,7 +21,7 @@ function popUpDeleteAndEdit(nameOfArray) {
   const editProject = document.createElement("p");
   if (this.parentNode.parentNode.className == "new-task")
     editProject.classList.add("edit-task");
-  else if (this.parentNode.parentNode.className == "projects")
+  else if (this.parentNode.parentNode.classList[0] == "projects")
     editProject.classList.add("edit");
 
   editProject.textContent = "Edit";
