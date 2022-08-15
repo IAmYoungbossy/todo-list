@@ -60,6 +60,7 @@ function addMethods() {
 
 function toggleCompleted(task, e) {
   task.toggleComplete();
+  setProjectArray();
   e.target.classList === "undone-task" ||
   e.target.classList === "undone-task-dark" ||
   e.target.classList === "done-task"
@@ -69,6 +70,7 @@ function toggleCompleted(task, e) {
 
 function toggleStar(task, e) {
   task.toggleImportance();
+  setProjectArray();
   e.target.classList === "new-task" ||
   e.target.classList === "unchecked-star-dark" ||
   e.target.classList === "checked-star"
