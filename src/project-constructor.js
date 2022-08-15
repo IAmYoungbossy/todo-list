@@ -1,6 +1,7 @@
 /**
  * ProjectArray LocalStorage
  */
+
 if (localStorage.getItem("projectArray") == null)
   localStorage.setItem("projectArray", JSON.stringify([]));
 
@@ -48,8 +49,6 @@ class TodoTask {
 class ThemeSetter {
   constructor() {
     this.darkTheme;
-    this.lightIcon;
-    this.darkIcon;
   }
   toggleDarkTheme() {
     if (this.darkTheme === true) this.darkTheme = false;
@@ -60,6 +59,7 @@ class ThemeSetter {
 /**
  * Theme LocalStorage
  */
+
 if (localStorage.getItem("theme") == null)
   localStorage.setItem("theme", JSON.stringify(new ThemeSetter()));
 

@@ -20,6 +20,9 @@ function DisplayAllTasksOnPageLoad() {
 
   getThemeChoiceFromStorage();
   toggleIcon();
+  document.querySelectorAll("li").forEach(li => {
+    li.setAttribute("draggable", "true");
+  })
 }
 
 export { DisplayAllTasksOnPageLoad };
