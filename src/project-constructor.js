@@ -3,12 +3,12 @@
  */
 
 if (localStorage.getItem("projectArray") == null)
-  localStorage.setItem("projectArray", JSON.stringify([]));
+	localStorage.setItem("projectArray", JSON.stringify([]));
 
 let projectArray = JSON.parse(localStorage.getItem("projectArray"));
 
 function setProjectArray() {
-  localStorage.setItem("projectArray", JSON.stringify(projectArray));
+	localStorage.setItem("projectArray", JSON.stringify(projectArray));
 }
 
 /**
@@ -16,44 +16,44 @@ function setProjectArray() {
  */
 
 class Project {
-  constructor(projectName) {
-    this.name = projectName;
-    this.taskArray = [];
-  }
-  setName(newName) {
-    this.name = newName;
-  }
+	constructor(projectName) {
+		this.name = projectName;
+		this.taskArray = [];
+	}
+	setName(newName) {
+		this.name = newName;
+	}
 }
 
 class TodoTask {
-  constructor(title, desc, date) {
-    this.title = title;
-    this.desc = desc;
-    this.date = date;
-    this.completed;
-    this.important;
-  }
-  setDetails(newTitle, newDesc, newDate) {
-    this.title = newTitle;
-    this.desc = newDesc;
-    this.date = newDate;
-  }
-  toggleComplete() {
-    this.completed ? (this.completed = false) : (this.completed = true);
-  }
-  toggleImportance() {
-    this.important ? (this.important = false) : (this.important = true);
-  }
+	constructor(title, desc, date) {
+		this.title = title;
+		this.desc = desc;
+		this.date = date;
+		this.completed;
+		this.important;
+	}
+	setDetails(newTitle, newDesc, newDate) {
+		this.title = newTitle;
+		this.desc = newDesc;
+		this.date = newDate;
+	}
+	toggleComplete() {
+		this.completed ? (this.completed = false) : (this.completed = true);
+	}
+	toggleImportance() {
+		this.important ? (this.important = false) : (this.important = true);
+	}
 }
 
 class ThemeSetter {
-  constructor() {
-    this.darkTheme;
-  }
-  toggleDarkTheme() {
-    if (this.darkTheme === true) this.darkTheme = false;
-    else this.darkTheme = true;
-  }
+	constructor() {
+		this.darkTheme;
+	}
+	toggleDarkTheme() {
+		if (this.darkTheme === true) this.darkTheme = false;
+		else this.darkTheme = true;
+	}
 }
 
 /**
@@ -61,20 +61,20 @@ class ThemeSetter {
  */
 
 if (localStorage.getItem("theme") == null)
-  localStorage.setItem("theme", JSON.stringify(new ThemeSetter()));
+	localStorage.setItem("theme", JSON.stringify(new ThemeSetter()));
 
 let theme = JSON.parse(localStorage.getItem("theme"));
 
 function setTheTheme() {
-  localStorage.setItem("theme", JSON.stringify(theme));
+	localStorage.setItem("theme", JSON.stringify(theme));
 }
 
 export {
-  projectArray,
-  Project,
-  TodoTask,
-  setProjectArray,
-  ThemeSetter,
-  setTheTheme,
-  theme,
+	projectArray,
+	Project,
+	TodoTask,
+	setProjectArray,
+	ThemeSetter,
+	setTheTheme,
+	theme,
 };

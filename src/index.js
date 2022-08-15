@@ -1,9 +1,9 @@
 import "./style.css";
 import { createHeader, createHeaderContent } from "./page-header";
 import {
-  CreateMain,
-  createNavContent,
-  createTaskDisplaySection,
+	CreateMain,
+	createNavContent,
+	createTaskDisplaySection,
 } from "./page-main";
 import { createfooter } from "./page-footer";
 import { addNewProject } from "./add-new-project";
